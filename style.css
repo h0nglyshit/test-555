@@ -1,0 +1,1836 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Kanit', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300 !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+:lang(th), body :not(.network-type):not(.time-status):not(.lock-time):not(.alarm-time):not(.notes-title):not(.clock-main-title) {
+    font-weight: 400;
+}
+
+.lock-time, .alarm-time, .notes-title, .clock-main-title {
+    font-weight: 400 !important;
+}
+
+.note-snippet, .alarm-label-text, .notes-search-box span {
+    font-weight: 300 !important;
+}
+
+/* กรอบมือถือไอโฟน */
+.phone-frame {
+    width: 340px;
+    height: 700px;
+    background-color: #000;
+    border-radius: 50px;
+    border: 12px solid #222;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* หัวไอโฟน + Dynamic Island */
+.ios-header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    z-index: 50;
+    flex-shrink: 0;
+}
+
+.time-status {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+.dynamic-island {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    width: 112px;
+    height: 28px;
+    background-color: black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 9px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.camera-dot {
+    width: 9px;
+    height: 9px;
+    background-color: #121212;
+    border-radius: 50%;
+}
+
+.status-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.signal-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 12px;
+}
+.signal-bars span {
+    display: block;
+    width: 3px;
+    background-color: white;
+    border-radius: 1px;
+}
+.signal-bars span:nth-child(1) { height: 4px; }
+.signal-bars span:nth-child(2) { height: 6px; }
+.signal-bars span:nth-child(3) { height: 9px; }
+.signal-bars span:nth-child(4) { height: 12px; }
+
+.network-type {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: white;
+}
+
+/* 1. หน้าจอล็อก */
+.lock-bg {
+    background: url('images/หน้าจอล็อก.jpg') center/cover;
+    color: white;
+    text-align: center;
+}
+
+.lock-content {
+    margin-top: 12px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lock-date {
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.95;
+    letter-spacing: 0.3px;
+}
+
+.lock-time {
+    font-size: 78px;
+    font-weight: 700 !important;
+    letter-spacing: -2px !important;
+    line-height: 1.02;
+    margin-top: 2px;
+    font-family: 'Inter', sans-serif;
+}
+
+.lock-footer {
+    margin-top: auto;
+    padding: 0 24px 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shortcut-btn {
+    width: 52px;
+    height: 52px;
+    background: rgba(140, 140, 140, 0.4);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.shortcut-btn:active {
+    transform: scale(0.93);
+    background: rgba(160, 160, 160, 0.6);
+}
+
+.swipe-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    cursor: pointer;
+}
+
+.home-indicator {
+    width: 115px;
+    height: 4px;
+    background-color: white;
+    border-radius: 10px;
+    opacity: 0.85;
+    margin-top: 6px;
+}
+
+.swipe-text {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    opacity: 0.9;
+}
+
+/* 2. หน้าใส่รหัสผ่าน */
+.passcode-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                url('images/หน้าจอล็อก.jpg') center/cover;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: white;
+    justify-content: flex-start; 
+    padding-top: 0;
+}
+
+.passcode-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.passcode-content h3 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    letter-spacing: 0.2px;
+}
+
+.dots-container {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid white;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 75px);
+    gap: 14px;
+    justify-content: center;
+}
+
+.numpad button {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.18);
+    color: white;
+    font-size: 28px;
+    font-weight: 300;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+}
+
+.numpad button:active {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.numpad button.empty {
+    background: transparent;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* 3. หน้าจอหลัก */
+.home-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), 
+                url('images/หน้าจอล็อก.jpg') center/cover;
+    color: white;
+}
+
+.home-scroll-area {
+    flex: 1;
+    width: 100%;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ios-app-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px 10px !important;
+    justify-items: center;
+    width: 100%;
+}
+
+.ios-widget.medium-widget {
+    grid-column: span 2 !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.ios-widget.medium-widget .widget-content {
+    width: 100%;
+    height: 145px;
+    border-radius: 26px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    background-color: #000;
+}
+
+.widget-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ios-widget.medium-widget:active .widget-content {
+    transform: scale(0.96);
+    opacity: 0.85;
+}
+
+/* ปฏิทิน Widget */
+.calendar-widget-bg {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding: 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cal-header {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ff3b30 !important;
+    margin-bottom: 2px;
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 10px;
+    gap: 2px;
+    color: #3a3a3c !important;
+}
+
+.cal-grid span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 14px;
+}
+
+.cal-day-name {
+    font-weight: 600;
+    color: #8e8e93 !important;
+    font-size: 9px;
+}
+
+.cal-grid span.today {
+    background-color: #ff3b30 !important;
+    color: white !important;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.app-label {
+    font-size: 11px;
+    color: white;
+    margin-top: 6px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.widget-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #ffcc00;
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.widget-avatar {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.widget-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ไอคอนแอปทั่วไปบนหน้า Home */
+.app-icon {
+    grid-column: span 1 !important;
+    background: transparent !important;
+    width: 65px;
+    height: 78px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.15s ease;
+}
+
+.app-icon:active {
+    transform: scale(0.88);
+    opacity: 0.8;
+}
+
+.app-icon img, .ios-clock-icon, .ios-notes-icon, .ios-youtube-icon {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+.app-icon span {
+    font-size: 11px;
+    color: white;
+    margin-top: 4px;
+    font-weight: 400;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* 4. หน้าแอป Locket */
+.locket-bg {
+    background-color: #121212;
+    color: white;
+}
+
+.locket-top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background: rgba(18, 18, 18, 0.9);
+    position: relative;
+    z-index: 10;
+}
+
+.locket-dropdown {
+    font-size: 15px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 5px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.locket-profile {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.locket-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.locket-feed-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.locket-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.locket-photo-card {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #222;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.locket-photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 5. หน้าแอป Photos */
+.photos-bg {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.photos-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 50;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+}
+
+.photos-top-profile {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.15);
+}
+
+.photos-top-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photos-sub-view {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.photos-feed-scroll, .albums-feed-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 12px 90px 12px;
+    box-sizing: border-box;
+}
+
+.photos-feed-scroll::-webkit-scrollbar,
+.albums-feed-scroll::-webkit-scrollbar {
+    display: none !important;
+}
+
+.photos-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 4px !important;
+}
+
+.photo-item {
+    width: 100% !important;
+    aspect-ratio: 1 !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+    cursor: pointer;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.photo-item:active img {
+    transform: scale(0.95);
+}
+
+.photo-section-header {
+    margin-top: 22px !important;
+    margin-bottom: 8px !important;
+    padding: 0 4px !important;
+}
+
+/* อัลบั้ม Collections */
+.albums-header-area {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 16px 16px 10px 16px !important;
+    background: #ffffff !important;
+}
+
+.albums-header-area h2 {
+    font-size: 28px !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+    color: #000 !important;
+}
+
+.albums-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    padding: 0 16px 90px 16px !important;
+}
+
+.album-card {
+    display: flex !important;
+    flex-direction: column !important;
+    cursor: pointer !important;
+}
+
+.album-thumb {
+    width: 100% !important;
+    aspect-ratio: 1 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    background-color: #eee !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+}
+
+.album-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.album-name {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-top: 6px !important;
+    color: #000 !important;
+}
+
+.album-count {
+    font-size: 12px !important;
+    color: #8e8e93 !important;
+}
+
+/* แคปซูลลอยตัว Photos */
+.photos-floating-tab-container {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 50;
+    pointer-events: none;
+}
+
+.photos-capsule-bar {
+    pointer-events: auto;
+    background-color: rgba(45, 45, 48, 0.338) !important;
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    display: flex;
+    padding: 5px;
+    border-radius: 35px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    border: 0.5px solid rgba(255, 255, 255, 0.15);
+    width: 220px;
+    justify-content: space-between;
+}
+
+.capsule-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 0;
+    border-radius: 30px;
+    color: #8e8e93;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    gap: 2px;
+}
+
+.capsule-tab span {
+    font-size: 10px;
+}
+
+.capsule-tab.active {
+    background-color: rgba(255, 255, 255, 0.22) !important;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* 6. หน้า Photo Viewer */
+.photo-viewer-bg {
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+}
+
+.viewer-top-bar {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.viewer-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.viewer-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ปุ่มย้อนกลับมาตรฐาน iOS */
+.back-btn-ios {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px !important;
+    height: 36px !important;
+    background-color: rgba(255, 255, 255, 0.22) !important;
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: #007aff !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.back-btn-ios:active {
+    transform: scale(0.92);
+    background-color: rgba(255, 255, 255, 0.38) !important;
+}
+
+/* 7. หน้าแอป Clock */
+.clock-dark-bg {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.clock-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    box-sizing: border-box;
+}
+
+.clock-back-btn, .clock-add-btn {
+    width: 34px;
+    height: 34px;
+    background-color: #2c2c2e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff9f0a;
+    cursor: pointer;
+}
+
+.clock-add-btn {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.clock-main-content {
+    flex: 1;
+    padding: 4px 20px 90px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.clock-main-title {
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.5px;
+}
+
+.alarm-section-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.alarm-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 0.5px solid #38383a;
+}
+
+.alarm-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.alarm-time {
+    font-size: 48px;
+    font-weight: 200;
+    letter-spacing: -1px;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.alarm-label-text {
+    font-size: 13px;
+    color: #8e8e93;
+    margin-top: 2px;
+}
+
+/* Toggle Switch */
+.ios-toggle {
+    width: 51px;
+    height: 31px;
+    background-color: #39393d;
+    border-radius: 31px;
+    position: relative;
+    padding: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.toggle-thumb {
+    width: 27px;
+    height: 27px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    transition: transform 0.25s ease;
+}
+
+.ios-toggle.active {
+    background-color: #34c759 !important;
+}
+
+.ios-toggle.active .toggle-thumb {
+    transform: translateX(20px);
+}
+
+.clock-floating-tab-container {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 50;
+    pointer-events: none;
+}
+
+.clock-capsule-bar {
+    pointer-events: auto;
+    background-color: rgba(45, 45, 48, 0.45) !important;
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    display: flex;
+    padding: 4px;
+    border-radius: 35px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    width: 300px;
+    justify-content: space-between;
+}
+
+.clock-capsule-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 0;
+    border-radius: 30px;
+    color: #8e8e93;
+    font-size: 9px;
+    font-weight: 500;
+    gap: 2px;
+}
+
+.clock-capsule-tab.active {
+    background-color: rgba(90, 90, 95, 0.55) !important;
+    color: #ff9f0a !important;
+    font-weight: 600;
+}
+
+/* 8. หน้าแอป Notes */
+.notes-bg {
+    background-color: #f2f2f7 !important;
+    color: #000000 !important;
+}
+
+.notes-sub-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.notes-top-nav {
+    display: flex;
+    align-items: center;
+    padding: 6px 16px;
+    box-sizing: border-box;
+}
+
+.notes-content-scroll {
+    flex: 1;
+    padding: 4px 16px 70px 16px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.notes-title {
+    font-size: 34px;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.5px;
+}
+
+.notes-search-box {
+    display: flex;
+    align-items: center;
+    background-color: #e3e3e8;
+    padding: 8px 12px;
+    border-radius: 10px;
+    gap: 8px;
+    color: #8e8e93;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.notes-card-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.note-row {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+    border-bottom: 0.5px solid #c6c6c8;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.note-row:last-child {
+    border-bottom: none;
+}
+
+.note-row:active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.note-heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 2px;
+}
+
+.note-snippet {
+    font-size: 13px;
+    color: #8e8e93;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.notes-footer-bar {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(242, 242, 247, 0.85);
+    backdrop-filter: blur(20px);
+    z-index: 40;
+}
+
+.notes-count-text {
+    font-size: 13px;
+    color: #8e8e93;
+    font-weight: 400;
+    margin: 0 auto;
+}
+
+.notes-detail-top {
+    display: flex;
+    align-items: center;
+    padding: 4px 16px;
+}
+
+.notes-detail-content {
+    flex: 1;
+    padding: 10px 20px;
+    overflow-y: auto;
+    background-color: #f2f2f7;
+}
+
+.note-date-header {
+    text-align: center;
+    font-size: 12px;
+    color: #8e8e93;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.detail-title-text {
+    font-size: 26px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 12px 0;
+}
+
+.detail-body-text {
+    font-size: 16px;
+    color: #3a3a3c;
+    line-height: 1.5;
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* ไอคอนแอปพิเศษจำลอง */
+.ios-clock-icon {
+    background-color: #ffffff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.clock-ticks-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.clock-ticks-ring span.t {
+    position: absolute;
+    width: 1px !important;
+    height: 3px !important;
+    background-color: #8e8e93 !important;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+}
+
+.t1  { transform: translate(-50%, -50%) rotate(30deg) translateY(-21px); }
+.t2  { transform: translate(-50%, -50%) rotate(60deg) translateY(-21px); }
+.t3  { transform: translate(-50%, -50%) rotate(90deg) translateY(-21px); } 
+.t4  { transform: translate(-50%, -50%) rotate(120deg) translateY(-21px); }
+.t5  { transform: translate(-50%, -50%) rotate(150deg) translateY(-21px); }
+.t6  { transform: translate(-50%, -50%) rotate(180deg) translateY(-21px); } 
+.t7  { transform: translate(-50%, -50%) rotate(210deg) translateY(-21px); }
+.t8  { transform: translate(-50%, -50%) rotate(240deg) translateY(-21px); }
+.t9  { transform: translate(-50%, -50%) rotate(270deg) translateY(-21px); } 
+.t10 { transform: translate(-50%, -50%) rotate(300deg) translateY(-21px); }
+.t11 { transform: translate(-50%, -50%) rotate(330deg) translateY(-21px); }
+.t12 { transform: translate(-50%, -50%) rotate(0deg) translateY(-21px); }
+
+.clock-num {
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    color: #000000;
+    z-index: 2;
+}
+.num-12 { top: 3px; left: 50%; transform: translateX(-50%); }
+.num-3  { right: 4px; top: 50%; transform: translateY(-50%); }
+.num-6  { bottom: 3px; left: 50%; transform: translateX(-50%); }
+.num-9  { left: 4px; top: 50%; transform: translateY(-50%); }
+
+.ios-clock-icon .hour-hand {
+    width: 3px;
+    height: 15px;
+    margin-left: -1.5px;
+    background-color: #000000;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    border-radius: 2px;
+}
+
+.ios-clock-icon .minute-hand {
+    width: 2.5px;
+    height: 21px;
+    margin-left: -1.25px;
+    background-color: #000000;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    border-radius: 2px;
+}
+
+.ios-clock-icon .second-hand {
+    width: 1px;
+    height: 23px;
+    margin-left: -0.5px;
+    background-color: #ff9500;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    border-radius: 2px;
+    z-index: 3;
+}
+
+.ios-clock-icon .clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: #ff9500;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+.ios-notes-icon {
+    background: linear-gradient(135deg, #fefefe 0%, #f0f0f0 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.notes-top-bar-icon {
+    width: 100%;
+    height: 14px;
+    background-color: #ffcc00;
+}
+
+.notes-lines {
+    padding: 6px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.notes-lines span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #d1d1d6;
+    border-radius: 1px;
+}
+
+.ios-youtube-icon {
+    background: linear-gradient(180deg, #ff1a1a 0%, #e60000 100%) !important;
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ดีไซน์หน้าแอป LINE */
+.line-bg {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.line-top-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background: #ffffff;
+}
+
+.line-switch-pill {
+    display: flex;
+    background: #f0f0f2;
+    border-radius: 20px;
+    padding: 3px;
+    gap: 2px;
+}
+
+.line-switch-pill button {
+    background: transparent;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #8e8e93;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.line-switch-pill button.active {
+    background: #000000;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.line-top-right-btns {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.line-icon-btn {
+    width: 36px;
+    height: 36px;
+    background: #f0f0f2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #000000;
+    transition: background 0.15s;
+}
+
+.line-icon-btn:active {
+    background: #e0e0e2;
+}
+
+/* ช่องค้นหา */
+.line-search-container {
+    padding: 6px 16px 10px 16px;
+    background: #ffffff;
+}
+
+.line-search-box {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f2;
+    padding: 10px 14px;
+    border-radius: 12px;
+    gap: 10px;
+    color: #8e8e93;
+    font-size: 14px;
+    position: relative;
+}
+
+.line-search-box span {
+    flex: 1;
+}
+
+.line-qr-icon {
+    color: #8e8e93;
+    cursor: pointer;
+}
+
+/* แถบตัวกรอง */
+.line-filter-pills {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px 12px 16px;
+    background: #ffffff;
+}
+
+.filter-pill {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    background: #f0f0f2;
+    color: #000000;
+    cursor: pointer;
+}
+
+.filter-pill.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* รายการแชท */
+.line-chat-list {
+    flex: 1;
+    overflow-y: auto;
+    background: #ffffff;
+    padding-bottom: 90px;
+}
+
+.line-chat-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.line-chat-row:active {
+    background: rgba(0,0,0,0.05);
+}
+
+.line-avatar-wrap {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #eee;
+}
+
+.line-avatar-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.line-chat-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.line-chat-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+}
+
+.line-chat-msg {
+    font-size: 13px;
+    color: #8e8e93;
+    margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.line-chat-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.line-time {
+    font-size: 11px;
+    color: #8e8e93;
+}
+
+.line-badge {
+    background-color: #00c755;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line-floating-tab-container {
+    position: absolute;
+    bottom: 15px; /* ปรับลดลงมานิดหน่อยเพื่อให้ไม่ลอยสูงเกินไป */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 50;
+    pointer-events: none;
+}
+
+.line-capsule-bar {
+    pointer-events: auto;
+    background-color: rgba(240, 240, 242, 0.9) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    padding: 5px;
+    border-radius: 35px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    width: 240px;
+    justify-content: space-between;
+}
+
+.line-capsule-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 0;
+    border-radius: 30px;
+    color: #8e8e93;
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    gap: 2px;
+    transition: all 0.2s ease;
+}
+
+.line-capsule-tab.active {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-weight: 600;
+}
+
+/* ดีไซน์ห้องแชทสไตล์ LINE คลาสสิก */
+.line-classic-bg {
+    background-color: #728db6 !important;
+    color: #ffffff !important;
+    display: flex;
+    flex-direction: column;
+    position: relative !important;
+}
+
+.classic-chat-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: #5c779c;
+    color: #000000 !important;
+    flex-shrink: 0;
+}
+
+.classic-back-area {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000 !important;
+}
+
+.classic-chat-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000 !important;
+}
+
+.classic-chat-right-icons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.classic-action-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    opacity: 0.9;
+    transition: opacity 0.15s;
+}
+
+.classic-action-btn:active {
+    opacity: 0.5;
+}
+
+.classic-messages-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-sizing: border-box;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
+.classic-messages-scroll::-webkit-scrollbar {
+    display: none !important;
+}
+
+.classic-msg-row.received {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    max-width: 82%;
+    align-self: flex-start;
+}
+
+.classic-msg-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.classic-msg-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.classic-msg-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.classic-sender-name {
+    font-size: 11px;
+    color: #333;
+    margin-left: 2px;
+}
+
+.classic-bubble-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.classic-bubble {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-break: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.classic-msg-time {
+    font-size: 10px;
+    color: #333;
+    white-space: nowrap;
+    margin-bottom: 2px;
+}
+
+.classic-msg-row.sent {
+    display: flex;
+    align-self: flex-end;
+    max-width: 82%;
+}
+
+.sent-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.classic-read-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 3px; /* 🌟 เพิ่มระยะห่างระหว่างคำว่าอ่านแล้วกับเวลาให้แยกออกจากกันอย่างสวยงาม */
+    margin-right: 6px; /* 🌟 เว้นระยะห่างจากบับเบิ้ลข้อความสีเขียวเล็กน้อยไม่ให้ชิดเกินไป */
+    flex-shrink: 0;
+}
+
+.read-status {
+    font-size: 10px;
+    color: #333; /* ปรับสีให้อ่อนลงสไตล์ LINE ของจริง */
+    line-height: 1;
+}
+
+.classic-msg-time {
+    font-size: 10px;
+    color: #333;
+    line-height: 1;
+}
+
+.sent-bubble {
+    background-color: #06c755 !important;
+    color: #000000 !important;
+    border-radius: 16px;
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-break: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.classic-date-divider {
+    text-align: center;
+    margin: 16px 0 8px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.classic-date-divider span {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 12px;
+    letter-spacing: 0.2px;
+}
+
+.classic-photo-bubble {
+    width: 170px !important;
+    height: 220px !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    background-color: transparent !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.classic-photo-bubble img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* แถบพิมพ์ข้อความด้านล่าง */
+.classic-input-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px 26px 12px !important;
+    background-color: #ffffff !important;
+    gap: 10px;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 100;
+}
+
+#line-chat-room-screen .home-indicator {
+    position: absolute !important;
+    bottom: 8px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background-color: #000000 !important;
+    opacity: 0.3 !important;
+    margin: 0 !important;
+    z-index: 50 !important;
+}
+
+.bar-default-mode, .bar-typing-mode {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.bar-typing-mode.hidden, .bar-default-mode.hidden {
+    display: none !important;
+}
+
+.classic-input-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #000000 !important;
+    opacity: 0.85;
+}
+
+.classic-input-box {
+    flex: 1;
+    background-color: #f0f0f2 !important;
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 20px;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.placeholder-aa {
+    font-size: 15px;
+    font-weight: 600;
+    color: #8e8e93;
+}
+
+.emoji-icon-inside {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #8e8e93;
+}
+
+/* 🍎 ปรับตำแหน่งกล่อง Quick Reply ให้ลอยสูงขึ้นพ้นแถบพิมพ์ข้อความ */
+.quick-reply-container {
+    display: none;
+    position: absolute;
+    bottom: 85px; /* ปรับระยะจากขอบล่างให้สูงขึ้น (จากเดิม 65px) */
+    left: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.31);
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 0.5px solid rgba(255, 255, 255, 0.24);
+    padding: 8px;
+    border-radius: 26px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), inset 0 0 0 0.5px rgba(255, 255, 255, 0.4);
+    animation: iosPopUpFade 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+    z-index: 150;
+}
+
+.quick-reply-container.show {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes iosPopUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.quick-reply-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.quick-chip {
+    background: rgba(255, 255, 255, 0.449);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #000000;
+    border: 0.5px solid rgba(255, 255, 255, 0.4);
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.quick-chip:active {
+    background: #007aff;
+    color: #ffffff;
+    transform: scale(0.98);
+}
+
+/* 📱 บังคับให้ข้อความแชทที่อ่านแล้วแสดงเป็นสีเทาอ่อน */
+.line-chat-row:has(.line-badge[style*="display: none"]) .line-chat-msg,
+.line-chat-row:not(:has(.line-badge)) .line-chat-msg {
+    color: #8e8e93 !important;
+}
+
+/* หรือถ้าแชทไหนไม่มีตัวเลข badge สีเขียว ให้ข้อความข้างใต้เป็นสีจาง */
+.line-chat-row .line-chat-msg {
+    color: #8e8e93; /* สีเริ่มต้นสำหรับแชทที่อ่านแล้ว */
+    font-size: 13px;
+}
+
+/* ถ้าแชทไหนยังมีตัวเลขแจ้งเตือน (un-read) ให้ตัวหนังสือเข้มขึ้น */
+.line-chat-row:has(.line-badge) .line-chat-msg {
+    color: #000000 !important;
+    font-weight: 500;
+}

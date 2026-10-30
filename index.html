@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Phone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- กรอบมือถือจำลอง -->
+    <div class="phone-frame">
+        
+        <!-- ================= 1. หน้าจอล็อก (Lock Screen) ================= -->
+        <div id="lock-screen" class="screen lock-bg">
+            <div class="ios-header">
+                <span class="time-status real-time">19:54</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons">
+                    <div class="signal-bars"><span></span><span></span><span></span><span></span></div>
+                    <span class="network-type">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="white" stroke-width="1.1" opacity="0.45"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="white"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="white" opacity="0.45"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="lock-content">
+                <div class="lock-date" id="real-date">Saturday, November 14</div>
+                <div class="lock-time real-time">19:54</div>
+            </div>
+
+            <div class="lock-footer">
+                <div class="shortcut-btn" onclick="alert('เปิด/ปิด ไฟฉาย')">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="white">
+                        <path d="M7 2h10c0.55 0 1 0.45 1 1v3.17c0 0.4-0.16 0.78-0.44 1.06L14 10.41V18c0 0.55-0.45 1-1 1h-2c-0.55 0-1-0.45-1-1v-7.59L6.44 7.23C6.16 6.95 6 6.57 6 6.17V3c0-0.55 0.45-1 1-1zm1 2v1.79l3.03 3.03c0.12 0.12 0.19 0.28 0.19 0.45V17h1.5V9.27c0-0.17 0.07-0.33 0.19-0.45L16 5.79V4H8zm4 8.5c0.55 0 1 0.45 1 1s-0.45 1-1 1-1-0.45-1-1 0.45-1 1-1z"/>
+                    </svg>
+                </div>
+                
+                <div class="swipe-area" id="swipe-unlock" onmousedown="startDrag(event)" ontouchstart="startDrag(event)">
+                    <span class="swipe-text">Swipe up to unlock</span>
+                    <div class="home-indicator"></div>
+                </div>
+
+                <div class="shortcut-btn" onclick="alert('เปิดกล้อง')">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="white">
+                        <path d="M12 9c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3m0-2c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm7-3h-2.17l-1.24-1.35C15.22 2.22 14.63 2 14 2H10c-0.63 0-1.22 0.22-1.59 0.65L7.17 4H5c-1.1 0-2 0.9-2 2v12c0 1.1 0.9 2 2 2h14c1.1 0 2-0.9 2-2V6c0-1.1-0.9-2-2-2zm0 14H5V6h3.27l1.24-1.35C9.79 4.3 10.03 4 10 4h4c0.03 0 0.21 0.3 0.49 0.65L15.73 6H19v12z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= 2. หน้าใส่รหัสผ่าน (Passcode Screen) ================= -->
+        <div id="passcode-screen" class="screen passcode-bg hidden">
+            <div class="ios-header">
+                <span class="time-status real-time">19:54</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons">
+                    <div class="signal-bars"><span></span><span></span><span></span><span></span></div>
+                    <span class="network-type">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="white" stroke-width="1.1" opacity="0.45"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="white"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="white" opacity="0.45"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="passcode-content">
+                <h3>Enter Passcode</h3>
+                <div class="dots-container">
+                    <div class="dot" id="dot-0"></div>
+                    <div class="dot" id="dot-1"></div>
+                    <div class="dot" id="dot-2"></div>
+                    <div class="dot" id="dot-3"></div>
+                </div>
+
+                <div class="numpad">
+                    <button onclick="pressNum(1)">1</button>
+                    <button onclick="pressNum(2)">2</button>
+                    <button onclick="pressNum(3)">3</button>
+                    <button onclick="pressNum(4)">4</button>
+                    <button onclick="pressNum(5)">5</button>
+                    <button onclick="pressNum(6)">6</button>
+                    <button onclick="pressNum(7)">7</button>
+                    <button onclick="pressNum(8)">8</button>
+                    <button onclick="pressNum(9)">9</button>
+                    <button class="empty"></button>
+                    <button onclick="pressNum(0)">0</button>
+                    <button onclick="clearNum()">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+                            <path d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9 .89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.67-7H22v14zm-11.59-9.41L13 12.06l-2.59 2.59c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L14.41 13.5l2.59 2.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L15.83 12.06l2.59-2.59c-.39-.39-.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L14.41 10.65l-2.59-2.59c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= 3. หน้าจอหลัก (Home Screen) ================= -->
+        <div id="home-screen" class="screen home-bg hidden">
+            <div class="ios-header">
+                <span class="time-status real-time">19:54</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons">
+                    <div class="signal-bars"><span></span><span></span><span></span><span></span></div>
+                    <span class="network-type">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="white" stroke-width="1.1" opacity="0.45"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="white"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="white" opacity="0.45"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="home-scroll-area">
+                <div class="ios-app-grid">
+                    
+                    <!-- 1. Widget Locket -->
+                    <div class="ios-widget medium-widget" onclick="openApp('locket')">
+                        <div class="widget-content">
+                            <img src="images/ล็อกเก็ต.jpg" alt="Locket Idol">
+                            <div class="widget-badge">5</div>
+                            <div class="widget-avatar">
+                                <img src="images/โปรล้อก.jpg" alt="Avatar">
+                            </div>
+                        </div>
+                        <span class="app-label">Locket</span>
+                    </div>
+
+                    <!-- 2. Widget ปฏิทิน Calendar -->
+                    <div class="ios-widget medium-widget" onclick="openApp('calendar')">
+                        <div class="widget-content calendar-widget-bg">
+                            <div class="cal-header">
+                                <span id="cal-month-year">October 2026</span>
+                            </div>
+                            <div class="cal-grid" id="cal-days-grid">
+                                <span class="cal-day-name">อา</span>
+                                <span class="cal-day-name">จ</span>
+                                <span class="cal-day-name">อ</span>
+                                <span class="cal-day-name">พ</span>
+                                <span class="cal-day-name">พ</span>
+                                <span class="cal-day-name">ศ</span>
+                                <span class="cal-day-name">ส</span>
+                            </div>
+                        </div>
+                        <span class="app-label">Calendar</span>
+                    </div>
+
+                    <!-- 3. Photos -->
+                    <div class="app-icon" onclick="openApp('photos')">
+                        <img src="images/แอพโฟโต้.png" alt="Photos">
+                        <span>Photos</span>
+                    </div>
+
+                    <!-- 4. Clock -->
+                    <div class="app-icon" onclick="openApp('clock')">
+                        <div class="ios-clock-icon">
+                            <div class="clock-ticks-ring">
+                                <span class="t t1"></span><span class="t t2"></span><span class="t t3"></span><span class="t t4"></span>
+                                <span class="t t5"></span><span class="t t6"></span><span class="t t7"></span><span class="t t8"></span>
+                                <span class="t t9"></span><span class="t t10"></span><span class="t t11"></span><span class="t t12"></span>
+                            </div>
+                            <div class="clock-num num-12">12</div>
+                            <div class="clock-num num-3">3</div>
+                            <div class="clock-num num-6">6</div>
+                            <div class="clock-num num-9">9</div>
+                            <div class="hand hour-hand" id="hour-hand"></div>
+                            <div class="hand minute-hand" id="minute-hand"></div>
+                            <div class="hand second-hand" id="second-hand"></div>
+                            <div class="clock-center"></div>
+                        </div>
+                        <span>Clock</span>
+                    </div>
+
+                    <!-- 5. Notes -->
+                    <div class="app-icon" onclick="openApp('notes')">
+                        <div class="ios-notes-icon">
+                            <div class="notes-top-bar-icon"></div>
+                            <div class="notes-lines">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <span>Notes</span>
+                    </div>
+
+                    <!-- 6. YouTube -->
+                    <div class="app-icon" onclick="openYouTubeApp()">
+                        <div class="ios-youtube-icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </div>
+                        <span>YouTube</span>
+                    </div>
+
+                    <!-- 7. Minecraft -->
+                    <div class="app-icon">
+                        <img src="images/แอพมายคราฟ.png" alt="Minecraft">
+                        <span>Minecraft</span>
+                    </div>
+
+                    <!-- 8. Roblox -->
+                    <div class="app-icon">
+                        <img src="images/แอพโรบอก.webp" alt="Roblox">
+                        <span>Roblox</span>
+                    </div>
+
+                    <!-- 9. LINE -->
+                    <div class="app-icon" onclick="openApp('line')">
+                        <img src="images/แอพไลน์.png" alt="LINE">
+                        <span>LINE</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="home-indicator" style="margin: auto auto 15px auto; background: white;"></div>
+        </div>
+            
+        <!-- ================= 4. หน้าจอแอป Locket ================= -->
+        <div id="locket-app-screen" class="screen locket-bg hidden">
+            <div class="ios-header" style="background: rgba(0,0,0,0.4); backdrop-filter: blur(10px);">
+                <span class="time-status real-time">21:48</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons">
+                    <div class="signal-bars"><span></span><span></span><span></span><span></span></div>
+                    <span class="network-type">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="white" stroke-width="1.1" opacity="0.45"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="white"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="white" opacity="0.45"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="locket-top-nav">
+                <div class="back-btn-ios" onclick="closeLocketApp()">‹</div>
+                <div class="locket-dropdown">Everyone ▾</div>
+                <div class="locket-profile" onclick="closeLocketApp()">
+                    <img src="images/โปรล้อก-รยูล.jpg" alt="Profile">
+                </div>
+            </div>
+
+            <div class="locket-feed-scroll">
+                <div class="locket-photo-grid">
+                    <div class="locket-photo-card"><img src="images/ล็อกเก็ต.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก2.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก3.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล็อก4.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก5.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก6.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก7.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก8.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก9.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/โปรล้อก-รยูล.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก11.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก12.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก13.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก14.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="images/ล้อก15.jpg" alt="Post"></div>
+                </div>
+            </div>
+
+            <div class="home-indicator" style="margin: 8px auto 12px auto; background: white; cursor: pointer;" onclick="closeLocketApp()"></div>
+        </div>
+
+        <!-- ================= 5. หน้าจอแอป Photos ================= -->
+        <div id="photos-app-screen" class="screen photos-bg hidden">
+            <div class="ios-header" style="color: #000;">
+                <span class="time-status real-time">9:30</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars">
+                        <span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span>
+                    </div>
+                    <span class="network-type" style="color: #000;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#000000" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#000000"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#000000"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="photos-top-bar">
+                <div class="back-btn-ios" style="background: rgba(0,0,0,0.08); color: #000;" onclick="closePhotosApp()">‹</div>
+                <div class="photos-top-profile" onclick="alert('โปรไฟล์ของฉัน')">
+                    <img src="images/โฟ8.jpg" alt="Profile">
+                </div>
+            </div>
+
+            <!-- แท็บ Library -->
+            <div id="photos-tab-library" class="photos-sub-view">
+                <div class="photos-feed-scroll">
+                    <div style="padding: 12px 16px 4px 16px;">
+                        <h1 style="font-size: 28px; font-weight: 700; margin: 0; color: #000;">Library</h1>
+                    </div>
+                    
+                    <div class="photo-section-header"><span class="section-title">Sep 2026</span></div>
+                    <div class="photos-grid">
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ1-1.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ2.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ3.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ4.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ5.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ6.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ7.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ8.jpg" alt="Photo"></div>
+                    </div>
+
+                    <div class="photo-section-header"><span class="section-title">Apr 2026</span></div>
+                    <div class="photos-grid">
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ9.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ10.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ11.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ12.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ13-1.jpg" alt="Photo"></div>
+                    </div>
+
+                    <div class="photo-section-header"><span class="section-title">Jan 2026</span></div>
+                    <div class="photos-grid">
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ14.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ15.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ16-1.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ17.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ18.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ19.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ20.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ21.jpg" alt="Photo"></div>
+                    </div>
+
+                    <div class="photo-section-header"><span class="section-title">2025</span></div>
+                    <div class="photos-grid">
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ22.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ23.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ24.jpg" alt="Photo"></div>
+                    </div>
+
+                    <div class="photo-section-header"><span class="section-title">Earlier</span></div>
+                    <div class="photos-grid" style="padding-bottom: 20px;">
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ33.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ32.png" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ31.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ30.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ29.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ28.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ27.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ26.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ25.png" alt="Photo"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- แท็บ Collections -->
+            <div id="photos-tab-collections" class="photos-sub-view hidden">
+                <div class="albums-header-area">
+                    <h2>Collections</h2>
+                </div>
+                <div class="albums-feed-scroll">
+                    <div class="albums-grid">
+                        <div class="album-card" onclick="openAlbumDetail()">
+                            <div class="album-thumb"><img src="images/ล้อก2.jpg" alt="Album"></div>
+                            <span class="album-name">ดูคนเดียว</span>
+                            <span class="album-count">21 Items</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- หน้าภายในอัลบั้ม "ดูคนเดียว" -->
+            <div id="photos-album-detail" class="photos-sub-view hidden" style="background: #fff; position: absolute; top: 50px; left: 0; width: 100%; height: calc(100% - 50px); z-index: 60;">
+                <div class="album-detail-top" style="display: flex; align-items: center; padding: 10px 16px; gap: 12px;">
+                    <div class="back-btn-ios" style="background: rgba(0,0,0,0.08); color: #007aff;" onclick="closeAlbumDetail()">‹</div>
+                    <h2 style="font-size: 22px; font-weight: 700; margin: 0;">ดูคนเดียว</h2>
+                </div>
+                <div class="photos-feed-scroll" style="padding-top: 10px;">
+                    <div class="photos-grid">
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/ล้อก2.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/34.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/35.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/36-2.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/37.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/38.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/40.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/40-2.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/42.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/42-2.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/43.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/44.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/45.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/46.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/47.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/48.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/49.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/50-2.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/51.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/52.jpg" alt="Photo"></div>
+                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/53-2.jpg" alt="Photo"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photos-floating-tab-container">
+                <div class="photos-capsule-bar">
+                    <div class="capsule-tab active" id="tab-btn-library" onclick="switchPhotosTab('library')">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+                        <span>Library</span>
+                    </div>
+                    <div class="capsule-tab" id="tab-btn-collections" onclick="switchPhotosTab('collections')">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h12M6 10h12"/></svg>
+                        <span>Collections</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-indicator" style="margin: 4px auto 8px auto; background: black; cursor: pointer;" onclick="closePhotosApp()"></div>
+        </div>
+
+        <!-- ================= 6. หน้าจอแสดงรูปภาพแบบเต็มจอ ================= -->
+        <div id="photo-viewer-screen" class="screen photo-viewer-bg hidden">
+            <div class="ios-header" style="background: rgba(0,0,0,0.4); backdrop-filter: blur(10px);">
+                <span class="time-status real-time">00:54</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons">
+                    <div class="signal-bars"><span></span><span></span><span></span><span></span></div>
+                    <span class="network-type">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="white" stroke-width="1.1" opacity="0.45"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="white"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="white" opacity="0.45"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="viewer-top-bar">
+                <div class="back-btn-ios" onclick="closePhotoViewer()">‹</div>
+            </div>
+
+            <div class="viewer-image-container">
+                <img id="expanded-img" src="" alt="Expanded Photo">
+            </div>
+
+            <div class="home-indicator" style="margin: 8px auto 12px auto; background: white; cursor: pointer;" onclick="closePhotoViewer()"></div>
+        </div>
+
+        <!-- ================= 7. หน้าจอแอป Clock ================= -->
+        <div id="clock-app-screen" class="screen clock-dark-bg hidden">
+            <div class="ios-header" style="color: #fff;">
+                <span class="time-status real-time">11:38</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #fff;">
+                    <div class="signal-bars"><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span></div>
+                    <span class="network-type" style="color: #fff;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.45"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#fff"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#fff" opacity="0.45"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="clock-top-bar">
+                <div class="clock-back-btn" onclick="closeClockApp()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </div>
+                <div class="clock-add-btn" onclick="alert('Add Alarm ➕')">+</div>
+            </div>
+
+            <div class="clock-main-content">
+                <h1 class="clock-main-title">Alarm</h1>
+                <div class="alarm-section-label">Other</div>
+
+                <div class="alarm-item">
+                    <div class="alarm-info">
+                        <span class="alarm-time">07:00</span>
+                        <span class="alarm-label-text">Alarm</span>
+                    </div>
+                    <div class="ios-toggle active" onclick="toggleAlarm(this)"><div class="toggle-thumb"></div></div>
+                </div>
+
+                <div class="alarm-item">
+                    <div class="alarm-info">
+                        <span class="alarm-time">07:15</span>
+                        <span class="alarm-label-text">Alarm</span>
+                    </div>
+                    <div class="ios-toggle active" onclick="toggleAlarm(this)"><div class="toggle-thumb"></div></div>
+                </div>
+
+                <div class="alarm-item">
+                    <div class="alarm-info">
+                        <span class="alarm-time">07:30</span>
+                        <span class="alarm-label-text">Alarm</span>
+                    </div>
+                    <div class="ios-toggle active" onclick="toggleAlarm(this)"><div class="toggle-thumb"></div></div>
+                </div>
+            </div>
+
+            <div class="clock-floating-tab-container">
+                <div class="clock-capsule-bar">
+                    <div class="clock-capsule-tab">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span>World Clock</span>
+                    </div>
+                    <div class="clock-capsule-tab active">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M5 3L2 6"/></svg>
+                        <span>Alarms</span>
+                    </div>
+                    <div class="clock-capsule-tab">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Stopwatch</span>
+                    </div>
+                    <div class="clock-capsule-tab">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 2h4M12 14v-4M4 13a8 8 0 0 1 16 0 8 8 0 0 1-16 0z"/></svg>
+                        <span>Timers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="home-indicator" style="margin: 4px auto 8px auto; background: white; cursor: pointer;" onclick="closeClockApp()"></div>
+        </div>
+
+        <!-- ================= 8. หน้าจอแอป Notes ================= -->
+        <div id="notes-app-screen" class="screen notes-bg hidden">
+            <div class="ios-header" style="color: #000;">
+                <span class="time-status real-time">12:55</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span></div>
+                    <span class="network-type" style="color: #000;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#000" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#000"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#000"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- List View -->
+            <div id="notes-list-view" class="notes-sub-screen">
+                <div class="notes-top-nav">
+                    <div class="back-btn-ios" onclick="closeNotesApp()">‹</div>
+                </div>
+
+                <div class="notes-content-scroll">
+                    <h1 class="notes-title">Notes</h1>
+                    <div class="notes-search-box">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <span>Search</span>
+                    </div>
+
+                    <div class="notes-card-container">
+                        <div class="note-row" onclick="openNoteDetail('คู่มือมัดใจเอมี่', '1. งอนต้องง้อทันทีห้ามปล่อยข้ามวัน<br>2. ห้ามบ่นเวลาพาไปถ่ายรูป<br>3. รักและตามใจแฟนคนนี้ให้มาก ๆ<br>4. กินแซลม่อนเยอะ', 'Yesterday 22:15')">
+                            <span class="note-heading">คู่มือมัดใจเอมี่</span>
+                            <span class="note-snippet">Yesterday 22:15 &nbsp; 1. งอนต้องง้อทันทีห้ามปล่อยข้ามวัน...</span>
+                        </div>
+
+                        <div class="note-row" onclick="openNoteDetail('อย่าลืมตอบแชทเอมี่', 'รีบออกจากเกมมาตอบแชทเธอ อย่าหายเกิน <br>10 นาที หมูอู๊ดรอ', 'October 18, 2026')">
+                            <span class="note-heading">อย่าลืมตอบแชทเอมี่</span>
+                            <span class="note-snippet">October 18, 2026 &nbsp; รีบออกจากเกมมาตอบแชทเธอ อย่าหาย...</span>
+                        </div>
+
+                        <div class="note-row" onclick="openNoteDetail('เมนูคลีน', 'จะกินอกไก่ปั่น แต่เอมี่อยากกินชาบูปิ้งย่างอีกแล้ว ชีวิตนี้หนีนี้ไม่พ้นจริง ๆ ช่างมันเถอะ พรุ่งนี้ค่อยวิ่งเพิ่มเอาว่ะ', 'August 21, 2026')">
+                            <span class="note-heading">เมนูคลีน</span>
+                            <span class="note-snippet">August 21, 2026 &nbsp; จะกินอกไก่ปั่น แต่เอมี่อยากกิน...</span>
+                        </div>
+
+                        <div class="note-row" onclick="openNoteDetail('สร้างบ้านในมายคราฟยังไงให้แฟนไม่ด่าว่าไร้สาระ', 'จะสร้างปราสาทโคตรเท่ให้มี่มาอยู่ด้วย', 'December 12, 2024')">
+                            <span class="note-heading">สร้างบ้านในมายคราฟยังไงให้แฟนไม่ด่าว่าไร้สาระ</span>
+                            <span class="note-snippet">December 12, 2024 &nbsp; จะสร้างปราสาทโคตรเท่ให้มี่มาอยู่ด้วย...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notes-footer-bar">
+                    <span class="notes-count-text">4 Notes</span>
+                    <div class="notes-new-btn" onclick="alert('Create New Note 📝 (Mockup)')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail View -->
+            <div id="notes-detail-view" class="notes-sub-screen hidden">
+                <div class="notes-detail-top">
+                    <div class="back-btn-ios" onclick="closeNoteDetail()">‹</div>
+                </div>
+                <div class="notes-detail-content">
+                    <div id="detail-date" class="note-date-header">Today 12:30</div>
+                    <h2 id="detail-title" class="detail-title-text">หัวข้อโน้ต</h2>
+                    <p id="detail-body" class="detail-body-text">เนื้อหาโน้ต...</p>
+                </div>
+            </div>
+            <div class="home-indicator" style="margin: 4px auto 8px auto; background: black; cursor: pointer;" onclick="closeNotesApp()"></div>
+        </div>
+
+        <!-- ================= 9. หน้าจอแอป LINE ================= -->
+        <div id="line-app-screen" class="screen line-bg hidden">
+            <div class="ios-header" style="color: #000;">
+                <span class="time-status real-time">14:20</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span></div>
+                    <span class="network-type" style="color: #000;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#000" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#000"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#000"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="line-top-nav-bar">
+                <div class="line-switch-pill">
+                    <button class="active">Chats ▾</button>
+                    <button>Friends</button>
+                </div>
+                <div class="line-top-right-btns">
+                    <div class="line-icon-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                    </div>
+                    <div class="line-icon-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <div class="line-icon-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="line-search-container">
+                <div class="line-search-box">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span>Search</span>
+                    <svg class="line-qr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2"><path d="M3 3h5v5H3zM14 3h5v5h-5zM3 14h5v5H3z"/><path d="M14 14h2v2h-2zM18 14h3v3h-3zM14 18h2v3h-2zM19 18h2v2h-2z"/></svg>
+                </div>
+            </div>
+
+            <div class="line-filter-pills">
+                <span class="filter-pill active">All</span>
+                <span class="filter-pill">Friends</span>
+                <span class="filter-pill">Groups</span>
+            </div>
+
+            <div class="line-chat-list">
+                <div class="line-chat-row" onclick="openChatRoom()">
+                    <div class="line-avatar-wrap"><img src="images/โปรไลน์มี่.jpg" alt="เอมี่"></div>
+                    <div class="line-chat-info">
+                        <span class="line-chat-name">เอมี่ (หมูอู๊ด)</span>
+                        <span class="line-chat-msg" id="line-last-msg">... (รอดูว่าจะพูดว่าอะไร) 😡</span>
+                    </div>
+                    <div class="line-chat-meta">
+                        <span class="line-time">14:20</span>
+                        <span class="line-badge" id="line-unread-badge">5</span>
+                    </div>
+                </div>
+
+                <div class="line-chat-row" onclick="openLouisChatRoom()">
+                    <div class="line-avatar-wrap"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
+                    <div class="line-chat-info">
+                        <span class="line-chat-name">หยุลย์</span>
+                        <span class="line-chat-msg" id="louis-last-msg">เฮ้ย ลงแรงค์กันป่ะ รออยู่เนี่ย 🎮</span>
+                    </div>
+                    <div class="line-chat-meta">
+                        <span class="line-time" id="louis-last-time">19:10</span>
+                        <span class="line-badge" id="louis-unread-badge">2</span>
+                    </div>
+                </div>
+
+                <div class="line-chat-row" onclick="openChatRoom()">
+                    <div class="line-avatar-wrap"><img src="images/โปรไลน์อูจิน.jpg" alt="อูจิน"></div>
+                    <div class="line-chat-info">
+                        <span class="line-chat-name">Dad</span>
+                        <span class="line-chat-msg">ครับ เดี๋ยวว่างแล้วโทรหา</span>
+                    </div>
+                    <div class="line-chat-meta">
+                        <span class="line-time" style="color: #8e8e93; font-weight: 400;">Yesterday</span>
+                    </div>
+                </div>
+
+                <div class="line-chat-row" onclick="openChatRoom()">
+                    <div class="line-avatar-wrap"><img src="images/โปรไลน์แม่.jpg" alt="แม่"></div>
+                    <div class="line-chat-info">
+                        <span class="line-chat-name">Mum</span>
+                        <span class="line-chat-msg" id="line-last-msg">... (รอดูว่าจะพูดว่าอะไร) 😡</span>
+                    </div>
+                    <div class="line-chat-meta">
+                        <span class="line-time" style="color: #8e8e93; font-weight: 400;">Yesterday</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="line-floating-tab-container">
+                <div class="line-capsule-bar">
+                    <div class="line-capsule-tab">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        <span>Home</span>
+                    </div>
+                    <div class="line-capsule-tab active">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <span>Chats</span>
+                    </div>
+                    <div class="line-capsule-tab">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z"/>
+    </svg>
+    <span>Settings</span>
+</div>
+                </div>
+            </div>
+
+            <div class="home-indicator" style="margin: 4px auto 8px auto; background: black; cursor: pointer;" onclick="closeLineApp()"></div>
+        </div>
+
+        <!-- ================= 10. หน้าจอห้องแชท (Chat Room Screen) ================= -->
+        <div id="line-chat-room-screen" class="screen line-classic-bg hidden">
+            <div class="ios-header" style="color: #000; background: #5c779c;">
+                <span class="time-status real-time">15:12</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span></div>
+                    <span class="network-type" style="color: #000;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#000" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#000"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#000"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="classic-chat-top-bar">
+                <div class="classic-back-area" onclick="closeChatRoom()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                    <span class="classic-chat-title">เอมี่</span>
+                </div>
+                <div class="classic-chat-right-icons">
+                    <div class="classic-action-btn" onclick="alert('ปุ่มค้นหา (จำลอง)')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <div class="classic-action-btn" onclick="alert('เมนู (จำลอง)')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ประวัติแชทเก่า + แชทใหม่ต่อท้าย -->
+            <div class="classic-messages-scroll" id="chat-messages-container">
+                <div class="classic-date-divider"><span>October 20, 2026</span></div>
+
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">ตื่นยังคะคนเก่ง วันนี้อย่าลืมทานข้าวนะ 🍳</div>
+                            <span class="classic-msg-time">08:15 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row sent">
+                    <div class="classic-msg-content sent-content">
+                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">08:20 AM</span></div>
+                        <div class="classic-bubble sent-bubble">ตื่นแล้วครับ เป็นห่วงเหมือนกันนะเนี่ย 💖</div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">งื้อ น่ารักที่สุด เลิกงานแล้วรีบมาบอกน้า 🥰</div>
+                            <span class="classic-msg-time">08:22 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-date-divider"><span>October 21, 2026</span></div>
+
+                <div class="classic-msg-row sent">
+                    <div class="classic-msg-content sent-content">
+                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">12:30 PM</span></div>
+                        <div class="classic-bubble sent-bubble">คิดถึงจังเลย ทำไรอยู่ครับหมูอู๊ด 🐷</div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">กำลังคิดถึงเค้าอยู่ใช่ป่ะล่ะ ทางนี้เพิ่งกินข้าวเสร็จค่า 🍚</div>
+                            <span class="classic-msg-time">12:32 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-photo-bubble">
+                                <img src="images/ล้อก2.jpg" alt="Photo">
+                            </div>
+                            <span class="classic-msg-time">10:15 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row sent">
+                    <div class="classic-msg-content sent-content">
+                        <div class="classic-read-time">
+                            <span class="read-status">อ่านแล้ว</span>
+                            <span class="classic-msg-time">10:16 AM</span>
+                        </div>
+                        <div class="classic-photo-bubble sent-photo">
+                            <img src="images/โฟ1-1.jpg" alt="Photo">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row sent">
+                    <div class="classic-msg-content sent-content">
+                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">12:33 PM</span></div>
+                        <div class="classic-bubble sent-bubble">รู้ทันอีก แฟนใครเนี่ยเก่งจัง 😘</div>
+                    </div>
+                </div>
+
+                <div class="classic-date-divider"><span>October 22, 2026</span></div>
+
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">เย็นนี้อยากกินชาบูปิ้งย่าง พาไปหน่อยยย 🥺</div>
+                            <span class="classic-msg-time">17:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row sent">
+                    <div class="classic-msg-content sent-content">
+                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">17:02 PM</span></div>
+                        <div class="classic-bubble sent-bubble">จัดไปเลยครับ เพื่อแฟนคนสวย ยอมกระเป๋าแบนเลย 😆</div>
+                    </div>
+                </div>
+
+                <div class="classic-date-divider"><span>October 23, 2026</span></div>
+
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">ขอบคุณสำหรับมื้อเมื่อวานนะ สนุกมากๆ เลย 💖</div>
+                            <span class="classic-msg-time">10:05 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row sent">
+                    <div class="classic-msg-content sent-content">
+                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">10:10 AM</span></div>
+                        <div class="classic-bubble sent-bubble">ยินดีเสมอครับ ไว้ไปกินด้วยกันอีกนะคนดี ✨</div>
+                    </div>
+                </div>
+
+                <div class="classic-date-divider"><span>Yesterday</span></div>
+
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">งอนละ ห้ามพูดแบบนี้เลยนะ 😤</div>
+                            <span class="classic-msg-time">22:10 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row sent">
+                    <div class="classic-msg-content sent-content">
+                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">22:12 PM</span></div>
+                        <div class="classic-bubble sent-bubble">เค้าขอโทษน้า อย่าเพิ่งงอนนะคนดี เดี๋ยวเลี้ยงชานมไข่มุกปลอบใจเลย 🧋</div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">รีบเคลียร์ธุระเลยนะ เดี๋ยวเค้าอนจริงจังด้วย 😒</div>
+                            <span class="classic-msg-time">22:15 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 🌟 ส่วนข้อความใหม่ (Today) ที่เด้งรัวๆ 5 ข้อความงอนแฟน -->
+                <div class="classic-date-divider"><span id="chat-today-date">Today</span></div>
+
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">งอนจริงด้วยนะ! ทำไมหายไปนานจัง 😤</div>
+                            <span class="classic-msg-time" id="amy-msg-1">22:30</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row received" id="amy-extra-2" style="display:none;">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">ไม่ต้องมาพิมพ์เลย ใจร้ายที่สุด 😒</div>
+                            <span class="classic-msg-time" id="amy-msg-2">22:31</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row received" id="amy-extra-3" style="display:none;">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">เกมนายสำคัญกว่าเค้าใช่ไหม ฮือๆๆ 😭</div>
+                            <span class="classic-msg-time" id="amy-msg-3">22:31</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row received" id="amy-extra-4" style="display:none;">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">ถ้าไม่มาง้อดีๆ จะบล็อกเฟส บล็อกไลน์แล้วนะ! 🚷</div>
+                            <span class="classic-msg-time" id="amy-msg-4">22:32</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="classic-msg-row received" id="amy-extra-5" style="display:none;">
+                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content">
+                        <span class="classic-sender-name">เอมี่</span>
+                        <div class="classic-bubble-wrap">
+                            <div class="classic-bubble">... (รอดูว่าจะพูดว่าอะไร) 😡</div>
+                            <span class="classic-msg-time" id="amy-msg-5">22:32</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 💬 แถบตัวเลือกข้อความสำเร็จรูปสไตล์ Liquid Glass แนวตั้ง -->
+            <div class="quick-reply-container" id="quick-reply-bar">
+                <div class="quick-reply-vertical">
+                    <button class="quick-chip" onclick="sendSpecificMessage('เค้าขอโทษนะคนดี เดี๋ยวรีบเคลียร์แล้วโทรหานะ 💖')">💖 ขอโทษน้า รีบเคลียร์อยู่</button>
+                    <button class="quick-chip" onclick="sendSpecificMessage('งือ อย่าเพิ่งงอนนะ เดี๋ยววันนี้พาไปกินชาบู 🥩')">🥩 พาไปกินชาบูปลอบใจ</button>
+                    <button class="quick-chip" onclick="sendSpecificMessage('รักมี่ที่สุดในโลกเลย สัญญาจะไม่หายไปไหนอีกแล้ว 🥺')">🥺 รักมี่ที่สุด สัญญาเลย</button>
+                    <button class="quick-chip" onclick="sendSpecificMessage('เดี๋ยวซื้อชานมไข่มุกไปฝากแก้วใหญ่เลยนะ 🧋')">🧋 ซื้อชานมไข่มุกให้</button>
+                </div>
+            </div>
+
+            <!-- แถบพิมพ์ข้อความด้านล่าง -->
+            <div class="classic-input-bar" id="dynamic-input-bar">
+                <div class="bar-default-mode" id="bar-default-content">
+                    <div class="classic-input-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </div>
+                    <div class="classic-input-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    </div>
+                    <!-- คลิกที่ช่องพิมพ์เพื่อเปิด/ปิดเมนู Quick Reply -->
+                    <div class="classic-input-box" onclick="toggleQuickReplies()">
+                        <span class="placeholder-aa" id="input-display-text">เลือกข้อความง้อแฟน...</span>
+                        <div class="emoji-icon-inside">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                        </div>
+                    </div>
+                    <!-- คลิกที่ปุ่มส่งสีฟ้าเพื่อเปิด/ปิดเมนู Quick Reply เช่นกัน -->
+                    <div class="typing-right-send" onclick="toggleQuickReplies()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#007aff" stroke="#007aff" stroke-width="1"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="home-indicator" style="background: black; margin: 4px auto 8px auto;"></div>
+        </div>
+
+        <!-- ================= 11. หน้าจอห้องแชท (หลุยส์ - เรื่องเกม ย้อนหลัง 3 วัน มีโต้ตอบกัน) ================= -->
+        <div id="louis-chat-room-screen" class="screen line-classic-bg hidden">
+            <div class="ios-header" style="color: #000; background: #5c779c;">
+                <span class="time-status real-time">15:12</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons"><div class="signal-bars"><span></span><span></span><span></span><span></span></div><span class="network-type">5G</span></div>
+            </div>
+
+            <div class="classic-chat-top-bar">
+                <div class="classic-back-area" onclick="closeLouisChatRoom()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                    <span class="classic-chat-title">หยุลย์</span>
+                </div>
+            </div>
+
+            <div class="classic-messages-scroll" id="louis-messages-container">
+                <!-- 3 days ago -->
+                <div class="classic-date-divider"><span>3 days ago</span></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">เฮ้ย คืนนี้ลงแรงค์ป่ะวะ ขาดแทงค์ 🎮</div><span class="classic-msg-time">20:10</span></div></div>
+                </div>
+                <div class="classic-msg-row sent">
+                    <div class="classic-msg-content sent-content">
+                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">20:15</span></div>
+                        <div class="classic-bubble sent-bubble">จัดไปเพื่อน เดี๋ยวเคลียร์การบ้านก่อนแป๊บ 👍</div>
+                    </div>
+                </div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">เออ รีบมานะเว้ย ตี้รออยู่ ⏱️</div><span class="classic-msg-time">20:16</span></div></div>
+                </div>
+
+                <!-- Yesterday -->
+                <div class="classic-date-divider"><span>Yesterday</span></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ตื่นยังวะ หรือหลับยาวไปแล้ว 😴</div><span class="classic-msg-time">13:00</span></div></div>
+                </div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ตอบดิเพื่อน หายหัวไปไหน</div><span class="classic-msg-time">13:05</span></div></div>
+                </div>
+                <!-- (เราปล่อยจอย ไม่ตอบแชทเมื่อวาน) -->
+
+                <!-- Today -->
+                <div class="classic-date-divider"><span>Today</span></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">เฮ้ย ลงแรงค์กันป่ะ รออยู่เนี่ย 🎮</div><span class="classic-msg-time">19:10</span></div></div>
+                </div>
+                <div class="classic-msg-row received" id="louis-extra-2" style="display:none;">
+                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">เลือกตัวดีๆ นะเว้ย ตาที่แล้วแบกหลังหักละ 🙄</div><span class="classic-msg-time">19:11</span></div></div>
+                </div>
+            </div>
+
+            <!-- Quick Reply หลุยส์ -->
+            <div class="quick-reply-container" id="louis-quick-reply-bar">
+                <div class="quick-reply-vertical">
+                    <button class="quick-chip" onclick="sendLouisMessage('แปปนึง ขอเคลียร์ธุระแป๊บ เดี๋ยวตามไป!')">⏳ แปปนึง ขอเคลียร์ธุระก่อน</button>
+                    <button class="quick-chip" onclick="sendLouisMessage('จัดไป ตาหน้าขอเล่นตัวเมนนะ 🎯')">🎯 จัดไป ตาหน้าขอเล่นตัวเมน</button>
+                    <button class="quick-chip" onclick="sendLouisMessage('วันนี้ขอพัก ไม่ว่างไปเล่นด้วยว่ะเพื่อน')">💤 วันนี้ขอพัก ไม่ว่างว่ะ</button>
+                </div>
+            </div>
+
+            <!-- 💬 แถบตัวเลือกข้อความสำเร็จรูปสไตล์ Liquid Glass แนวตั้ง -->
+            <div class="quick-reply-container" id="quick-reply-bar">
+                <div class="quick-reply-vertical">
+                    <button class="quick-chip" onclick="sendSpecificMessage('เค้าขอโทษนะคนดี เดี๋ยวรีบเคลียร์แล้วโทรหานะ 💖')">💖 ขอโทษน้า รีบเคลียร์อยู่</button>
+                    <button class="quick-chip" onclick="sendSpecificMessage('งือ อย่าเพิ่งงอนนะ เดี๋ยววันนี้พาไปกินชาบู 🥩')">🥩 พาไปกินชาบูปลอบใจ</button>
+                    <button class="quick-chip" onclick="sendSpecificMessage('รักมี่ที่สุดในโลกเลย สัญญาจะไม่หายไปไหนอีกแล้ว 🥺')">🥺 รักมี่ที่สุด สัญญาเลย</button>
+                    <button class="quick-chip" onclick="sendSpecificMessage('เดี๋ยวซื้อชานมไข่มุกไปฝากแก้วใหญ่เลยนะ 🧋')">🧋 ซื้อชานมไข่มุกให้</button>
+                </div>
+            </div>
+
+            <!-- แถบพิมพ์ข้อความด้านล่าง -->
+            <div class="classic-input-bar" id="dynamic-input-bar">
+                <div class="bar-default-mode" id="bar-default-content">
+                    <div class="classic-input-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </div>
+                    <div class="classic-input-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    </div>
+                    <!-- คลิกที่ช่องพิมพ์เพื่อเปิด/ปิดเมนู Quick Reply -->
+                    <div class="classic-input-box" onclick="toggleQuickReplies()">
+                        <span class="placeholder-aa" id="input-display-text">เลือกข้อความง้อแฟน...</span>
+                        <div class="emoji-icon-inside">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                        </div>
+                    </div>
+                    <!-- คลิกที่ปุ่มส่งสีฟ้าเพื่อเปิด/ปิดเมนู Quick Reply เช่นกัน -->
+                    <div class="typing-right-send" onclick="toggleQuickReplies()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#007aff" stroke="#007aff" stroke-width="1"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="home-indicator" style="background: black; margin: 4px auto 8px auto;"></div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
