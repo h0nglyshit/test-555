@@ -36,7 +36,7 @@
             </div>
 
             <div class="lock-footer">
-                <div class="shortcut-btn" onclick="alert('เปิด/ปิด ไฟฉาย')">
+                <div class="shortcut-btn" >
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="white">
                         <path d="M7 2h10c0.55 0 1 0.45 1 1v3.17c0 0.4-0.16 0.78-0.44 1.06L14 10.41V18c0 0.55-0.45 1-1 1h-2c-0.55 0-1-0.45-1-1v-7.59L6.44 7.23C6.16 6.95 6 6.57 6 6.17V3c0-0.55 0.45-1 1-1zm1 2v1.79l3.03 3.03c0.12 0.12 0.19 0.28 0.19 0.45V17h1.5V9.27c0-0.17 0.07-0.33 0.19-0.45L16 5.79V4H8zm4 8.5c0.55 0 1 0.45 1 1s-0.45 1-1 1-1-0.45-1-1 0.45-1 1-1z"/>
                     </svg>
@@ -47,7 +47,7 @@
                     <div class="home-indicator"></div>
                 </div>
 
-                <div class="shortcut-btn" onclick="alert('เปิดกล้อง')">
+                <div class="shortcut-btn" >
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="white">
                         <path d="M12 9c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3m0-2c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm7-3h-2.17l-1.24-1.35C15.22 2.22 14.63 2 14 2H10c-0.63 0-1.22 0.22-1.59 0.65L7.17 4H5c-1.1 0-2 0.9-2 2v12c0 1.1 0.9 2 2 2h14c1.1 0 2-0.9 2-2V6c0-1.1-0.9-2-2-2zm0 14H5V6h3.27l1.24-1.35C9.79 4.3 10.03 4 10 4h4c0.03 0 0.21 0.3 0.49 0.65L15.73 6H19v12z"/>
                     </svg>
@@ -216,6 +216,12 @@
                         <span>LINE</span>
                     </div>
 
+                    <!-- 10. Instagram -->
+                    <div class="app-icon" onclick="openApp('Instagram')">
+                        <img src="images/i-i.webp" alt="Instagram">
+                        <span>Instagram</span>
+                    </div>
+
                 </div>
             </div>
 
@@ -248,7 +254,7 @@
 
             <div class="locket-feed-scroll">
                 <div class="locket-photo-grid">
-                    <div class="locket-photo-card"><img src="images/ล็อกเก็ต.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="https://i.pinimg.com/736x/23/b9/62/23b962d8ca9bfe7fa7751cd68599638c.jpg" alt="Post"></div>
                     <div class="locket-photo-card"><img src="images/ล้อก2.jpg" alt="Post"></div>
                     <div class="locket-photo-card"><img src="images/ล้อก3.jpg" alt="Post"></div>
                     <div class="locket-photo-card"><img src="images/ล็อก4.jpg" alt="Post"></div>
@@ -289,7 +295,7 @@
 
             <div class="photos-top-bar">
                 <div class="back-btn-ios" style="background: rgba(0,0,0,0.08); color: #000;" onclick="closePhotosApp()">‹</div>
-                <div class="photos-top-profile" onclick="alert('โปรไฟล์ของฉัน')">
+                <div class="photos-top-profile" >
                     <img src="images/โฟ8.jpg" alt="Profile">
                 </div>
             </div>
@@ -468,7 +474,7 @@
                 <div class="clock-back-btn" onclick="closeClockApp()">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                 </div>
-                <div class="clock-add-btn" onclick="alert('Add Alarm ➕')">+</div>
+                <div class="clock-add-btn" >+</div>
             </div>
 
             <div class="clock-main-content">
@@ -570,14 +576,14 @@
 
                         <div class="note-row" onclick="openNoteDetail('สร้างบ้านในมายคราฟยังไงให้แฟนไม่ด่าว่าไร้สาระ', 'จะสร้างปราสาทโคตรเท่ให้มี่มาอยู่ด้วย', 'December 12, 2024')">
                             <span class="note-heading">สร้างบ้านในมายคราฟยังไงให้แฟนไม่ด่าว่าไร้สาระ</span>
-                            <span class="note-snippet">December 12, 2024 &nbsp; จะสร้างปราสาทโคตรเท่ให้มี่มาอยู่ด้วย...</span>
+                            <span class="note-snippet">December 12, 2025 &nbsp; จะสร้างปราสาทโคตรเท่ให้มี่มาอยู่ด้วย...</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="notes-footer-bar">
                     <span class="notes-count-text">4 Notes</span>
-                    <div class="notes-new-btn" onclick="alert('Create New Note 📝 (Mockup)')">
+                    <div class="notes-new-btn" >
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                     </div>
                 </div>
@@ -597,7 +603,7 @@
             <div class="home-indicator" style="margin: 4px auto 8px auto; background: black; cursor: pointer;" onclick="closeNotesApp()"></div>
         </div>
 
-        <!-- ================= 9. หน้าจอแอป LINE ================= -->
+        <!-- ================= 9. หน้าจอแอป LINE (ครบ 5 แชท) ================= -->
         <div id="line-app-screen" class="screen line-bg hidden">
             <div class="ios-header" style="color: #000;">
                 <span class="time-status real-time">14:20</span>
@@ -646,46 +652,64 @@
             </div>
 
             <div class="line-chat-list">
+                <!-- แชทที่ 1: เอมี่ -->
                 <div class="line-chat-row" onclick="openChatRoom()">
-                    <div class="line-avatar-wrap"><img src="images/โปรไลน์มี่.jpg" alt="เอมี่"></div>
+                    <div class="line-avatar-wrap"><img src="images/pl-m.jpg" alt="เอมี่"></div>
                     <div class="line-chat-info">
                         <span class="line-chat-name">เอมี่ (หมูอู๊ด)</span>
-                        <span class="line-chat-msg" id="line-last-msg">... (รอดูว่าจะพูดว่าอะไร) 😡</span>
+                        <span class="line-chat-msg" id="line-last-msg">งอน</span>
                     </div>
                     <div class="line-chat-meta">
-                        <span class="line-time">14:20</span>
+                        <span class="line-time" id="amy-last-time">Today</span>
                         <span class="line-badge" id="line-unread-badge">5</span>
                     </div>
                 </div>
 
-                <div class="line-chat-row" onclick="openLouisChatRoom()">
-                    <div class="line-avatar-wrap"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
+                <!-- แชทที่ 2: กลุ่ม อ้ายมา 4 คน -->
+                <div class="line-chat-row" onclick="openGroupChatRoom()">
+                    <div class="line-avatar-wrap"><img src="images/pl-g.jpg" alt="กลุ่ม"></div>
                     <div class="line-chat-info">
-                        <span class="line-chat-name">หยุลย์</span>
-                        <span class="line-chat-msg" id="louis-last-msg">เฮ้ย ลงแรงค์กันป่ะ รออยู่เนี่ย 🎮</span>
+                        <span class="line-chat-name">อ้ายมา 4 คน</span>
+                        <span class="line-chat-msg">เล่นบ่อยจัง..</span>
                     </div>
                     <div class="line-chat-meta">
-                        <span class="line-time" id="louis-last-time">19:10</span>
+                        <span class="line-time">Yesterday</span>
+                        
+                    </div>
+                </div>
+
+                <!-- แชทที่ 3: หลุยส์ -->
+                <div class="line-chat-row" onclick="openLouisChatRoom()">
+                    <div class="line-avatar-wrap"><img src="images/pl-l.jpg" alt="หลุยส์"></div>
+                    <div class="line-chat-info">
+                        <span class="line-chat-name">หยุลย์</span>
+                        <span class="line-chat-msg" id="louis-last-msg">พี่ริวสอนออกกำลังกายหน่อย</span>
+                    </div>
+                    <div class="line-chat-meta">
+                        <span class="line-time" id="louis-last-time">Today</span>
                         <span class="line-badge" id="louis-unread-badge">2</span>
                     </div>
                 </div>
 
-                <div class="line-chat-row" onclick="openChatRoom()">
-                    <div class="line-avatar-wrap"><img src="images/โปรไลน์อูจิน.jpg" alt="อูจิน"></div>
+                <!-- แชทที่ 4: อูจิน -->
+                <div class="line-chat-row" onclick="openUjinChatRoom()">
+                    <div class="line-avatar-wrap"><img src="images/pl-w.jpg" alt="อูจิน"></div>
                     <div class="line-chat-info">
-                        <span class="line-chat-name">Dad</span>
-                        <span class="line-chat-msg">ครับ เดี๋ยวว่างแล้วโทรหา</span>
+                        <span class="line-chat-name">อูจิน</span>
+                        <span class="line-chat-msg" id="ujin-last-msg">ขอความจริง</span>
                     </div>
                     <div class="line-chat-meta">
-                        <span class="line-time" style="color: #8e8e93; font-weight: 400;">Yesterday</span>
+                        <span class="line-time">Today</span>
+                        <span class="line-badge" id="ujin-unread-badge">3</span>
                     </div>
                 </div>
 
-                <div class="line-chat-row" onclick="openChatRoom()">
-                    <div class="line-avatar-wrap"><img src="images/โปรไลน์แม่.jpg" alt="แม่"></div>
+                <!-- แชทที่ 5: แม่ -->
+                <div class="line-chat-row" onclick="openMomChatRoom()">
+                    <div class="line-avatar-wrap"><img src="images/pl-mm.jpg" alt="แม่"></div>
                     <div class="line-chat-info">
-                        <span class="line-chat-name">Mum</span>
-                        <span class="line-chat-msg" id="line-last-msg">... (รอดูว่าจะพูดว่าอะไร) 😡</span>
+                        <span class="line-chat-name">แม่</span>
+                        <span class="line-chat-msg">ฝันดีครับ</span>
                     </div>
                     <div class="line-chat-meta">
                         <span class="line-time" style="color: #8e8e93; font-weight: 400;">Yesterday</span>
@@ -704,19 +728,19 @@
                         <span>Chats</span>
                     </div>
                     <div class="line-capsule-tab">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z"/>
-    </svg>
-    <span>Settings</span>
-</div>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06-.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z"/>
+                        </svg>
+                        <span>Settings</span>
+                    </div>
                 </div>
             </div>
 
             <div class="home-indicator" style="margin: 4px auto 8px auto; background: black; cursor: pointer;" onclick="closeLineApp()"></div>
         </div>
 
-        <!-- ================= 10. หน้าจอห้องแชท (Chat Room Screen) ================= -->
+        <!-- ================= 10. หน้าจอห้องแชท (แชทที่ 1: เอมี่ พร้อมระบบเลือกตอบสไตล์ Liquid Glass) ================= -->
         <div id="line-chat-room-screen" class="screen line-classic-bg hidden">
             <div class="ios-header" style="color: #000; background: #5c779c;">
                 <span class="time-status real-time">15:12</span>
@@ -738,237 +762,124 @@
                     <span class="classic-chat-title">เอมี่</span>
                 </div>
                 <div class="classic-chat-right-icons">
-                    <div class="classic-action-btn" onclick="alert('ปุ่มค้นหา (จำลอง)')">
+                    <div class="classic-action-btn" >
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                     </div>
-                    <div class="classic-action-btn" onclick="alert('เมนู (จำลอง)')">
+                    <div class="classic-action-btn" >
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                     </div>
                 </div>
             </div>
 
-            <!-- ประวัติแชทเก่า + แชทใหม่ต่อท้าย -->
+            <!-- ประวัติแชทเก่าเอมี่แบบจัดเต็ม -->
             <div class="classic-messages-scroll" id="chat-messages-container">
-                <div class="classic-date-divider"><span>October 20, 2026</span></div>
+                <!-- 2022 -->
+                <div class="classic-date-divider"><span>January 21, 2022</span></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">00:00</span></div><div class="classic-bubble sent-bubble">Happy Birthday kub</div></div></div>
 
+                <!-- 2023 -->
+                <div class="classic-date-divider"><span>January 21, 2023</span></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">00:00</span></div><div class="classic-bubble sent-bubble">Happy Birthday na kubb</div></div></div>
+
+                <!-- 2024 (Jan) -->
+                <div class="classic-date-divider"><span>January 21, 2024</span></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">00:00</span></div><div class="classic-bubble sent-bubble">แฮปปี้เบิร์ดเดย์นะโอยูล</div></div></div>
                 <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">ตื่นยังคะคนเก่ง วันนี้อย่าลืมทานข้าวนะ 🍳</div>
-                            <span class="classic-msg-time">08:15 AM</span>
-                        </div>
-                    </div>
+                    <div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ขอบใจนะริว</div><span class="classic-msg-time">00:01</span></div></div>
                 </div>
 
+                <!-- 2024 (Sep 18) -->
+                <div class="classic-date-divider"><span>September 18, 2024</span></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">แฮปปี้เบิร์ดเดย์ ทูยู นะริว ^^</div><span class="classic-msg-time">22:05</span></div></div>
+                </div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">22:06</span></div><div class="classic-bubble sent-bubble">ขอบใจนะเอมี่</div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">22:06</span></div><div class="classic-bubble sent-bubble">ยังไม่นอนหรอ ?</div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">22:07</span></div><div class="classic-bubble sent-bubble">แฮปดึกจัง 555</div></div></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">เกือบลืมแฮปริวอ่ะะ 555555</div><span class="classic-msg-time">22:08</span></div></div>
+                </div>
+
+                <!-- ชวนกินไอติม -->
+                <div class="classic-date-divider"><span>May 12, 2025</span></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">16:30</span></div><div class="classic-bubble sent-bubble">เลิกเรียนแล้วว่างป่ะ</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ว่างงง</div><span class="classic-msg-time">16:31</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ริวมีรายย</div><span class="classic-msg-time">16:31</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">16:32</span></div><div class="classic-bubble sent-bubble">เลิกเรียนเดะเลี้ยงไอติม ที่วันก่อนโอยูลงอนริวอ่ะ</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ห๊าา เค้าไม่ได้งอนริวนะ</div><span class="classic-msg-time">16:33</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">16:33</span></div><div class="classic-bubble sent-bubble">งอน</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">งอนตอนไหน ทำไมเค้าไม่รู้ตัว</div><span class="classic-msg-time">16:34</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">16:34</span></div><div class="classic-bubble sent-bubble">นั่นแหละ อยากกินก็มา</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">อาเคคค ขอบใจนะเพื่อนรัก</div><span class="classic-msg-time">16:35</span></div></div></div>
+
+                <!-- ชวนกินแซลม่อน -->
+                <div class="classic-date-divider"><span>June 10, 2025</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ริวววว อยากกินแซลม่อนน</div><span class="classic-msg-time">18:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ชวนคนอื่นแล้วไม่มีใครไปเลย</div><span class="classic-msg-time">18:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ริวมากินเป็นเพื่อนเค้าหน่อย</div><span class="classic-msg-time">18:01</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">18:02</span></div><div class="classic-bubble sent-bubble">...</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ริวมากินกับเค้าหน่อยนะนะนะนะ ๆๆๆๆ</div><span class="classic-msg-time">18:02</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">18:03</span></div><div class="classic-bubble sent-bubble">ก็ได้ ที่ไหนอ่ะ</div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">18:03</span></div><div class="classic-bubble sent-bubble">ร้านเดิม ?</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ถูกต้องงง รู้ใจจัง</div><span class="classic-msg-time">18:04</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">18:04</span></div><div class="classic-bubble sent-bubble">อืม เดะไปรับหน้าบ้านอีกสิบนาทีถึง</div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">18:04</span></div><div class="classic-bubble sent-bubble">ไม่ต้องแต่งตัวสวยนะ ลีลา</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">อือ ๆๆๆๆ รู้แล้วววว</div><span class="classic-msg-time">18:05</span></div></div></div>
+
+                <!-- เร็วๆ นี้ (2026) -->
+                <div class="classic-date-divider"><span>October 28, 2026</span></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">14:10</span></div><div class="classic-bubble sent-bubble">คิดถึงจังเลย ทำไรอยู่คับหมูอู๊ด</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">อาไรคัยหมู เขาเรียกว่าอ้วนกลมอารมณ์ดี นะเห้ย ^^</div><span class="classic-msg-time">14:12</span></div></div></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl5.jpg" alt="Photo"></div><span class="classic-msg-time">14:12</span></div></div>
+                </div>
                 <div class="classic-msg-row sent">
                     <div class="classic-msg-content sent-content">
-                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">08:20 AM</span></div>
-                        <div class="classic-bubble sent-bubble">ตื่นแล้วครับ เป็นห่วงเหมือนกันนะเนี่ย 💖</div>
+                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">14:13</span></div>
+                        <div class="classic-photo-bubble sent-photo"><img src="images/cl2.jpg" alt="Photo"></div>
                     </div>
                 </div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">14:13</span></div><div class="classic-bubble sent-bubble">หล่อไหม</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ไม่ค่อย</div><span class="classic-msg-time">14:14</span></div></div></div>
 
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">งื้อ น่ารักที่สุด เลิกงานแล้วรีบมาบอกน้า 🥰</div>
-                            <span class="classic-msg-time">08:22 AM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="classic-date-divider"><span>October 21, 2026</span></div>
-
-                <div class="classic-msg-row sent">
-                    <div class="classic-msg-content sent-content">
-                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">12:30 PM</span></div>
-                        <div class="classic-bubble sent-bubble">คิดถึงจังเลย ทำไรอยู่ครับหมูอู๊ด 🐷</div>
-                    </div>
-                </div>
-
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">กำลังคิดถึงเค้าอยู่ใช่ป่ะล่ะ ทางนี้เพิ่งกินข้าวเสร็จค่า 🍚</div>
-                            <span class="classic-msg-time">12:32 PM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-photo-bubble">
-                                <img src="images/ล้อก2.jpg" alt="Photo">
-                            </div>
-                            <span class="classic-msg-time">10:15 AM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="classic-msg-row sent">
-                    <div class="classic-msg-content sent-content">
-                        <div class="classic-read-time">
-                            <span class="read-status">อ่านแล้ว</span>
-                            <span class="classic-msg-time">10:16 AM</span>
-                        </div>
-                        <div class="classic-photo-bubble sent-photo">
-                            <img src="images/โฟ1-1.jpg" alt="Photo">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="classic-msg-row sent">
-                    <div class="classic-msg-content sent-content">
-                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">12:33 PM</span></div>
-                        <div class="classic-bubble sent-bubble">รู้ทันอีก แฟนใครเนี่ยเก่งจัง 😘</div>
-                    </div>
-                </div>
-
-                <div class="classic-date-divider"><span>October 22, 2026</span></div>
-
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">เย็นนี้อยากกินชาบูปิ้งย่าง พาไปหน่อยยย 🥺</div>
-                            <span class="classic-msg-time">17:00 PM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="classic-msg-row sent">
-                    <div class="classic-msg-content sent-content">
-                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">17:02 PM</span></div>
-                        <div class="classic-bubble sent-bubble">จัดไปเลยครับ เพื่อแฟนคนสวย ยอมกระเป๋าแบนเลย 😆</div>
-                    </div>
-                </div>
-
-                <div class="classic-date-divider"><span>October 23, 2026</span></div>
-
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">ขอบคุณสำหรับมื้อเมื่อวานนะ สนุกมากๆ เลย 💖</div>
-                            <span class="classic-msg-time">10:05 AM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="classic-msg-row sent">
-                    <div class="classic-msg-content sent-content">
-                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">10:10 AM</span></div>
-                        <div class="classic-bubble sent-bubble">ยินดีเสมอครับ ไว้ไปกินด้วยกันอีกนะคนดี ✨</div>
-                    </div>
-                </div>
-
+                <!-- Yesterday -->
                 <div class="classic-date-divider"><span>Yesterday</span></div>
-
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">งอนละ ห้ามพูดแบบนี้เลยนะ 😤</div>
-                            <span class="classic-msg-time">22:10 PM</span>
-                        </div>
-                    </div>
-                </div>
-
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">งอน</div><span class="classic-msg-time">21:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">เธอไม่พาเค้าไปเล่นกับพี่โคโค่</div><span class="classic-msg-time">21:00</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">21:02</span></div><div class="classic-bubble sent-bubble">ไรเนี่ยหมูอู๊ด</div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">21:02</span></div><div class="classic-bubble sent-bubble">อยากเล่นกับโคโค่จริง ๆ หรอ</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ช่ายยย อยากหอมมมม</div><span class="classic-msg-time">21:03</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">21:04</span></div><div class="classic-bubble sent-bubble">หอมเจ้าของพี่โคโค่ก่อนไม่ได้หรอครับ</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">พูดไรเนี่ย</div><span class="classic-msg-time">21:04</span></div></div></div>
                 <div class="classic-msg-row sent">
                     <div class="classic-msg-content sent-content">
-                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">22:12 PM</span></div>
-                        <div class="classic-bubble sent-bubble">เค้าขอโทษน้า อย่าเพิ่งงอนนะคนดี เดี๋ยวเลี้ยงชานมไข่มุกปลอบใจเลย 🧋</div>
+                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">21:05</span></div>
+                        <div class="classic-photo-bubble sent-photo"><img src="images/cl4.jpg" alt="Photo"></div>
                     </div>
                 </div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">21:05</span></div><div class="classic-bubble sent-bubble">เหมือนพี่โค่ไหม หายงอนนะครับ เดี๋ยวซื้อชานมไปให้</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">รีบเลย เดะเค้าจะงอนจริง ๆ ละนะ</div><span class="classic-msg-time">21:06</span></div></div></div>
 
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">รีบเคลียร์ธุระเลยนะ เดี๋ยวเค้าอนจริงจังด้วย 😒</div>
-                            <span class="classic-msg-time">22:15 PM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 🌟 ส่วนข้อความใหม่ (Today) ที่เด้งรัวๆ 5 ข้อความงอนแฟน -->
+                <!-- Today (5 ข้อความงอนรัวๆ) -->
                 <div class="classic-date-divider"><span id="chat-today-date">Today</span></div>
-
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">งอนจริงด้วยนะ! ทำไมหายไปนานจัง 😤</div>
-                            <span class="classic-msg-time" id="amy-msg-1">22:30</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="classic-msg-row received" id="amy-extra-2" style="display:none;">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">ไม่ต้องมาพิมพ์เลย ใจร้ายที่สุด 😒</div>
-                            <span class="classic-msg-time" id="amy-msg-2">22:31</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="classic-msg-row received" id="amy-extra-3" style="display:none;">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">เกมนายสำคัญกว่าเค้าใช่ไหม ฮือๆๆ 😭</div>
-                            <span class="classic-msg-time" id="amy-msg-3">22:31</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="classic-msg-row received" id="amy-extra-4" style="display:none;">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">ถ้าไม่มาง้อดีๆ จะบล็อกเฟส บล็อกไลน์แล้วนะ! 🚷</div>
-                            <span class="classic-msg-time" id="amy-msg-4">22:32</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="classic-msg-row received" id="amy-extra-5" style="display:none;">
-                    <div class="classic-msg-avatar"><img src="images/ล็อกเก็ต.jpg" alt="เอมี่"></div>
-                    <div class="classic-msg-content">
-                        <span class="classic-sender-name">เอมี่</span>
-                        <div class="classic-bubble-wrap">
-                            <div class="classic-bubble">... (รอดูว่าจะพูดว่าอะไร) 😡</div>
-                            <span class="classic-msg-time" id="amy-msg-5">22:32</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">งอน</div><span class="classic-msg-time" id="amy-msg-1">14:15</span></div></div></div>
+                <div class="classic-msg-row received" id="amy-extra-2" style="display:none;"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">งอน</div><span class="classic-msg-time" id="amy-msg-2">14:15</span></div></div></div>
+                <div class="classic-msg-row received" id="amy-extra-3" style="display:none;"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">งอน</div><span class="classic-msg-time"id="amy-msg-3">14:15</span></div></div></div>
+                <div class="classic-msg-row received" id="amy-extra-4" style="display:none;"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">งอน</div><span class="classic-msg-time"id="amy-msg-4">14:15</span></div></div></div>
+                <div class="classic-msg-row received" id="amy-extra-5" style="display:none;"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">งอน</div><span class="classic-msg-time"id="amy-msg-5">14:15</span></div></div></div>
             </div>
 
-            <!-- 💬 แถบตัวเลือกข้อความสำเร็จรูปสไตล์ Liquid Glass แนวตั้ง -->
+            <!-- 💬 แถบตัวเลือกข้อความสำเร็จรูปสไตล์ Liquid Glass แนวตั้ง (สำหรับเอมี่) -->
             <div class="quick-reply-container" id="quick-reply-bar">
                 <div class="quick-reply-vertical">
-                    <button class="quick-chip" onclick="sendSpecificMessage('เค้าขอโทษนะคนดี เดี๋ยวรีบเคลียร์แล้วโทรหานะ 💖')">💖 ขอโทษน้า รีบเคลียร์อยู่</button>
-                    <button class="quick-chip" onclick="sendSpecificMessage('งือ อย่าเพิ่งงอนนะ เดี๋ยววันนี้พาไปกินชาบู 🥩')">🥩 พาไปกินชาบูปลอบใจ</button>
-                    <button class="quick-chip" onclick="sendSpecificMessage('รักมี่ที่สุดในโลกเลย สัญญาจะไม่หายไปไหนอีกแล้ว 🥺')">🥺 รักมี่ที่สุด สัญญาเลย</button>
-                    <button class="quick-chip" onclick="sendSpecificMessage('เดี๋ยวซื้อชานมไข่มุกไปฝากแก้วใหญ่เลยนะ 🧋')">🧋 ซื้อชานมไข่มุกให้</button>
+                    <button class="quick-chip" onclick="sendSpecificMessage('เอาการ์ดโปเกม่อนไหม')">เอาการ์ดโปเกม่อนไหม</button>
+                    <button class="quick-chip" onclick="sendSpecificMessage('ถ่ายรูปมาให้ดูหน่อย')">ถ่ายรูปมาให้ดูหน่อย</button>
+                    <button class="quick-chip" onclick="sendSpecificMessage('กำลังไป')">กำลังไป</button>
+                    <button class="quick-chip" onclick="sendSpecificMessage('รักมี่ที่สุด')">รักมี่ที่สุด</button>
                 </div>
             </div>
 
@@ -981,14 +892,12 @@
                     <div class="classic-input-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
                     </div>
-                    <!-- คลิกที่ช่องพิมพ์เพื่อเปิด/ปิดเมนู Quick Reply -->
                     <div class="classic-input-box" onclick="toggleQuickReplies()">
-                        <span class="placeholder-aa" id="input-display-text">เลือกข้อความง้อแฟน...</span>
+                        <span class="placeholder-aa" id="input-display-text">พิมพ์ข้อความ..</span>
                         <div class="emoji-icon-inside">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
                         </div>
                     </div>
-                    <!-- คลิกที่ปุ่มส่งสีฟ้าเพื่อเปิด/ปิดเมนู Quick Reply เช่นกัน -->
                     <div class="typing-right-send" onclick="toggleQuickReplies()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="#007aff" stroke="#007aff" stroke-width="1"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                     </div>
@@ -997,12 +906,164 @@
             <div class="home-indicator" style="background: black; margin: 4px auto 8px auto;"></div>
         </div>
 
-        <!-- ================= 11. หน้าจอห้องแชท (หลุยส์ - เรื่องเกม ย้อนหลัง 3 วัน มีโต้ตอบกัน) ================= -->
+        <!-- ================= 11. หน้าจอห้องแชท (แชทที่ 2: กลุ่ม "อ้ายมา 4 คน") ================= -->
+        <div id="group-chat-room-screen" class="screen line-classic-bg hidden">
+            <div class="ios-header" style="color: #000; background: #5c779c;">
+                <span class="time-status real-time">15:12</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span></div>
+                    <span class="network-type" style="color: #000;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#000" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#000"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#000"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="classic-chat-top-bar">
+                <div class="classic-back-area" onclick="closeGroupChatRoom()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                    <span class="classic-chat-title">อ้ายมา 4 คน</span>
+                </div>
+                <div class="classic-chat-right-icons">
+                    <div class="classic-action-btn" >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <div class="classic-action-btn" >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="classic-messages-scroll" id="group-messages-container">
+                <!-- ข้อมูลแชทกลุ่มครบถ้วนตามบรีฟ -->
+                <div class="classic-date-divider"><span>March 24, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-bubble">พี่ริวไปไหน ทิ้งเกมผมกับพี่จิน</div><span class="classic-msg-time">18:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ทิ้งน้องชายตาดำ ๆ สองคนได้ไง</div><span class="classic-msg-time">18:01</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">5655565255 ริวอยู่กับพี่</div><span class="classic-msg-time">18:01</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">วันนี้มากินติมม</div><span class="classic-msg-time">18:02</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl6.jpg" alt="Photo"></div><span class="classic-msg-time">18:02</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ทีผมนะ ไม่อยากจะเลี้ยงบ้างเลย</div><span class="classic-msg-time">18:03</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">18:04</span></div><div class="classic-bubble sent-bubble">พูดเยอะ เล่นก็กาก</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-bubble">จะฟ้องแม่ว่าพี่ริวชวนพี่เอมี่ไปกินโดยไม่ชวนผมกับพี่จิน</div><span class="classic-msg-time">18:05</span></div></div></div>
+
+                <div class="classic-date-divider"><span>April 11, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เข้าเกม</div><span class="classic-msg-time">19:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เข้าเกม</div><span class="classic-msg-time">19:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เข้าเกม</div><span class="classic-msg-time">19:01</span></div></div></div>
+                <div class="classic-date-divider"><span>May 2, 2026</span></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl7.jpg" alt="Photo"></div><span class="classic-msg-time">19:09</span></div></div>
+                </div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">โดนบังคับ</div><span class="classic-msg-time">19:10</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-bubble">เต็มใจมาก</div><span class="classic-msg-time">19:11</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ถุยย</div><span class="classic-msg-time">19:11</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เกือบได้ต่อยคน</div><span class="classic-msg-time">19:12</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">546851645555</div><span class="classic-msg-time">19:12</span></div></div></div>
+                <div class="classic-date-divider"><span>June 27, 2026</span></div>
+                <div class="classic-msg-row sent">
+                    <div class="classic-msg-content sent-content">
+                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">19:15</span></div>
+                        <div class="classic-photo-bubble sent-photo"><img src="images/cl8.jpg" alt="Photo"></div>
+                    </div>
+                </div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-bubble">??</div><span class="classic-msg-time">19:15</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">?????????</div><span class="classic-msg-time">19:16</span></div></div></div>
+                <div class="classic-date-divider"><span>July 6, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ใครโยนเกม</div><span class="classic-msg-time">19:30</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">คนดีคนเดิม</div><span class="classic-msg-time">19:30</span></div></div></div>
+                <div class="classic-date-divider"><span>July 8, 2026</span></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl10.jpg" alt="Photo"></div><span class="classic-msg-time">14:12</span></div></div>
+                </div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl11.jpg" alt="Photo"></div><span class="classic-msg-time">14:12</span></div></div>
+                </div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl12.jpg" alt="Photo"></div><span class="classic-msg-time">14:13</span></div></div>
+                </div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl13.jpg" alt="Photo"></div><span class="classic-msg-time">14:14</span></div></div>
+                </div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl14.jpg" alt="Photo"></div><span class="classic-msg-time">14:21</span></div></div>
+                </div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl15.jpg" alt="Photo"></div><span class="classic-msg-time">14:22</span></div></div>
+                </div>
+
+                <div class="classic-date-divider"><span>July 12, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">หิว</div><span class="classic-msg-time">20:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ใครอยากกก</div><span class="classic-msg-time">20:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-bubble">กิน</div><span class="classic-msg-time">20:01</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">เลือก</div><span class="classic-msg-time">20:01</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">จะเอาส่งฟรี</div><span class="classic-msg-time">20:01</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">น้องจินกินไหมมม</div><span class="classic-msg-time">20:02</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">รอไร</div><span class="classic-msg-time">20:02</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">พี่ริวเลี้ยง 55555</div><span class="classic-msg-time">20:02</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">แหมะะ ยังไม่ได้กินก็รู้ว่าหวาน</div><span class="classic-msg-time">20:03</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">20:03</span></div><div class="classic-bubble sent-bubble">ดึกดื่นไม่หลับไม่นอนกัน</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ว่าไปแล้ว</div><span class="classic-msg-time">20:04</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เราผิดไหม..</div><span class="classic-msg-time">20:04</span></div></div></div>
+                <div class="classic-date-divider"><span>August 2, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">พี่มี่ ผมขอยืมเสื้อพี่ริวได้มะ</div><span class="classic-msg-time">20:10</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ถามไปก็ไม่ตอบ</div><span class="classic-msg-time">20:10</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">เอาจิ หยิบเลย</div><span class="classic-msg-time">20:11</span></div></div></div>
+                <div class="classic-date-divider"><span>October 24, 2026</span></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl9.jpg" alt="Photo"></div><span class="classic-msg-time">20:15</span></div></div>
+                </div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-bubble">พี่ริวไม่เอาพี่โคโค่ให้พี่มี่เล่นหรอครับ</div><span class="classic-msg-time">20:15</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-bubble">โทรมาหาฮันเตอร์ทุกวันเลย</div><span class="classic-msg-time">20:16</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">20:16</span></div><div class="classic-bubble sent-bubble">แมวกับแมวก็งี้แหละ</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เหมี๊ยว</div><span class="classic-msg-time">20:17</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">20:17</span></div><div class="classic-bubble sent-bubble">แมวเป้า</div></div></div>
+                
+                <div class="classic-date-divider"><span>Yesterday</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ใครเอาการ์ดโปเกม่อนผมไป ???</div><span class="classic-msg-time">22:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เล่นเกมกัน</div><span class="classic-msg-time">22:05</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เล่นเกมกัน</div><span class="classic-msg-time">22:05</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">22:06</span></div><div class="classic-bubble sent-bubble">กำลัง</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">เล่นบ่อยจัง..</div><span class="classic-msg-time">22:07</span></div></div></div>
+            </div>
+            <!-- แถบพิมพ์ด้านล่าง (แชทกลุ่มอ่านอย่างเดียว) -->
+            <div class="classic-input-bar">
+                <div class="bar-default-mode">
+                    <div class="classic-input-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="classic-input-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                    <div class="classic-input-box" >
+                        <span class="placeholder-aa">พิมพ์ข้อความ..</span>
+                        <div class="emoji-icon-inside"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+                    </div>
+                    <div class="typing-right-send"><svg width="24" height="24" viewBox="0 0 24 24" fill="#007aff" stroke="#007aff" stroke-width="1"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= 12. หน้าจอห้องแชท (แชทที่ 3: หลุยส์ พร้อมระบบเลือกตอบ) ================= -->
         <div id="louis-chat-room-screen" class="screen line-classic-bg hidden">
             <div class="ios-header" style="color: #000; background: #5c779c;">
                 <span class="time-status real-time">15:12</span>
                 <div class="dynamic-island"><div class="camera-dot"></div></div>
-                <div class="status-icons"><div class="signal-bars"><span></span><span></span><span></span><span></span></div><span class="network-type">5G</span></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span></div>
+                    <span class="network-type" style="color: #000;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#000" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#000"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#000"/>
+                    </svg>
+                </div>
             </div>
 
             <div class="classic-chat-top-bar">
@@ -1010,92 +1071,579 @@
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                     <span class="classic-chat-title">หยุลย์</span>
                 </div>
+                <div class="classic-chat-right-icons">
+                    <div class="classic-action-btn" ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <div class="classic-action-btn" ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
+                </div>
             </div>
 
             <div class="classic-messages-scroll" id="louis-messages-container">
-                <!-- 3 days ago -->
-                <div class="classic-date-divider"><span>3 days ago</span></div>
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
-                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">เฮ้ย คืนนี้ลงแรงค์ป่ะวะ ขาดแทงค์ 🎮</div><span class="classic-msg-time">20:10</span></div></div>
-                </div>
-                <div class="classic-msg-row sent">
-                    <div class="classic-msg-content sent-content">
-                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">20:15</span></div>
-                        <div class="classic-bubble sent-bubble">จัดไปเพื่อน เดี๋ยวเคลียร์การบ้านก่อนแป๊บ 👍</div>
-                    </div>
-                </div>
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
-                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">เออ รีบมานะเว้ย ตี้รออยู่ ⏱️</div><span class="classic-msg-time">20:16</span></div></div>
-                </div>
-
-                <!-- Yesterday -->
-                <div class="classic-date-divider"><span>Yesterday</span></div>
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
-                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ตื่นยังวะ หรือหลับยาวไปแล้ว 😴</div><span class="classic-msg-time">13:00</span></div></div>
-                </div>
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
-                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ตอบดิเพื่อน หายหัวไปไหน</div><span class="classic-msg-time">13:05</span></div></div>
-                </div>
-                <!-- (เราปล่อยจอย ไม่ตอบแชทเมื่อวาน) -->
+                <div class="classic-date-divider"><span>February 22, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">พี่ริววววว</div><span class="classic-msg-time">12:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">โหล ๆๆๆๆๆๆๆๆๆๆ</div><span class="classic-msg-time">12:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">อยู่ป่าว</div><span class="classic-msg-time">12:01</span></div></div></div>
+                <div class="classic-date-divider"><span>February 23, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ทำไมชอบอ่านไม่ตอบ</div><span class="classic-msg-time">12:15</span></div></div></div>
+                <div class="classic-date-divider"><span>April 2, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">เข้าเกม พี่จินรออยู่</div><span class="classic-msg-time">13:30</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">13:32</span></div><div class="classic-bubble sent-bubble">แปป</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">คับ</div><span class="classic-msg-time">13:32</span></div></div></div>
+                <div class="classic-date-divider"><span>June 17, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">พี่ริวชอบกินกล้วยไหม</div><span class="classic-msg-time">15:00</span></div></div></div>
+                <div class="classic-date-divider"><span>August 9, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">พี่ริวลองเข้าเซิร์ฟนี้หน่อย</div><span class="classic-msg-time">16:20</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ส่งให้แชทกลุ่ม</div><span class="classic-msg-time">16:20</span></div></div></div>
+                <div class="classic-date-divider"><span>October 7, 2026</span></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">17:00</span></div><div class="classic-bubble sent-bubble">พรุ่งนี้ไปซื้อการ์ดโปเกม่อนกับพี่</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ว้าว</div><span class="classic-msg-time">17:01</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ใจดี</div><span class="classic-msg-time">17:01</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">หลอกรึป่าว</div><span class="classic-msg-time">17:02</span></div></div></div>
 
                 <!-- Today -->
-                <div class="classic-date-divider"><span>Today</span></div>
-                <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
-                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">เฮ้ย ลงแรงค์กันป่ะ รออยู่เนี่ย 🎮</div><span class="classic-msg-time">19:10</span></div></div>
-                </div>
-                <div class="classic-msg-row received" id="louis-extra-2" style="display:none;">
-                    <div class="classic-msg-avatar"><img src="images/โปรไลน์หลุย.jpg" alt="หลุยส์"></div>
-                    <div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">เลือกตัวดีๆ นะเว้ย ตาที่แล้วแบกหลังหักละ 🙄</div><span class="classic-msg-time">19:11</span></div></div>
-                </div>
+                <div class="classic-date-divider"><span id="chat-today-date">Today</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">พี่ริวชอบกินกล้วยไหม</div><span class="classic-msg-time"id="louis-msg-1">19:08</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หยุลย์</span><div class="classic-bubble-wrap"><div class="classic-bubble">พี่ริวสอนออกกำลังกายหน่อย</div><span class="classic-msg-time"id="amy-msg-2">19:10</span></div></div></div>
             </div>
 
             <!-- Quick Reply หลุยส์ -->
             <div class="quick-reply-container" id="louis-quick-reply-bar">
                 <div class="quick-reply-vertical">
-                    <button class="quick-chip" onclick="sendLouisMessage('แปปนึง ขอเคลียร์ธุระแป๊บ เดี๋ยวตามไป!')">⏳ แปปนึง ขอเคลียร์ธุระก่อน</button>
-                    <button class="quick-chip" onclick="sendLouisMessage('จัดไป ตาหน้าขอเล่นตัวเมนนะ 🎯')">🎯 จัดไป ตาหน้าขอเล่นตัวเมน</button>
-                    <button class="quick-chip" onclick="sendLouisMessage('วันนี้ขอพัก ไม่ว่างไปเล่นด้วยว่ะเพื่อน')">💤 วันนี้ขอพัก ไม่ว่างว่ะ</button>
+                    <button class="quick-chip" onclick="sendLouisMessage('ถามทำไม')">ถามทำไม</button>
+                    <button class="quick-chip" onclick="sendLouisMessage('กวน')">กวน</button>
+                    <button class="quick-chip" onclick="sendLouisMessage('การ์ดพี่หายไปไหน')">การ์ดพี่หายไปไหน</button>
+                    <button class="quick-chip" onclick="sendLouisMessage('เข้าเกม')">เข้าเกม</button>
                 </div>
             </div>
 
-            <!-- 💬 แถบตัวเลือกข้อความสำเร็จรูปสไตล์ Liquid Glass แนวตั้ง -->
-            <div class="quick-reply-container" id="quick-reply-bar">
+            <div class="classic-input-bar">
+                <div class="bar-default-mode">
+                    <div class="classic-input-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="classic-input-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                    <div class="classic-input-box" onclick="toggleLouisQuickReplies()">
+                        <span class="placeholder-aa">พิมพ์ข้อความ..</span>
+                        <div class="emoji-icon-inside"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+                    </div>
+                    <div class="typing-right-send" onclick="toggleLouisQuickReplies()"><svg width="24" height="24" viewBox="0 0 24 24" fill="#007aff" stroke="#007aff" stroke-width="1"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= 13. หน้าจอห้องแชท (แชทที่ 4: อูจิน พร้อมระบบเลือกตอบ) ================= -->
+        <div id="ujin-chat-room-screen" class="screen line-classic-bg hidden">
+            <div class="ios-header" style="color: #000; background: #5c779c;">
+                <span class="time-status real-time">15:12</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span></div>
+                    <span class="network-type" style="color: #000;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#000" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#000"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#000"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="classic-chat-top-bar">
+                <div class="classic-back-area" onclick="closeUjinChatRoom()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                    <span class="classic-chat-title">อูจิน</span>
+                </div>
+                <div class="classic-chat-right-icons">
+                    <div class="classic-action-btn" ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                    <div class="classic-action-btn" ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
+                </div>
+            </div>
+
+            <div class="classic-messages-scroll" id="ujin-messages-container">
+                <div class="classic-date-divider"><span>March 26, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">พี่ริวไปไหนน</div><span class="classic-msg-time">11:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เข้า</div><span class="classic-msg-time">11:05</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เกม</div><span class="classic-msg-time">11:05</span></div></div></div>
+                
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">11:10</span></div><div class="classic-bubble sent-bubble">รอก่อน</div></div></div><div class="classic-date-divider"><span>May 4, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ฝาก</div><span class="classic-msg-time">11:05</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เล่นได้ลาบมาก<br>เล่นได้กากมาก<br>เล่นได้ไก่มาก<br>เล่นได้แบบว่า<br>โอ้โหสกปรกมาก<br>เป็นสไตล์การเล่นที่<br>แบบเมียงประ</div><span class="classic-msg-time">12:30</span></div></div></div>
+                <div class="classic-date-divider"><span>May 13, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ฝาก</div><span class="classic-msg-time">11:05</span></div></div></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl16.jpg" alt="Photo"></div><span class="classic-msg-time">14:12</span></div></div>
+                </div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl17.jpg" alt="Photo"></div><span class="classic-msg-time">14:12</span></div></div>
+                </div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl18.jpg" alt="Photo"></div><span class="classic-msg-time">14:12</span></div></div>
+                </div>
+                
+                
+                <div class="classic-date-divider"><span>July 19, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">พี่ริวผมยืมเสื้อได้ไหมอ่ะ</div><span class="classic-msg-time">14:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ตัวที่มันหล่อ ๆ อ่ะ</div><span class="classic-msg-time">14:00</span></div></div></div>
+                <div class="classic-date-divider"><span>July 20, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ฝ</div><span class="classic-msg-time">15:10</span></div></div></div>
+                <div class="classic-date-divider"><span>August 2, 2026</span></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/ล้อก5.jpg" alt="Photo"></div><span class="classic-msg-time">15:12</span></div></div>
+                </div>
+                <div class="classic-date-divider"><span>August 3, 2026</span></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">13:32</span></div><div class="classic-bubble sent-bubble">ฝากรูป ?</div></div></div>
+                <div class="classic-date-divider"><span>August 28, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ลาบมาก ลาบมาก ก้อยมาก ข้าวคั่ว ข้าวเม่า ข้าวเหนียว ข้าวจ้าว ข้าวสวย ข้าวสาลี ข้าวไรซ์เบอรี่ ข้าวเปลือก ข้าวเผือก ข้าวเน่า ข้าวบูด เฮ้อย์ จิ๊ เล่นได้แบบ ทรง เป็นสไตล์ทรง ทรงยังไงเหรอป๋าแวร์ จะเป็นสไนทรงโชว์พราวแต่ รรรรราบ ออก</div><span class="classic-msg-time">16:00</span></div></div></div>
+                <div class="classic-date-divider"><span>September 11, 2026</span></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl19.jpg" alt="Photo"></div><span class="classic-msg-time">16:05</span></div></div>
+                </div>
+
+                <!-- Today -->
+                <div class="classic-date-divider"><span>Today</span></div>
+                <div class="classic-msg-row received"id="ujin-extra-1" style="display:none;"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">วันนี้ไปไหน</div><span class="classic-msg-time">18:10</span></div></div></div>
+                <div class="classic-msg-row received"id="ujin-extra-2" style="display:none;"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ผมเท่ไหม</div><span class="classic-msg-time">18:12</span></div></div></div>
+                <div class="classic-msg-row received"id="ujin-extra-3" style="display:none;"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ขอความจริง</div><span class="classic-msg-time">18:12</span></div></div></div>
+            </div>
+
+            <!-- Quick Reply อูจิน -->
+            <div class="quick-reply-container" id="ujin-quick-reply-bar">
                 <div class="quick-reply-vertical">
-                    <button class="quick-chip" onclick="sendSpecificMessage('เค้าขอโทษนะคนดี เดี๋ยวรีบเคลียร์แล้วโทรหานะ 💖')">💖 ขอโทษน้า รีบเคลียร์อยู่</button>
-                    <button class="quick-chip" onclick="sendSpecificMessage('งือ อย่าเพิ่งงอนนะ เดี๋ยววันนี้พาไปกินชาบู 🥩')">🥩 พาไปกินชาบูปลอบใจ</button>
-                    <button class="quick-chip" onclick="sendSpecificMessage('รักมี่ที่สุดในโลกเลย สัญญาจะไม่หายไปไหนอีกแล้ว 🥺')">🥺 รักมี่ที่สุด สัญญาเลย</button>
-                    <button class="quick-chip" onclick="sendSpecificMessage('เดี๋ยวซื้อชานมไข่มุกไปฝากแก้วใหญ่เลยนะ 🧋')">🧋 ซื้อชานมไข่มุกให้</button>
+                    <button class="quick-chip" onclick="sendUjinMessage('อะไร')">อะไร</button>
+                    <button class="quick-chip" onclick="sendUjinMessage('อืม')">อืม</button>
+                    <button class="quick-chip" onclick="sendUjinMessage('นิดนึง')">นิดนึง</button>
+                    <button class="quick-chip" onclick="sendUjinMessage('น้อยกว่าพี่')">น้อยกว่าพี่</button>
                 </div>
             </div>
 
-            <!-- แถบพิมพ์ข้อความด้านล่าง -->
-            <div class="classic-input-bar" id="dynamic-input-bar">
-                <div class="bar-default-mode" id="bar-default-content">
-                    <div class="classic-input-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <div class="classic-input-bar">
+                <div class="bar-default-mode">
+                    <div class="classic-input-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="classic-input-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                    <div class="classic-input-box" onclick="toggleUjinQuickReplies()">
+                        <span class="placeholder-aa">พิมพ์ข้อความ..</span>
+                        <div class="emoji-icon-inside"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
                     </div>
-                    <div class="classic-input-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    <div class="typing-right-send" onclick="toggleUjinQuickReplies()"><svg width="24" height="24" viewBox="0 0 24 24" fill="#007aff" stroke="#007aff" stroke-width="1"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= 14. หน้าจอห้องแชท (แชทที่ 5: แม่ - อ่านได้อย่างเดียว) ================= -->
+        <div id="mom-chat-room-screen" class="screen line-classic-bg hidden">
+            <div class="ios-header" style="color: #000; background: #5c779c;">
+                <span class="time-status real-time">15:12</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span></div>
+                    <span class="network-type" style="color: #000;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#000" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#000"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#000"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="classic-chat-top-bar">
+            <div class="classic-back-area" onclick="closeMomChatRoom()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                <span class="classic-chat-title">แม่</span>
+            </div>
+            <div class="classic-chat-right-icons">
+                <div class="classic-action-btn" ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <div class="classic-action-btn" ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
+            </div>
+        </div>
+
+            
+            <div class="classic-messages-scroll" id="mom-messages-container">
+                <div class="classic-date-divider"><span>January 22, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">วันนี้กินข้าวกับอะไร</div><span class="classic-msg-time">12:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ดูแลตัวเองด้วยนะ</div><span class="classic-msg-time">12:00</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">12:05</span></div><div class="classic-bubble sent-bubble">ครับ แม่ก็เหมือนกันนะ</div></div></div>
+                <div class="classic-date-divider"><span>April 25, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">วันนี้แม่เอาพี่โคโค่มาเดินเล่น</div><span class="classic-msg-time">15:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">น้องริวทำอะไรอยู่</div><span class="classic-msg-time">15:00</span></div></div></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl20.jpg" alt="Photo"></div><span class="classic-msg-time">15:01</span></div></div>
+                </div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">15:05</span></div><div class="classic-bubble sent-bubble">กำลังจะไปรับเอมี่ครับ</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">จ้า ขับรถกันดี ๆ นะ หาอะไรกินด้วย</div><span class="classic-msg-time">15:06</span></div></div></div>
+                <div class="classic-msg-row sent">
+                    <div class="classic-msg-content sent-content">
+                        <div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">15:10</span></div>
+                        <div class="classic-photo-bubble sent-photo"><img src="images/cl22.jpg" alt="Photo"></div>
                     </div>
-                    <!-- คลิกที่ช่องพิมพ์เพื่อเปิด/ปิดเมนู Quick Reply -->
-                    <div class="classic-input-box" onclick="toggleQuickReplies()">
-                        <span class="placeholder-aa" id="input-display-text">เลือกข้อความง้อแฟน...</span>
-                        <div class="emoji-icon-inside">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                </div>
+                <div class="classic-date-divider"><span>May 27, 2026</span></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">18:00</span></div><div class="classic-bubble sent-bubble">แม่</div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">18:00</span></div><div class="classic-bubble sent-bubble">พรุ่งนี้กลับบ้านนะ</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">มาเลย</div><span class="classic-msg-time">18:02</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">จะทำอาหารไว้ให้เยอะ ๆ</div><span class="classic-msg-time">18:02</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">18:03</span></div><div class="classic-bubble sent-bubble">อาหารฝีมือแม่อร่อยที่สุดครับ</div></div></div>
+                <div class="classic-date-divider"><span>July 1, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">พักผ่อนบ้างนะลูก</div><span class="classic-msg-time">21:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">แม่รักลูกนะ</div><span class="classic-msg-time">21:00</span></div></div></div>
+                <div class="classic-date-divider"><span>August 14, 2026</span></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">21:15</span></div><div class="classic-bubble sent-bubble">อยากเห็นโคโค่</div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">21:15</span></div><div class="classic-bubble sent-bubble">มี่อยากดู</div></div></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl23.jpg" alt="Photo"></div><span class="classic-msg-time">21:16</span></div></div>
+                </div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">โคโค่บอกว่ามาเล่นด้วยกันไหม ?</div><span class="classic-msg-time">21:16</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">5555</div><span class="classic-msg-time">21:16</span></div></div></div>
+                <div class="classic-date-divider"><span>September 18, 2026</span></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">สุขสันต์วันเกิดจ้า</div><span class="classic-msg-time">00:42</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">น้องรยูล 20 ขวบแล้ว</div><span class="classic-msg-time">00:42</span></div></div></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl25.jpg" alt="Photo"></div><span class="classic-msg-time">00:43</span></div></div>
+                </div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">00:48</span></div><div class="classic-bubble sent-bubble">55555</div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">00:48</span></div><div class="classic-bubble sent-bubble">อะไรเนี่ยย</div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">00:49</span></div><div class="classic-bubble sent-bubble">แม่นอนดึกจัง</div></div></div>
+                <div class="classic-date-divider"><span>Yesterday</span></div>
+                <div class="classic-msg-row received">
+                    <div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div>
+                    <div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl26.jpg" alt="Photo"></div><span class="classic-msg-time">23:29</span></div></div>
+                </div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">นอนรึยัง</div><span class="classic-msg-time">23:30</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ดึกขนาดนี้ทำไมยังไม่นอน</div><span class="classic-msg-time">23:30</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">นอนดึกทุกคืน มัวคุยแต่กับน้องเอมี่รึป่าว แม่เห็นนะ</div><span class="classic-msg-time">23:31</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">23:32</span></div><div class="classic-bubble sent-bubble">ห๊า ป่าวนะ</div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">23:32</span></div><div class="classic-bubble sent-bubble">ริวทำงานส่งอาจาร์ยครับ</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">ใช่หรอ</div><span class="classic-msg-time">23:33</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">23:33</span></div><div class="classic-bubble sent-bubble">ครับ ดึกแล้วแม่ก็นอนได้แล้ว</div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">จ้า ๆ รีบนอนนะลูก ฝันดีจ้า</div><span class="classic-msg-time">23:34</span></div></div></div>
+                <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">23:34</span></div><div class="classic-bubble sent-bubble">ฝันดีครับ</div></div></div>
+            </div>
+            <div class="classic-input-bar">
+                <div class="bar-default-mode">
+                    <div class="classic-input-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                    <div class="classic-input-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                    <div class="classic-input-box" >
+                        <span class="placeholder-aa">พิมพ์ข้อความ..</span>
+                        <div class="emoji-icon-inside"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+                    </div>
+                    <div class="typing-right-send"><svg width="24" height="24" viewBox="0 0 24 24" fill="#007aff" stroke="#007aff" stroke-width="1"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= 15. หน้าจอแอป Instagram (Feed) ================= -->
+        <div id="instagram-app-screen" class="screen instagram-screen hidden">
+            <!-- iOS Status Bar -->
+            <div class="ios-header" style="color: #fff; background: #000; flex-shrink: 0;">
+                <span class="time-status real-time">19:54</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span></div>
+                    <span class="network-type" style="color: #fff;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#fff" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#fff"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#fff"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- IG Top Header -->
+            <div class="ig-top-header">
+                <div onclick="closeInstagramApp()" class="ig-back-btn">‹</div>
+                <div class="ig-heart-icon-wrap">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span class="ig-heart-badge"></span>
+                </div>
+            </div>
+
+            <!-- IG Feed Content -->
+            <div style="flex: 1; overflow-y: auto; padding-bottom: 90px; background: #000; scrollbar-width: none;">
+                <!-- Stories Bar -->
+                <div class="ig-stories-bar">
+                    <!-- Your Story (ริว) -->
+                    <div class="ig-story-item" onclick="openStory('ryoul')">
+                        <div class="ig-story-ring-your" id="ring-ryoul">
+                            <div class="ig-story-avatar-inner">
+                                <img src="images/โปรล้อก.jpg" alt="Story">
+                            </div>
+                            <div class="ig-story-plus-badge">+</div>
                         </div>
+                        <span class="ig-story-label">Your story</span>
                     </div>
-                    <!-- คลิกที่ปุ่มส่งสีฟ้าเพื่อเปิด/ปิดเมนู Quick Reply เช่นกัน -->
-                    <div class="typing-right-send" onclick="toggleQuickReplies()">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#007aff" stroke="#007aff" stroke-width="1"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+
+                    <!-- เอมี่ (Close Friends) -->
+                    <div class="ig-story-item" onclick="openStory('amy')">
+                        <div class="ig-story-ring-cf" id="ring-amy">
+                            <div class="ig-story-avatar-inner">
+                                <img src="images/pl-m.jpg" alt="Story">
+                            </div>
+                        </div>
+                        <span class="ig-story-label">aipitchyy</span>
+                    </div>
+
+                    <!-- อูจิน -->
+                    <div class="ig-story-item" onclick="openStory('ujin')">
+                        <div class="ig-story-ring-gradient" id="ring-ujin">
+                            <div class="ig-story-avatar-inner">
+                                <img src="images/pl-w.jpg" alt="Story">
+                            </div>
+                        </div>
+                        <span class="ig-story-label">ujin_w</span>
+                    </div>
+
+                    <!-- หลุยส์ -->
+                    <div class="ig-story-item" onclick="openStory('louis')">
+                        <div class="ig-story-ring-gradient" id="ring-louis">
+                            <div class="ig-story-avatar-inner">
+                                <img src="images/pl-l.jpg" alt="Story">
+                            </div>
+                        </div>
+                        <span class="ig-story-label">louis_l</span>
+                    </div>
+                </div>
+
+                <!-- 1. โพสต์ที่ 1 -->
+                <div class="ig-post-container">
+                    <div class="ig-post-header">
+                        <div class="ig-post-user">
+                            <img src="images/โปรล้อก.jpg" class="ig-post-avatar" alt="Avatar">
+                            <span style="font-size: 13px; font-weight: 600; color: #fff;">ryoul_14</span>
+                        </div>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/><circle cx="5" cy="12" r="1.2"/></svg>
+                    </div>
+                    <div class="ig-post-media">
+                        <img src="images/ล็อกเก็ต.jpg" alt="Post 1">
+                    </div>
+                    <div class="ig-post-actions-area" style="padding: 10px 12px 0 12px; color: #fff;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <div style="display: flex; gap: 16px; align-items: center;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                            </div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">1,428 likes</div>
+                        <div style="font-size: 13px; margin-bottom: 4px;"><span style="font-weight: 600; margin-right: 6px;">ryoul_14</span>วันหยุดสุดชิล ✌️✨</div>
+                        <div style="font-size: 12px; color: #a8a8a8; margin-bottom: 4px;">View all 12 comments</div>
+                        <div style="font-size: 13px;"><span style="font-weight: 600; margin-right: 6px;">aipitchyy</span>ถ่ายรูปสวยยย 🤍</div>
+                    </div>
+                </div>
+
+                <!-- 2. โพสต์ที่ 2 -->
+                <div class="ig-post-container">
+                    <div class="ig-post-header">
+                        <div class="ig-post-user">
+                            <img src="images/pl-m.jpg" class="ig-post-avatar" alt="Avatar">
+                            <span style="font-size: 13px; font-weight: 600; color: #fff;">aipitchyy</span>
+                        </div>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/><circle cx="5" cy="12" r="1.2"/></svg>
+                    </div>
+                    <div class="ig-post-media">
+                        <img src="images/pl-m.jpg" alt="Post 2">
+                    </div>
+                    <div class="ig-post-actions-area" style="padding: 10px 12px 0 12px; color: #fff;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <div style="display: flex; gap: 16px; align-items: center;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                            </div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">892 likes</div>
+                        <div style="font-size: 13px; margin-bottom: 4px;"><span style="font-weight: 600; margin-right: 6px;">aipitchyy</span>Café hopper ☕️🍰</div>
+                        <div style="font-size: 12px; color: #a8a8a8; margin-bottom: 4px;">View all 5 comments</div>
+                        <div style="font-size: 13px;"><span style="font-weight: 600; margin-right: 6px;">ryoul_14</span>อร่อยป่ะเนี่ยย</div>
                     </div>
                 </div>
             </div>
-            <div class="home-indicator" style="background: black; margin: 4px auto 8px auto;"></div>
+
+            <!-- IG Bottom Navigation -->
+            <div class="ig-liquid-bottom-nav">
+                <div id="nav-home" onclick="switchScreen('instagram-app-screen'); updateIgNav('home');" style="cursor: pointer;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2v-9.5z" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div id="nav-dm" onclick="switchScreen('instagram-dm-screen'); updateIgNav('dm');" style="cursor: pointer; opacity: 0.5;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 2L11 13" stroke-linecap="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div id="nav-profile" onclick="switchScreen('instagram-profile-screen'); updateIgNav('profile');" style="cursor: pointer; opacity: 0.5;">
+                    <div class="ig-nav-profile-avatar">
+                        <img src="images/โปรล้อก.jpg" alt="Profile">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= หน้าจอแอป Instagram DM (ปรับดีไซน์ตามเรฟ) ================= -->
+        <div id="instagram-dm-screen" class="screen instagram-screen hidden" style="background: #000; display: flex; flex-direction: column; height: 100%; position: absolute; top: 0; left: 0; width: 100%; z-index: 30; box-sizing: border-box;">
+            <!-- iOS Status Bar -->
+            <div class="ios-header" style="color: #fff; background: #000; flex-shrink: 0;">
+                <span class="time-status real-time">19:54</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span></div>
+                    <span class="network-type" style="color: #fff;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#fff" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#fff"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#fff"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- DM Top Header (ตามเรฟ: ปุ่มกลับซ้าย, ชื่อแอคกลาง + ลูกศร + จุดแดง, ปุ่มดินสอขวา) -->
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; color: #fff; background: #000; flex-shrink: 0;">
+                <div onclick="switchScreen('instagram-app-screen'); updateIgNav('home');" style="font-size: 28px; cursor: pointer; line-height: 1; padding-right: 8px;">‹</div>
+                <div style="display: flex; align-items: center; gap: 4px; font-size: 16px; font-weight: 700; cursor: pointer;">
+                    <span>prodbyh0nglyshit</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 2px;"><polyline points="6 9 12 15 18 9"/></svg>
+                    <span style="width: 7px; height: 7px; background: #ff3b30; border-radius: 50%; display: inline-block; margin-left: 2px;"></span>
+                </div>
+                <div style="cursor: pointer; display: flex; align-items: center;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+            </div>
+
+            <!-- DM Scrollable Content -->
+            <div style="flex: 1; overflow-y: auto; background: #000; color: #fff; scrollbar-width: none; padding-bottom: 90px;">
+                
+                <!-- Search or ask Meta AI Bar -->
+                <div style="padding: 6px 16px 12px 16px;">
+                    <div style="background: #262626; border-radius: 22px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; color: #8e8e93; font-size: 14px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <span>Search or ask Meta AI</span>
+                    </div>
+                </div>
+
+                <!-- Notes Row (ปรับกรอบพื้นหลังบอลลูนให้พอดีกับข้อความ ไม่ยาวเกินไป) -->
+                <div style="display: flex; justify-content: flex-start; gap: 24px; padding: 16px 12px 16px 16px; overflow-x: auto; scrollbar-width: none; align-items: flex-end;">
+                    
+                    <!-- 1. ตัวเรา (ryoul_14) -->
+                    <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer; flex-shrink: 0; width: 68px;">
+                        <div style="position: relative; display: flex; flex-direction: column; align-items: center; margin-top: 36px;">
+                            <!-- บอลลูนเพลงปรับขนาดความกว้างพอดีข้อความ (width: max-content) -->
+                            <div style="position: absolute; bottom: 64px; left: 50%; transform: translateX(-50%); background: #262626; color: #fff; padding: 5px 10px; border-radius: 14px; font-size: 10px; white-space: nowrap; border: 0.5px solid #363636; display: flex; flex-direction: column; gap: 1px; width: max-content; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 10; text-align: center;">
+                                <span style="font-weight: 600; white-space: nowrap;">।|। Gen Z Luv</span>
+                                <span style="font-size: 8px; color: #a8a8a8; white-space: nowrap;">Central Cee</span>
+                            </div>
+                            <!-- รูปโปรไฟล์ -->
+                            <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; flex-shrink: 0;">
+                                <img src="images/โปรล้อก.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="My Note">
+                            </div>
+                        </div>
+                        <span style="font-size: 11px; color: #a8a8a8; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; margin-top: 6px;">Your note</span>
+                    </div>
+
+                    <!-- 2. เอมี่ (aipitchyy) -->
+                    <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer; flex-shrink: 0; width: 68px;">
+                        <div style="position: relative; display: flex; flex-direction: column; align-items: center; margin-top: 36px;">
+                            <div style="position: absolute; bottom: 64px; left: 50%; transform: translateX(-50%); background: #262626; color: #fff; padding: 6px 10px; border-radius: 16px; font-size: 11px; white-space: nowrap; width: max-content; border: 0.5px solid #363636; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 10;">
+                                คิดถึงจังเลย 🤍
+                            </div>
+                            <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; flex-shrink: 0;">
+                                <img src="images/pl-m.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Amy Note">
+                            </div>
+                        </div>
+                        <span style="font-size: 11px; color: #fff; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; margin-top: 6px;">aipitchyy</span>
+                    </div>
+
+                    <!-- 3. อูจิน (ujin_w) -->
+                    <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer; flex-shrink: 0; width: 68px;">
+                        <div style="position: relative; display: flex; flex-direction: column; align-items: center; margin-top: 36px;">
+                            <div style="position: absolute; bottom: 64px; left: 50%; transform: translateX(-50%); background: #262626; color: #fff; padding: 6px 10px; border-radius: 16px; font-size: 11px; white-space: nowrap; width: max-content; border: 0.5px solid #363636; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 10;">
+                                ฟริน 🧋
+                            </div>
+                            <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; flex-shrink: 0;">
+                                <img src="images/pl-w.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Ujin Note">
+                            </div>
+                        </div>
+                        <span style="font-size: 11px; color: #fff; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; margin-top: 6px;">ujin_w</span>
+                    </div>
+
+                </div>
+
+                <!-- Messages Header & Requests -->
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 16px 12px 16px;">
+                    <span style="font-size: 16px; font-weight: 700; color: #fff;">Messages</span>
+                    <span style="font-size: 14px; color: #0095f6; font-weight: 600; cursor: pointer;">Requests</span>
+                </div>
+
+                <!-- Chat List Rows -->
+                <!-- 1. เอมี่ (aipitchyy) -->
+                <div style="display: flex; align-items: center; padding: 10px 16px; gap: 12px; cursor: pointer;" onclick="switchScreen('line-app-screen')">
+                    <img src="images/pl-m.jpg" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover;" alt="Avatar">
+                    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <div style="display: flex; align-items: center; gap: 4px;">
+                            <span style="font-size: 14px; font-weight: 600; color: #fff;">aipitchyy</span>
+                            <span style="font-size: 12px;">📌</span>
+                        </div>
+                        <span style="font-size: 13px; color: #a8a8a8; margin-top: 2px;">sent a reel by ryoul_14 · 9h</span>
+                    </div>
+                    <span style="width: 8px; height: 8px; background: #0095f6; border-radius: 50%;"></span>
+                </div>
+
+                <!-- 2. อูจิน (ujin_w) -->
+                <div style="display: flex; align-items: center; padding: 10px 16px; gap: 12px; cursor: pointer;">
+                    <img src="images/pl-w.jpg" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover;" alt="Avatar">
+                    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <span style="font-size: 14px; font-weight: 600; color: #fff;">ujin_w</span>
+                        <span style="font-size: 13px; color: #a8a8a8; margin-top: 2px;">Sent a photo. · 3d</span>
+                    </div>
+                </div>
+
+                <!-- 3. หลุยส์ (louis_l) -->
+                <div style="display: flex; align-items: center; padding: 10px 16px; gap: 12px; cursor: pointer;">
+                    <img src="images/pl-l.jpg" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover;" alt="Avatar">
+                    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <span style="font-size: 14px; font-weight: 600; color: #fff;">louis_l</span>
+                        <span style="font-size: 13px; color: #a8a8a8; margin-top: 2px;">Liked a message. · 1w</span>
+                    </div>
+                </div>
+
+                <!-- 4. แม่ (Mom) -->
+                <div style="display: flex; align-items: center; padding: 10px 16px; gap: 12px; cursor: pointer;">
+                    <img src="images/pl-mm.jpg" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover;" alt="Avatar">
+                    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <span style="font-size: 14px; font-weight: 600; color: #fff;">Meena3</span>
+                        <span style="font-size: 13px; color: #a8a8a8; margin-top: 2px;">ของกูอย่างปล่อย · 3w</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- แถบเมนูด้านล่าง Liquid Glass คงเดิม -->
+            <div class="ig-liquid-bottom-nav">
+                <div id="nav-home" onclick="switchScreen('instagram-app-screen'); updateIgNav('home');" style="cursor: pointer; opacity: 0.5;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2v-9.5z" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div id="nav-dm" onclick="switchScreen('instagram-dm-screen'); updateIgNav('dm');" style="cursor: pointer; opacity: 1;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 2L11 13" stroke-linecap="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div id="nav-profile" onclick="switchScreen('instagram-profile-screen'); updateIgNav('profile');" style="cursor: pointer; opacity: 0.5;">
+                    <div class="ig-nav-profile-avatar">
+                        <img src="images/โปรล้อก.jpg" alt="Profile">
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
