@@ -44,7 +44,7 @@ body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
 }
 
 .hidden {
@@ -130,7 +130,7 @@ body {
 
 /* 1. หน้าจอล็อก */
 .lock-bg {
-    background: url('images/หน้าจอล็อก.jpg') center/cover;
+    background: url('https://i.pinimg.com/736x/d2/92/93/d292938a5efc5e2df537fd780b23a73a.jpg') center/cover;
     color: white;
     text-align: center;
 }
@@ -151,12 +151,16 @@ body {
 }
 
 .lock-time {
-    font-size: 78px;
-    font-weight: 700 !important;
-    letter-spacing: -2px !important;
+    font-size: 85px;
+    font-weight: 400 !important; /* ปรับน้ำหนักให้บางลงเพื่อให้ดูโปร่งและโมเดิร์นขึ้น */
+    letter-spacing: -3px !important; /* บีบระยะห่างให้ตัวเลขชิดกัน */
     line-height: 1.02;
     margin-top: 2px;
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", ; /* เปลี่ยนมาใช้ฟอนต์สไตล์ iOS */
+    transform: scaleY(1.35); /* เพิ่มเอฟเฟกต์ยืดตัวเลขให้สูงยาวขึ้น */
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.95); /* ทำสีให้มีความละมุนกลืนกับวอลเปเปอร์ */
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* ใส่เงาจางๆ ให้ตัวเลขดูลอยเด่นขึ้นมา */
 }
 
 .lock-footer {
@@ -187,12 +191,23 @@ body {
     background: rgba(160, 160, 160, 0.6);
 }
 
-.swipe-area {
+.tap-to-unlock-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 1;
     cursor: pointer;
+    justify-content: flex-end; /* จัดให้อยู่ด้านล่างเหมือนเดิม */
+    padding-bottom: 20px;
+}
+
+.unlock-text {
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    font-size: 14px;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    font-weight: 400;
 }
 
 .home-indicator {
@@ -214,7 +229,7 @@ body {
 /* 2. หน้าใส่รหัสผ่าน */
 .passcode-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
-                url('images/หน้าจอล็อก.jpg') center/cover;
+                url('https://i.pinimg.com/736x/d2/92/93/d292938a5efc5e2df537fd780b23a73a.jpg') center/cover;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     color: white;
@@ -292,7 +307,7 @@ body {
 /* 3. หน้าจอหลัก */
 .home-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), 
-                url('images/หน้าจอล็อก.jpg') center/cover;
+                url('https://i.pinimg.com/736x/99/c6/75/99c675672b957a0110250d5b4919da89.jpg') center/cover;
     color: white;
 }
 
@@ -440,16 +455,13 @@ body {
 
 /* ไอคอนแอปทั่วไปบนหน้า Home */
 .app-icon {
-    grid-column: span 1 !important;
-    background: transparent !important;
-    width: 65px;
-    height: 78px;
+    position: relative; /* สำคัญ: ต้องเป็น relative เพื่อให้ป้ายแดงอ้างอิงตำแหน่งจากกรอบนี้ */
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
-    transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.15s ease;
 }
+
+
 
 .app-icon:active {
     transform: scale(0.88);
@@ -1870,6 +1882,7 @@ body {
     border-bottom: 0.5px solid #262626;
     align-items: center;
     scrollbar-width: none;
+    flex-shrink: 0;
 }
 
 .ig-story-item {
@@ -1956,6 +1969,14 @@ body {
     letter-spacing: -0.2px;
 }
 
+/* พื้นที่เลื่อนฟีด Instagram */
+.ig-feed-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 90px; /* เว้นระยะด้านล่างไม่ให้โดนแถบลอยบังโพสต์สุดท้าย */
+    box-sizing: border-box;
+}
+
 .ig-post-container {
     width: 100% !important;
     max-width: 100% !important;
@@ -1992,7 +2013,6 @@ body {
 
 .ig-post-media {
     width: 100% !important;
-    width: 100vw;
     max-width: 100% !important;
     aspect-ratio: 1 / 1 !important; /* บังคับสัดส่วน 1:1 จัตุรัสเป๊ะๆ */
     background: #000 !important;
@@ -2081,24 +2101,31 @@ body {
     font-size: 13px;
 }
 
-/* ================= ปรับแต่งแถบ Liquid Glass ให้ตรงเป๊ะ และรูปโปรไฟล์เข้มชัดเต็มที่ ================= */
+/* ================= ปรับแต่งแถบ Liquid Glass ให้แสดงเฉพาะในหน้าแอป Instagram เท่านั้น ================= */
 .ig-liquid-bottom-nav {
+    display: none !important; /* ซ่อนเป็นค่าเริ่มต้นในทุกหน้า */
+}
+
+/* ปรับแต่งแถบ Liquid Glass ให้แสดงและคลิกได้ปกติทุกปุ่ม */
+#instagram-app-screen.screen:not(.hidden) .ig-liquid-bottom-nav,
+#instagram-dm-screen.screen:not(.hidden) .ig-liquid-bottom-nav,
+#instagram-profile-screen.screen:not(.hidden) .ig-liquid-bottom-nav {
+    display: flex !important;
     position: absolute !important;
-    bottom: 20px !important;
+    bottom: 16px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: 65% !important;
-    background: rgba(30, 30, 30, 0.45) !important;
+    background: rgba(30, 30, 30, 0.65) !important;
     backdrop-filter: blur(25px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
     border-radius: 35px !important;
-    display: flex !important;
     justify-content: space-around !important;
     align-items: center !important;
     padding: 8px 16px !important;
     border: 0.5px solid rgba(255, 255, 255, 0.22) !important;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 0.5px rgba(255, 255, 255, 0.15) !important;
-    z-index: 40 !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    z-index: 120 !important; /* ตั้งค่า z-index ให้สูงกว่าเลเยอร์อื่นๆ เพื่อไม่ให้ถูกบัง */
 }
 
 /* บังคับให้ปุ่มทุกอันในแถบจัดกึ่งกลางและมีขนาดเท่ากันเพื่อแก้ปัญหาเอียง */
@@ -2111,7 +2138,7 @@ body {
     width: 40px !important;
     height: 40px !important;
     cursor: pointer !important;
-    opacity: 1 !important; /* ป้องกันไม่ให้ไอคอนจาง */
+    opacity: 1 !important;
 }
 
 /* ควบคุมขนาดและจัดกึ่งกลาง SVG ไอคอน */
@@ -2123,19 +2150,19 @@ body {
     margin: auto !important;
 }
 
-/* ทำให้รูปโปรไฟล์เข้มชัดเต็ม 100% ไม่มีความจาง และขอบขาวคมชัด */
+/* ทำให้รูปโปรไฟล์เข้มชัดเต็ม 100% และขอบขาวคมชัด */
 .ig-liquid-bottom-nav .ig-nav-profile-avatar {
     width: 26px !important;
     height: 26px !important;
     border-radius: 50% !important;
     overflow: hidden !important;
-    border: 1.8px solid #ffffff !important; /* ขอบขาวหนาคมชัด */
+    border: 1.8px solid #ffffff !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     padding: 0 !important;
     background: #000 !important;
-    opacity: 1 !important; /* บังคับให้ไม่จาง */
+    opacity: 1 !important;
 }
 
 .ig-liquid-bottom-nav .ig-nav-profile-avatar img {
@@ -2143,7 +2170,7 @@ body {
     height: 100% !important;
     object-fit: cover !important;
     display: block !important;
-    opacity: 1 !important; /* บังคับรูปด้านในให้เข้มชัดเต็มที่ */
+    opacity: 1 !important;
 }
 
 .ig-nav-profile-avatar {
@@ -2163,3 +2190,27 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
+/* ปรับแต่งไอคอนใน Dock ให้เต็มกรอบและขนาดใหญ่ขึ้น */
+.iphone-dock .app-icon {
+    width: 60px !important;  /* ขยายขนาดความกว้าง */
+    height: 60px !important; /* ขยายขนาดความสูง */
+}
+
+.iphone-dock .app-icon div {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 16px !important; /* ปรับความโค้งให้มนสวยสไตล์ iOS */
+    overflow: hidden;
+}
+
+.iphone-dock .app-icon img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill !important; /* บังคับให้รูปขยายเต็มพื้นที่พอดีกรอบ ไม่โดนตัดขอบหรือเอียง */
+}
+
+#home-screen .home-indicator {
+    display: none;
+}
+

@@ -42,10 +42,12 @@
                     </svg>
                 </div>
                 
-                <div class="swipe-area" id="swipe-unlock" onmousedown="startDrag(event)" ontouchstart="startDrag(event)">
-                    <span class="swipe-text">Swipe up to unlock</span>
-                    <div class="home-indicator"></div>
-                </div>
+                <div class="lock-screen-container" style="cursor: pointer;" onclick="unlockPhone()">
+    <div class="tap-to-unlock-container">
+        <div class="unlock-text">Tap to unlock</div>
+        <div class="home-indicator" style="background: white;"></div>
+    </div>
+</div>
 
                 <div class="shortcut-btn" >
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="white">
@@ -123,10 +125,10 @@
                     <!-- 1. Widget Locket -->
                     <div class="ios-widget medium-widget" onclick="openApp('locket')">
                         <div class="widget-content">
-                            <img src="images/ล็อกเก็ต.jpg" alt="Locket Idol">
+                            <img src="https://i.pinimg.com/736x/a1/0a/88/a10a8889643d94c1a79955da9cb32249.jpg" alt="Locket Idol">
                             <div class="widget-badge">5</div>
                             <div class="widget-avatar">
-                                <img src="images/โปรล้อก.jpg" alt="Avatar">
+                                <img src="https://i.pinimg.com/736x/36/4c/dd/364cddafcb23d48f6ddc0af715a0070a.jpg" alt="Avatar">
                             </div>
                         </div>
                         <span class="app-label">Locket</span>
@@ -153,7 +155,7 @@
 
                     <!-- 3. Photos -->
                     <div class="app-icon" onclick="openApp('photos')">
-                        <img src="images/แอพโฟโต้.png" alt="Photos">
+                        <img src="https://i.pinimg.com/1200x/ff/4b/5c/ff4b5cf28a529d38f2b29a183b2ce2ad.jpg" alt="Photos">
                         <span>Photos</span>
                     </div>
 
@@ -200,7 +202,7 @@
 
                     <!-- 7. Minecraft -->
                     <div class="app-icon">
-                        <img src="images/แอพมายคราฟ.png" alt="Minecraft">
+                        <img src="https://i.pinimg.com/736x/10/a5/4e/10a54e4fd7a918a42be924913eb30ae5.jpg" alt="Minecraft">
                         <span>Minecraft</span>
                     </div>
 
@@ -216,17 +218,50 @@
                         <span>LINE</span>
                     </div>
 
-                    <!-- 10. Instagram -->
-                    <div class="app-icon" onclick="openApp('Instagram')">
+                    <!-- 10.แอพไอจี (ประมาณไอคอนที่ 10) -->
+                    <div class="app-icon" onclick="openApp('instagram')">
                         <img src="images/i-i.webp" alt="Instagram">
                         <span>Instagram</span>
                     </div>
 
+                </div> <!-- ปิด .ios-app-grid -->
+            </div> <!-- ปิด .home-scroll-area -->
+
+            <!-- ================= DOCK BAR (วางไว้ตรงนี้เพื่อไม่ให้ซ้อนทับและกดได้แน่นอน) ================= -->
+            <div class="iphone-dock" style="position: absolute; bottom: 16px; left: 16px; right: 16px; background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 32px; padding: 10px 12px; display: flex; justify-content: space-around; align-items: center; z-index: 999;">
+                
+                <!-- 1. แอปโทรศัพท์ (Phone) -->
+                <div class="app-icon" onclick="openApp('phone')" style="width: 56px; height: 56px; text-align: center; cursor: pointer; margin: 0;">
+                    <div style="width: 56px; height: 56px; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                        <img src="https://ipcdn-web.apple.com/assets/v2/web/ac529dac-5570-49f2-8e5c-7af29a544479" alt="Phone" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                 </div>
+
+                <!-- 2. แอปข้อความ (Messages) -->
+                <div class="app-icon" style="width: 56px; height: 56px; text-align: center; cursor: pointer; margin: 0;">
+                    <div style="width: 56px; height: 56px; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ7U9g_2PHe3-vl6_QY176QzuaN8Nn_UZN3bgP2pNTjwy5AOmImSnT_tp1&s=10" alt="Messages" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+
+                <!-- 3. แอปซาฟารี (Safari) -->
+                <div class="app-icon" onclick="openApp('safari')" style="width: 56px; height: 56px; text-align: center; cursor: pointer; margin: 0;">
+                    <div style="width: 56px; height: 56px; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                        <img src="https://i.pinimg.com/736x/ea/11/9f/ea119fcd8e30fd2277cfa733f5d4bb2b.jpg" alt="Safari" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+
+                <!-- 4. แอปกล้อง (Camera) -->
+                <div class="app-icon" style="width: 56px; height: 56px; text-align: center; cursor: pointer; margin: 0;">
+                    <div style="width: 56px; height: 56px; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                        <img src="https://preview.redd.it/shitty-uninteresting-theory-the-current-camera-icon-in-ios-v0-lrygldbqfg3h1.jpeg?width=1000&format=pjpg&auto=webp&s=adc5e95dad2df47d8f3371fb1801d3c4985949a5" alt="Camera" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+
             </div>
 
             <div class="home-indicator" style="margin: auto auto 15px auto; background: white;"></div>
-        </div>
+        </div> <!-- ปิดหน้า home-screen -->
             
         <!-- ================= 4. หน้าจอแอป Locket ================= -->
         <div id="locket-app-screen" class="screen locket-bg hidden">
@@ -248,13 +283,13 @@
                 <div class="back-btn-ios" onclick="closeLocketApp()">‹</div>
                 <div class="locket-dropdown">Everyone ▾</div>
                 <div class="locket-profile" onclick="closeLocketApp()">
-                    <img src="images/โปรล้อก-รยูล.jpg" alt="Profile">
+                    <img src="https://i.pinimg.com/736x/bb/df/27/bbdf274b8fae4955d72aef73af2a58d0.jpg" alt="Profile">
                 </div>
             </div>
 
             <div class="locket-feed-scroll">
                 <div class="locket-photo-grid">
-                    <div class="locket-photo-card"><img src="https://i.pinimg.com/736x/23/b9/62/23b962d8ca9bfe7fa7751cd68599638c.jpg" alt="Post"></div>
+                    <div class="locket-photo-card"><img src="https://i.pinimg.com/736x/a6/86/34/a68634d699a9552362bb963bcce6a692.jpg" alt="Post"></div>
                     <div class="locket-photo-card"><img src="images/ล้อก2.jpg" alt="Post"></div>
                     <div class="locket-photo-card"><img src="images/ล้อก3.jpg" alt="Post"></div>
                     <div class="locket-photo-card"><img src="images/ล็อก4.jpg" alt="Post"></div>
@@ -309,55 +344,55 @@
                     
                     <div class="photo-section-header"><span class="section-title">Sep 2026</span></div>
                     <div class="photos-grid">
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ1-1.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ2.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ3.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ4.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ5.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ6.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ7.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ8.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="https://i.pinimg.com/1200x/5a/2b/be/5a2bbe0782469d38d8f64a5a5be830ac.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ2.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ3.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ4.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ5.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ6.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ7.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ8.jpg" alt="Photo"></div>
                     </div>
 
                     <div class="photo-section-header"><span class="section-title">Apr 2026</span></div>
                     <div class="photos-grid">
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ9.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ10.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ11.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ12.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ13-1.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ9.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ10.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ11.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ12.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ13-1.jpg" alt="Photo"></div>
                     </div>
 
                     <div class="photo-section-header"><span class="section-title">Jan 2026</span></div>
                     <div class="photos-grid">
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ14.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ15.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ16-1.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ17.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ18.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ19.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ20.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ21.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ14.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ15.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ16-1.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ17.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ18.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ19.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ20.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ21.jpg" alt="Photo"></div>
                     </div>
 
                     <div class="photo-section-header"><span class="section-title">2025</span></div>
                     <div class="photos-grid">
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ22.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ23.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ24.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ22.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ23.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ24.jpg" alt="Photo"></div>
                     </div>
 
                     <div class="photo-section-header"><span class="section-title">Earlier</span></div>
                     <div class="photos-grid" style="padding-bottom: 20px;">
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ33.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ32.png" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ31.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ30.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ29.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ28.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ27.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ26.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/โฟ25.png" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ33.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ32.png" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ31.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ30.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ29.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ28.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ27.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ26.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/โฟ25.png" alt="Photo"></div>
                     </div>
                 </div>
             </div>
@@ -386,27 +421,27 @@
                 </div>
                 <div class="photos-feed-scroll" style="padding-top: 10px;">
                     <div class="photos-grid">
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/ล้อก2.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/34.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/35.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/36-2.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/37.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/38.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/40.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/40-2.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/42.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/42-2.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/43.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/44.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/45.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/46.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/47.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/48.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/49.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/50-2.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/51.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/52.jpg" alt="Photo"></div>
-                        <div class="photo-item" onclick="openPhotoViewer(this)"><img src="images/53-2.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/34.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/35.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/36-2.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/37.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/38.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/40.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/40-2.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/42.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/42-2.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/43.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/44.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/45.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/46.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/47.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/48.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/49.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/50-2.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/51.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/52.jpg" alt="Photo"></div>
+                        <div class="photo-item" ><img src="images/53-2.jpg" alt="Photo"></div>
                     </div>
                 </div>
             </div>
@@ -427,31 +462,41 @@
             <div class="home-indicator" style="margin: 4px auto 8px auto; background: black; cursor: pointer;" onclick="closePhotosApp()"></div>
         </div>
 
-        <!-- ================= 6. หน้าจอแสดงรูปภาพแบบเต็มจอ ================= -->
-        <div id="photo-viewer-screen" class="screen photo-viewer-bg hidden">
-            <div class="ios-header" style="background: rgba(0,0,0,0.4); backdrop-filter: blur(10px);">
-                <span class="time-status real-time">00:54</span>
-                <div class="dynamic-island"><div class="camera-dot"></div></div>
-                <div class="status-icons">
-                    <div class="signal-bars"><span></span><span></span><span></span><span></span></div>
-                    <span class="network-type">5G</span>
-                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
-                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="white" stroke-width="1.1" opacity="0.45"/>
-                        <rect x="2" y="2" width="15" height="8" rx="2" fill="white"/>
-                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="white" opacity="0.45"/>
-                    </svg>
+        <!-- ================= 6. หน้าจอแสดงรูปภาพพร้อม Top Header สีดำตรึงอยู่กับที่ (Fixed) ================= -->
+        <div id="photo-viewer-screen" class="screen photo-viewer-bg hidden" style="background: #000; display: flex; flex-direction: column; justify-content: space-between; position: absolute; inset: 0; z-index: 1000;">
+            
+            <!-- แถบด้านบนสีดำตรึงติดด้านบนสุด (รวม Status Bar + ปุ่มย้อนกลับ) เลื่อนแล้วไม่หาย -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; z-index: 40; background: #000; display: flex; flex-direction: column;">
+                <!-- iOS Status Bar -->
+                <div class="ios-header" style="color: #fff; background: #000; flex-shrink: 0; position: static; width: 100%;">
+                    <span class="time-status real-time">19:54</span>
+                    <div class="dynamic-island"><div class="camera-dot"></div></div>
+                    <div class="status-icons" style="color: #fff;">
+                        <div class="signal-bars"><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span></div>
+                        <span class="network-type" style="color: #fff;">5G</span>
+                        <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                            <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#fff" stroke-width="1.1"/>
+                            <rect x="2" y="2" width="15" height="8" rx="2" fill="#fff"/>
+                            <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#fff"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- แถบวางปุ่มย้อนกลับ (มีพื้นหลังสีดำต่อกันลงมาอย่างกลมกลืน) -->
+                <div style="display: flex; align-items: center; padding: 10px 16px 12px 16px; background: #000;">
+                    <div style="display: flex; align-items: center; justify-content: center; background: rgba(30, 30, 30, 0.8); border: 0.5px solid rgba(255, 255, 255, 0.15); width: 36px; height: 36px; border-radius: 50%; color: #fff; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.5);" onclick="closePhotoViewer()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    </div>
                 </div>
             </div>
 
-            <div class="viewer-top-bar">
-                <div class="back-btn-ios" onclick="closePhotoViewer()">‹</div>
+            <!-- ฟีดรูปภาพ: ปรับ padding-top ให้หลบแถบ Header ด้านบนที่ถูกตรึงไว้ (ประมาณ 125px) -->
+            <div id="photo-feed-container" style="flex: 1; overflow-y: auto; background: #000; color: #fff; padding-top: 125px; padding-bottom: 30px; scrollbar-width: none;">
+                <!-- รายละเอียดโพสต์จะถูกเติมอัตโนมัติด้วย JavaScript -->
             </div>
 
-            <div class="viewer-image-container">
-                <img id="expanded-img" src="" alt="Expanded Photo">
-            </div>
-
-            <div class="home-indicator" style="margin: 8px auto 12px auto; background: white; cursor: pointer;" onclick="closePhotoViewer()"></div>
+            <!-- ขีด Home Indicator ด้านล่าง -->
+            <div class="home-indicator" style="position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); background: white; z-index: 30; cursor: pointer;" onclick="closePhotoViewer()"></div>
         </div>
 
         <!-- ================= 7. หน้าจอแอป Clock ================= -->
@@ -667,7 +712,7 @@
 
                 <!-- แชทที่ 2: กลุ่ม อ้ายมา 4 คน -->
                 <div class="line-chat-row" onclick="openGroupChatRoom()">
-                    <div class="line-avatar-wrap"><img src="images/pl-g.jpg" alt="กลุ่ม"></div>
+                    <div class="line-avatar-wrap"><img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" alt="กลุ่ม"></div>
                     <div class="line-chat-info">
                         <span class="line-chat-name">อ้ายมา 4 คน</span>
                         <span class="line-chat-msg">เล่นบ่อยจัง..</span>
@@ -834,7 +879,7 @@
                 <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">14:10</span></div><div class="classic-bubble sent-bubble">คิดถึงจังเลย ทำไรอยู่คับหมูอู๊ด</div></div></div>
                 <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div><div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-bubble">อาไรคัยหมู เขาเรียกว่าอ้วนกลมอารมณ์ดี นะเห้ย ^^</div><span class="classic-msg-time">14:12</span></div></div></div>
                 <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/pl-m.jpg" alt="เอมี่"></div>
+                    <div class="classic-msg-avatar"><img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" alt="เอมี่"></div>
                     <div class="classic-msg-content"><span class="classic-sender-name">เอมี่</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl5.jpg" alt="Photo"></div><span class="classic-msg-time">14:12</span></div></div>
                 </div>
                 <div class="classic-msg-row sent">
@@ -1030,7 +1075,7 @@
                 <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">20:17</span></div><div class="classic-bubble sent-bubble">แมวเป้า</div></div></div>
                 
                 <div class="classic-date-divider"><span>Yesterday</span></div>
-                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-l.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ใครเอาการ์ดโปเกม่อนผมไป ???</div><span class="classic-msg-time">22:00</span></div></div></div>
+                <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" alt="หลุยส์"></div><div class="classic-msg-content"><span class="classic-sender-name">หลุยส์</span><div class="classic-bubble-wrap"><div class="classic-bubble">ใครเอาการ์ดโปเกม่อนผมไป ???</div><span class="classic-msg-time">22:00</span></div></div></div>
                 <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เล่นเกมกัน</div><span class="classic-msg-time">22:05</span></div></div></div>
                 <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">เล่นเกมกัน</div><span class="classic-msg-time">22:05</span></div></div></div>
                 <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">22:06</span></div><div class="classic-bubble sent-bubble">กำลัง</div></div></div>
@@ -1196,7 +1241,7 @@
                 <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div><div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-bubble">ลาบมาก ลาบมาก ก้อยมาก ข้าวคั่ว ข้าวเม่า ข้าวเหนียว ข้าวจ้าว ข้าวสวย ข้าวสาลี ข้าวไรซ์เบอรี่ ข้าวเปลือก ข้าวเผือก ข้าวเน่า ข้าวบูด เฮ้อย์ จิ๊ เล่นได้แบบ ทรง เป็นสไตล์ทรง ทรงยังไงเหรอป๋าแวร์ จะเป็นสไนทรงโชว์พราวแต่ รรรรราบ ออก</div><span class="classic-msg-time">16:00</span></div></div></div>
                 <div class="classic-date-divider"><span>September 11, 2026</span></div>
                 <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/pl-w.jpg" alt="อูจิน"></div>
+                    <div class="classic-msg-avatar"><img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" alt="อูจิน"></div>
                     <div class="classic-msg-content"><span class="classic-sender-name">อูจิน</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl19.jpg" alt="Photo"></div><span class="classic-msg-time">16:05</span></div></div>
                 </div>
 
@@ -1308,7 +1353,7 @@
                 <div class="classic-msg-row sent"><div class="classic-msg-content sent-content"><div class="classic-read-time"><span class="read-status">อ่านแล้ว</span><span class="classic-msg-time">00:49</span></div><div class="classic-bubble sent-bubble">แม่นอนดึกจัง</div></div></div>
                 <div class="classic-date-divider"><span>Yesterday</span></div>
                 <div class="classic-msg-row received">
-                    <div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div>
+                    <div class="classic-msg-avatar"><img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" alt="แม่"></div>
                     <div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-photo-bubble"><img src="images/cl26.jpg" alt="Photo"></div><span class="classic-msg-time">23:29</span></div></div>
                 </div>
                 <div class="classic-msg-row received"><div class="classic-msg-avatar"><img src="images/pl-mm.jpg" alt="แม่"></div><div class="classic-msg-content"><span class="classic-sender-name">แม่</span><div class="classic-bubble-wrap"><div class="classic-bubble">นอนรึยัง</div><span class="classic-msg-time">23:30</span></div></div></div>
@@ -1334,7 +1379,7 @@
             </div>
         </div>
 
-        <!-- ================= 15. หน้าจอแอป Instagram (Feed) ================= -->
+        <!-- ================= 15. หน้าจอแอป Instagram Feed ================= -->
         <div id="instagram-app-screen" class="screen instagram-screen hidden">
             <!-- iOS Status Bar -->
             <div class="ios-header" style="color: #fff; background: #000; flex-shrink: 0;">
@@ -1354,9 +1399,11 @@
             <!-- IG Top Header -->
             <div class="ig-top-header">
                 <div onclick="closeInstagramApp()" class="ig-back-btn">‹</div>
-                <div class="ig-heart-icon-wrap">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                    <span class="ig-heart-badge"></span>
+                <div style="font-size: 18px; font-weight: 700; color: #fff;">Instagram</div>
+                <div class="ig-heart-icon-wrap" style="cursor: default;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
                 </div>
             </div>
 
@@ -1364,131 +1411,321 @@
             <div style="flex: 1; overflow-y: auto; padding-bottom: 90px; background: #000; scrollbar-width: none;">
                 <!-- Stories Bar -->
                 <div class="ig-stories-bar">
-                    <!-- Your Story (ริว) -->
                     <div class="ig-story-item" onclick="openStory('ryoul')">
                         <div class="ig-story-ring-your" id="ring-ryoul">
-                            <div class="ig-story-avatar-inner">
-                                <img src="images/โปรล้อก.jpg" alt="Story">
-                            </div>
+                            <div class="ig-story-avatar-inner"><img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" alt="Story"></div>
                             <div class="ig-story-plus-badge">+</div>
                         </div>
                         <span class="ig-story-label">Your story</span>
                     </div>
 
-                    <!-- เอมี่ (Close Friends) -->
                     <div class="ig-story-item" onclick="openStory('amy')">
-                        <div class="ig-story-ring-cf" id="ring-amy">
-                            <div class="ig-story-avatar-inner">
-                                <img src="images/pl-m.jpg" alt="Story">
-                            </div>
+                        <div class="ig-story-ring-your" id="ring-amy" style="border: 2px solid #10b981;">
+                            <div class="ig-story-avatar-inner"><img src="images/pl-m.jpg" alt="Story"></div>
                         </div>
                         <span class="ig-story-label">aipitchyy</span>
                     </div>
 
-                    <!-- อูจิน -->
-                    <div class="ig-story-item" onclick="openStory('ujin')">
-                        <div class="ig-story-ring-gradient" id="ring-ujin">
-                            <div class="ig-story-avatar-inner">
-                                <img src="images/pl-w.jpg" alt="Story">
-                            </div>
-                        </div>
-                        <span class="ig-story-label">ujin_w</span>
-                    </div>
-
-                    <!-- หลุยส์ -->
                     <div class="ig-story-item" onclick="openStory('louis')">
-                        <div class="ig-story-ring-gradient" id="ring-louis">
-                            <div class="ig-story-avatar-inner">
-                                <img src="images/pl-l.jpg" alt="Story">
-                            </div>
+                        <div class="ig-story-ring-your" id="ring-louis" style="border: 2px solid transparent; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">
+                            <div class="ig-story-avatar-inner" style="background: #000;"><img src="images/pl-l.jpg" alt="Story"></div>
                         </div>
-                        <span class="ig-story-label">louis_l</span>
+                        <span class="ig-story-label">louis_xyz</span>
+                    </div>
+
+                    <div class="ig-story-item" onclick="openStory('ujin')">
+                        <div class="ig-story-ring-your" id="ring-ujin" style="border: 2px solid transparent; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">
+                            <div class="ig-story-avatar-inner" style="background: #000;"><img src="images/pl-w.jpg" alt="Story"></div>
+                        </div>
+                        <span class="ig-story-label">ujin_00</span>
                     </div>
                 </div>
 
-                <!-- 1. โพสต์ที่ 1 -->
-                <div class="ig-post-container">
-                    <div class="ig-post-header">
-                        <div class="ig-post-user">
-                            <img src="images/โปรล้อก.jpg" class="ig-post-avatar" alt="Avatar">
-                            <span style="font-size: 13px; font-weight: 600; color: #fff;">ryoul_14</span>
-                        </div>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/><circle cx="5" cy="12" r="1.2"/></svg>
-                    </div>
-                    <div class="ig-post-media">
-                        <img src="images/ล็อกเก็ต.jpg" alt="Post 1">
-                    </div>
-                    <div class="ig-post-actions-area" style="padding: 10px 12px 0 12px; color: #fff;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                            <div style="display: flex; gap: 16px; align-items: center;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                <!-- โพสต์ต่างๆ ในฟีด -->
+                <div class="ig-post-container" style="display: flex; flex-direction: column; gap: 16px; background: #000;">
+                    <div style="background: #000; border-bottom: 1px solid #262626; padding-bottom: 12px;">
+                        <div class="ig-post-header" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px;">
+                            <div class="ig-post-user" style="display: flex; align-items: center; gap: 10px;">
+                                <img src="images/โปรล้อก.jpg" alt="Avatar" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; display: block;">
+                                <span style="font-size: 13px; font-weight: 600; color: #fff; line-height: 32px;">ryoul_14</span>
                             </div>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                            <div style="color: #fff; font-size: 18px; font-weight: bold; cursor: pointer; letter-spacing: 1px;">···</div>
                         </div>
-                        <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">1,428 likes</div>
-                        <div style="font-size: 13px; margin-bottom: 4px;"><span style="font-weight: 600; margin-right: 6px;">ryoul_14</span>วันหยุดสุดชิล ✌️✨</div>
-                        <div style="font-size: 12px; color: #a8a8a8; margin-bottom: 4px;">View all 12 comments</div>
-                        <div style="font-size: 13px;"><span style="font-weight: 600; margin-right: 6px;">aipitchyy</span>ถ่ายรูปสวยยย 🤍</div>
-                    </div>
-                </div>
+                        <div class="ig-post-media" style="position: relative;">
+                            <img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" alt="Post 1" style="width: 100%; display: block; max-height: 450px; object-fit: cover;">
+                        </div>
+                        <!-- แถบปุ่มกดโต้ตอบ (ไลก์, คอมเมนต์, แชร์, บันทึก) -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px 6px 12px;">
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <!-- ปุ่มหัวใจ (Like) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                                <!-- ปุ่มคอมเมนต์ (Comment) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                </svg>
+                                <!-- ปุ่มแชร์ (Share / Send) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </div>
+                            <div>
+                                <!-- ปุ่มบันทึกโพสต์ (Bookmark) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
+                        </div>
 
-                <!-- 2. โพสต์ที่ 2 -->
-                <div class="ig-post-container">
-                    <div class="ig-post-header">
-                        <div class="ig-post-user">
-                            <img src="images/pl-m.jpg" class="ig-post-avatar" alt="Avatar">
-                            <span style="font-size: 13px; font-weight: 600; color: #fff;">aipitchyy</span>
+                        <div style="padding: 10px 12px 0 12px; color: #fff;">
+                            <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">1,428 likes</div>
+                            <div style="font-size: 13px; margin-bottom: 6px;"><span style="font-weight: 600; margin-right: 6px;">ryoul_14</span>วันหยุดสุดชิล ✌️✨</div>
+                            <div style="font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 4px; cursor: pointer;">View all 1 comment</div>
+                            <div style="font-size: 13px;"><span style="font-weight: 600; margin-right: 6px;">aipitchyy</span>สวยมากก 😍</div>
                         </div>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/><circle cx="5" cy="12" r="1.2"/></svg>
                     </div>
-                    <div class="ig-post-media">
-                        <img src="images/pl-m.jpg" alt="Post 2">
-                    </div>
-                    <div class="ig-post-actions-area" style="padding: 10px 12px 0 12px; color: #fff;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                            <div style="display: flex; gap: 16px; align-items: center;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    
+                    <div style="background: #000; border-bottom: 1px solid #262626; padding-bottom: 12px;">
+                        <div class="ig-post-header" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px;">
+                            <div class="ig-post-user" style="display: flex; align-items: center; gap: 10px;">
+                                <img src="images/pl-m.jpg" alt="Avatar" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; display: block;">
+                                <span style="font-size: 13px; font-weight: 600; color: #fff; line-height: 32px;">aipitchyy</span>
                             </div>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                            <div style="color: #fff; font-size: 18px; font-weight: bold; cursor: pointer; letter-spacing: 1px;">···</div>
                         </div>
-                        <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">892 likes</div>
-                        <div style="font-size: 13px; margin-bottom: 4px;"><span style="font-weight: 600; margin-right: 6px;">aipitchyy</span>Café hopper ☕️🍰</div>
-                        <div style="font-size: 12px; color: #a8a8a8; margin-bottom: 4px;">View all 5 comments</div>
-                        <div style="font-size: 13px;"><span style="font-weight: 600; margin-right: 6px;">ryoul_14</span>อร่อยป่ะเนี่ยย</div>
+                        <div class="ig-post-media" style="position: relative;">
+                            <img src="images/pl-m.jpg" alt="Post 2" style="width: 100%; display: block; max-height: 450px; object-fit: cover;">
+                        </div>
+                        <!-- แถบปุ่มกดโต้ตอบ (ไลก์, คอมเมนต์, แชร์, บันทึก) -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px 6px 12px;">
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <!-- ปุ่มหัวใจ (Like) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                                <!-- ปุ่มคอมเมนต์ (Comment) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                </svg>
+                                <!-- ปุ่มแชร์ (Share / Send) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </div>
+                            <div>
+                                <!-- ปุ่มบันทึกโพสต์ (Bookmark) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div style="padding: 10px 12px 0 12px; color: #fff;">
+                            <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">852 likes</div>
+                            <div style="font-size: 13px; margin-bottom: 6px;"><span style="font-weight: 600; margin-right: 6px;">aipitchyy</span>มื้อนี้อร่อยสุดๆ 🍌🍽️</div>
+                            <div style="font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 4px; cursor: pointer;">View all 1 comment</div>
+                            <div style="font-size: 13px;"><span style="font-weight: 600; margin-right: 6px;">ryoul_14</span>หิวตามเลย 😂</div>
+                        </div>
+                    </div>
+
+                    <div style="background: #000; border-bottom: 1px solid #262626; padding-bottom: 12px;">
+                        <div class="ig-post-header" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px;">
+                            <div class="ig-post-user" style="display: flex; align-items: center; gap: 10px;">
+                                <img src="images/pl-l.jpg" alt="Avatar" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; display: block;">
+                                <span style="font-size: 13px; font-weight: 600; color: #fff; line-height: 32px;">louis_xyz</span>
+                            </div>
+                            <div style="color: #fff; font-size: 18px; font-weight: bold; cursor: pointer; letter-spacing: 1px;">···</div>
+                        </div>
+                        <div class="ig-post-media" style="position: relative;">
+                            <img src="images/pl-l.jpg" alt="Post 3" style="width: 100%; display: block; max-height: 450px; object-fit: cover;">
+                        </div>
+                        <!-- แถบปุ่มกดโต้ตอบ (ไลก์, คอมเมนต์, แชร์, บันทึก) -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px 6px 12px;">
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <!-- ปุ่มหัวใจ (Like) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                                <!-- ปุ่มคอมเมนต์ (Comment) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                </svg>
+                                <!-- ปุ่มแชร์ (Share / Send) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </div>
+                            <div>
+                                <!-- ปุ่มบันทึกโพสต์ (Bookmark) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div style="padding: 10px 12px 0 12px; color: #fff;">
+                            <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">641 likes</div>
+                            <div style="font-size: 13px; margin-bottom: 6px;"><span style="font-weight: 600; margin-right: 6px;">louis_xyz</span>Cool vibes 😎🔥</div>
+                            <div style="font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 4px; cursor: pointer;">View all 1 comment</div>
+                            <div style="font-size: 13px;"><span style="font-weight: 600; margin-right: 6px;">ujin_00</span>เท่ระเบิด</div>
+                        </div>
+                    </div>
+
+                    <div style="background: #000; padding-bottom: 12px;">
+                        <div class="ig-post-header" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px;">
+                            <div class="ig-post-user" style="display: flex; align-items: center; gap: 10px;">
+                                <img src="images/pl-w.jpg" alt="Avatar" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; display: block;">
+                                <span style="font-size: 13px; font-weight: 600; color: #fff; line-height: 32px;">ujin_00</span>
+                            </div>
+                            <div style="color: #fff; font-size: 18px; font-weight: bold; cursor: pointer; letter-spacing: 1px;">···</div>
+                        </div>
+                        <div class="ig-post-media" style="position: relative;">
+                            <img src="images/pl-w.jpg" alt="Post 4" style="width: 100%; display: block; max-height: 450px; object-fit: cover;">
+                        </div>
+                        <!-- แถบปุ่มกดโต้ตอบ (ไลก์, คอมเมนต์, แชร์, บันทึก) -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px 6px 12px;">
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <!-- ปุ่มหัวใจ (Like) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                                <!-- ปุ่มคอมเมนต์ (Comment) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                </svg>
+                                <!-- ปุ่มแชร์ (Share / Send) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </div>
+                            <div>
+                                <!-- ปุ่มบันทึกโพสต์ (Bookmark) -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div style="padding: 10px 12px 0 12px; color: #fff;">
+                            <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">920 likes</div>
+                            <div style="font-size: 13px; margin-bottom: 6px;"><span style="font-weight: 600; margin-right: 6px;">ujin_00</span>Good day 🌟</div>
+                            <div style="font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 4px; cursor: pointer;">View all 1 comment</div>
+                            <div style="font-size: 13px;"><span style="font-weight: 600; margin-right: 6px;">louis_xyz</span>สุดยอดครับพี่</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- IG Bottom Navigation -->
+            <!-- แถบเมนูด้านล่าง Instagram (Liquid Glass) -->
             <div class="ig-liquid-bottom-nav">
-                <div id="nav-home" onclick="switchScreen('instagram-app-screen'); updateIgNav('home');" style="cursor: pointer;">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2v-9.5z" stroke-linejoin="round"/>
-                    </svg>
+                <div id="nav-home" onclick="document.getElementById('instagram-dm-screen').classList.add('hidden'); document.getElementById('instagram-profile-screen').classList.add('hidden'); document.getElementById('instagram-app-screen').classList.remove('hidden'); updateIgNav('home');" style="cursor: pointer;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2v-9.5z"/></svg>
                 </div>
-                
-                <div id="nav-dm" onclick="switchScreen('instagram-dm-screen'); updateIgNav('dm');" style="cursor: pointer; opacity: 0.5;">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 2L11 13" stroke-linecap="round"/>
-                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke-linejoin="round"/>
-                    </svg>
+                <div id="nav-dm" onclick="document.getElementById('instagram-app-screen').classList.add('hidden'); document.getElementById('instagram-profile-screen').classList.add('hidden'); document.getElementById('instagram-dm-screen').classList.remove('hidden'); updateIgNav('dm');" style="cursor: pointer;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
                 </div>
-                
-                <div id="nav-profile" onclick="switchScreen('instagram-profile-screen'); updateIgNav('profile');" style="cursor: pointer; opacity: 0.5;">
-                    <div class="ig-nav-profile-avatar">
-                        <img src="images/โปรล้อก.jpg" alt="Profile">
+                <div id="nav-profile" onclick="document.getElementById('instagram-app-screen').classList.add('hidden'); document.getElementById('instagram-dm-screen').classList.add('hidden'); document.getElementById('instagram-profile-screen').classList.remove('hidden'); updateIgNav('profile');" style="cursor: pointer;">
+                    <div class="ig-nav-profile-avatar"><img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg alt="Profile"></div>
+                </div>
+            </div>
+
+            <div class="home-indicator" style="position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); background: white; z-index: 60; cursor: pointer;" onclick="goHome()"></div>
+        </div>
+
+        <!-- ================= Modal สำหรับแสดงหน้าจอสตอรี่ (Story Viewer) ================= -->
+        <div id="story-viewer-modal" class="screen hidden" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 10000; flex-direction: column; justify-content: space-between;">
+            <div style="display: flex; flex-direction: column; background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); z-index: 20; padding-bottom: 10px;">
+                <div class="ios-header" style="color: #fff; background: transparent; flex-shrink: 0; position: static; width: 100%;">
+                    <span class="time-status real-time">19:54</span>
+                    <div class="dynamic-island"><div class="camera-dot"></div></div>
+                    <div class="status-icons" style="color: #000;">
+                        <div class="signal-bars"><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span></div>
+                        <span class="network-type" style="color: #fff;">5G</span>
+                        <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                            <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#fff" stroke-width="1.1"/>
+                            <rect x="2" y="2" width="15" height="8" rx="2" fill="#fff"/>
+                            <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#fff"/>
+                        </svg>
                     </div>
                 </div>
+
+                <div id="story-progress-container" style="display: flex; gap: 4px; padding: 4px 10px 6px 10px; width: 100%; box-sizing: border-box;"></div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 2px 16px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="position: relative; width: 32px; height: 32px;">
+                            <img id="story-avatar" src="" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;" alt="Avatar">
+                            <div id="story-avatar-plus" class="hidden" style="position: absolute; bottom: -2px; right: -2px; background: #0095f6; color: #fff; width: 14px; height: 14px; border-radius: 50%; font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold;">+</div>
+                        </div>
+                        <span id="story-username" style="color: #fff; font-size: 13px; font-weight: 600;">username</span>
+                        <span style="color: rgba(255,255,255,0.6); font-size: 12px;">50m</span>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div id="story-cf-top-badge" class="hidden" style="background: #10b981; color: #fff; padding: 5px 12px; border-radius: 20px; display: flex; align-items: center; gap: 6px;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </div>
+                        <div onclick="closeStoryViewer()" style="color: #fff; font-size: 30px; cursor: pointer; padding: 0 4px; line-height: 1; font-weight: 300;">×</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; z-index: 1;" onclick="nextStoryImage(event)">
+                <img id="story-display-img" src="" style="width: 100%; height: 100%; object-fit: contain;" alt="Story Image">
+            </div>
+
+            <div style="padding: 12px 16px; z-index: 20; display: flex; align-items: center; justify-content: space-between; color: #fff; background: rgba(0,0,0,0.4);" id="story-owner-bottom-bar">
+                <div style="display: flex; flex-direction: column; align-items: center; font-size: 11px; gap: 4px; cursor: pointer;">
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1.5px solid #000; position: relative; z-index: 3;">
+                        <img src="images/pl-l.jpg" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1.5px solid #000; margin-left: -12px; position: relative; z-index: 2;">
+                        <img src="images/pl-w.jpg" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1.5px solid #000; margin-left: -12px; position: relative; z-index: 1;">
+                    </div>
+                    <span>Activity</span>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <div style="display: flex; flex-direction: column; align-items: center; font-size: 11px; gap: 4px; cursor: pointer;">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        <span>Highlight</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; font-size: 11px; gap: 4px; cursor: pointer;">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/>
+                        </svg>
+                        <span>Mention</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; font-size: 11px; gap: 4px; cursor: pointer;">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/><circle cx="5" cy="12" r="1.2"/>
+                        </svg>
+                        <span>More</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding: 16px; z-index: 20; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2);" id="story-other-bottom-bar" class="hidden">
+                <input type="text" placeholder="Send message..." style="flex: 1; background: transparent; border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 10px 16px; color: #fff; font-size: 13px; outline: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+                </svg>
             </div>
         </div>
 
-        <!-- ================= หน้าจอแอป Instagram DM (ปรับดีไซน์ตามเรฟ) ================= -->
-        <div id="instagram-dm-screen" class="screen instagram-screen hidden" style="background: #000; display: flex; flex-direction: column; height: 100%; position: absolute; top: 0; left: 0; width: 100%; z-index: 30; box-sizing: border-box;">
-            <!-- iOS Status Bar -->
+        <!-- ================= 16. หน้าจอแอป Instagram DM ================= -->
+        <div id="instagram-dm-screen" class="screen instagram-screen hidden">
             <div class="ios-header" style="color: #fff; background: #000; flex-shrink: 0;">
                 <span class="time-status real-time">19:54</span>
                 <div class="dynamic-island"><div class="camera-dot"></div></div>
@@ -1503,150 +1740,731 @@
                 </div>
             </div>
 
-            <!-- DM Top Header (ตามเรฟ: ปุ่มกลับซ้าย, ชื่อแอคกลาง + ลูกศร + จุดแดง, ปุ่มดินสอขวา) -->
             <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; color: #fff; background: #000; flex-shrink: 0;">
-                <div onclick="switchScreen('instagram-app-screen'); updateIgNav('home');" style="font-size: 28px; cursor: pointer; line-height: 1; padding-right: 8px;">‹</div>
-                <div style="display: flex; align-items: center; gap: 4px; font-size: 16px; font-weight: 700; cursor: pointer;">
-                    <span>prodbyh0nglyshit</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 2px;"><polyline points="6 9 12 15 18 9"/></svg>
-                    <span style="width: 7px; height: 7px; background: #ff3b30; border-radius: 50%; display: inline-block; margin-left: 2px;"></span>
-                </div>
-                <div style="cursor: pointer; display: flex; align-items: center;">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                <div onclick="switchInstagramScreen('instagram-app-screen'); updateIgNav('home');" style="font-size: 26px; cursor: pointer; line-height: 1;">‹</div>
+                <div style="font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 4px;">ryoul_14 <span style="font-size: 10px;">▼</span></div>
+                <div style="cursor: pointer;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
                 </div>
             </div>
 
-            <!-- DM Scrollable Content -->
-            <div style="flex: 1; overflow-y: auto; background: #000; color: #fff; scrollbar-width: none; padding-bottom: 90px;">
-                
-                <!-- Search or ask Meta AI Bar -->
+            <div style="flex: 1; overflow-y: auto; background: #000; color: #fff; padding-bottom: 90px; scrollbar-width: none;">
                 <div style="padding: 6px 16px 12px 16px;">
-                    <div style="background: #262626; border-radius: 22px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; color: #8e8e93; font-size: 14px;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                        <span>Search or ask Meta AI</span>
+                    <div style="background: #262626; display: flex; align-items: center; padding: 10px 14px; border-radius: 22px; gap: 10px; color: #8e8e93;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <span style="font-size: 14px;">Search or ask Meta AI</span>
                     </div>
                 </div>
 
-                <!-- Notes Row (ปรับกรอบพื้นหลังบอลลูนให้พอดีกับข้อความ ไม่ยาวเกินไป) -->
-                <div style="display: flex; justify-content: flex-start; gap: 24px; padding: 16px 12px 16px 16px; overflow-x: auto; scrollbar-width: none; align-items: flex-end;">
+                <div style="display: flex; gap: 24px; padding: 42px 16px 16px 24px; overflow-x: auto; scrollbar-width: none;">
+                    <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer; flex-shrink: 0; position: relative;">
+                        <div style="position: absolute; top: -42px; left: 50%; transform: translateX(-50%); background: #262626; color: #fff; font-size: 11px; padding: 6px 12px; border-radius: 16px; white-space: nowrap; border: 0.5px solid #363636; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 2;">
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 4px;">
+                                <span style="font-size: 10px;">🎵</span>
+                                <span style="font-weight: 700;">Gen Z Luv</span>
+                            </div>
+                            <div style="font-size: 10px; color: #a8a8a8; text-align: center;">Central Cee</div>
+                        </div>
+                        <div style="width: 64px; height: 64px; border-radius: 50%;">
+                            <img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover;" alt="Note">
+                        </div>
+                        <span style="font-size: 11px; color: #8e8e93; margin-top: 6px;">Your note</span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer; flex-shrink: 0; position: relative;">
+                        <div style="position: absolute; top: -34px; left: 50%; transform: translateX(-50%); background: #262626; color: #fff; font-size: 12px; padding: 6px 14px; border-radius: 16px; white-space: nowrap; border: 0.5px solid #363636; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 2; font-weight: 500;">
+                            ฟริน 🧋
+                        </div>
+                        <div style="width: 64px; height: 64px; border-radius: 50%;">
+                            <img src="images/pl-m.jpg" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover;" alt="Note">
+                        </div>
+                        <span style="font-size: 11px; color: #8e8e93; margin-top: 6px;">aipitchyy</span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer; flex-shrink: 0; position: relative;">
+                        <div style="position: absolute; top: -34px; left: 50%; transform: translateX(-50%); background: #262626; color: #fff; font-size: 12px; padding: 6px 14px; border-radius: 16px; white-space: nowrap; border: 0.5px solid #363636; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 2; font-weight: 500;">
+                            โสด 💔
+                        </div>
+                        <div style="width: 64px; height: 64px; border-radius: 50%;">
+                            <img src="images/pl-w.jpg" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover;" alt="Note">
+                        </div>
+                        <span style="font-size: 11px; color: #8e8e93; margin-top: 6px;">ujin_w</span>
+                    </div>
+                </div>
+
+                <div style="padding: 0 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin: 12px 0;">
+                        <span style="font-weight: 600; font-size: 15px;">Messages</span>
+                        <span style="color: #0095f6; font-size: 13px; font-weight: 600; cursor: pointer;">Requests</span>
+                    </div>
                     
-                    <!-- 1. ตัวเรา (ryoul_14) -->
-                    <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer; flex-shrink: 0; width: 68px;">
-                        <div style="position: relative; display: flex; flex-direction: column; align-items: center; margin-top: 36px;">
-                            <!-- บอลลูนเพลงปรับขนาดความกว้างพอดีข้อความ (width: max-content) -->
-                            <div style="position: absolute; bottom: 64px; left: 50%; transform: translateX(-50%); background: #262626; color: #fff; padding: 5px 10px; border-radius: 14px; font-size: 10px; white-space: nowrap; border: 0.5px solid #363636; display: flex; flex-direction: column; gap: 1px; width: max-content; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 10; text-align: center;">
-                                <span style="font-weight: 600; white-space: nowrap;">।|। Gen Z Luv</span>
-                                <span style="font-size: 8px; color: #a8a8a8; white-space: nowrap;">Central Cee</span>
-                            </div>
-                            <!-- รูปโปรไฟล์ -->
-                            <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; flex-shrink: 0;">
-                                <img src="images/โปรล้อก.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="My Note">
-                            </div>
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 8px 0; cursor: pointer;">
+                        <img src="images/pl-m.jpg" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover;" alt="Chat">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px; font-weight: 600;">aipitchyy</div>
+                            <div style="font-size: 12px; color: #8e8e93;">งอน • 2h ago</div>
                         </div>
-                        <span style="font-size: 11px; color: #a8a8a8; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; margin-top: 6px;">Your note</span>
                     </div>
 
-                    <!-- 2. เอมี่ (aipitchyy) -->
-                    <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer; flex-shrink: 0; width: 68px;">
-                        <div style="position: relative; display: flex; flex-direction: column; align-items: center; margin-top: 36px;">
-                            <div style="position: absolute; bottom: 64px; left: 50%; transform: translateX(-50%); background: #262626; color: #fff; padding: 6px 10px; border-radius: 16px; font-size: 11px; white-space: nowrap; width: max-content; border: 0.5px solid #363636; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 10;">
-                                คิดถึงจังเลย 🤍
-                            </div>
-                            <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; flex-shrink: 0;">
-                                <img src="images/pl-m.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Amy Note">
-                            </div>
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 8px 0; cursor: pointer;">
+                        <img src="images/pl-w.jpg" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover;" alt="Chat">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px; font-weight: 600;">ujin_w</div>
+                            <div style="font-size: 12px; color: #8e8e93;">ส่งรูปภาพ • 3h ago</div>
                         </div>
-                        <span style="font-size: 11px; color: #fff; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; margin-top: 6px;">aipitchyy</span>
                     </div>
 
-                    <!-- 3. อูจิน (ujin_w) -->
-                    <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer; flex-shrink: 0; width: 68px;">
-                        <div style="position: relative; display: flex; flex-direction: column; align-items: center; margin-top: 36px;">
-                            <div style="position: absolute; bottom: 64px; left: 50%; transform: translateX(-50%); background: #262626; color: #fff; padding: 6px 10px; border-radius: 16px; font-size: 11px; white-space: nowrap; width: max-content; border: 0.5px solid #363636; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 10;">
-                                ฟริน 🧋
-                            </div>
-                            <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; flex-shrink: 0;">
-                                <img src="images/pl-w.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Ujin Note">
-                            </div>
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 8px 0; cursor: pointer;">
+                        <img src="images/pl-l.jpg" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover;" alt="Chat">
+                        <div style="flex: 1;">
+                            <div style="font-size: 14px; font-weight: 600;">louis_xyz</div>
+                            <div style="font-size: 12px; color: #8e8e93;">ส่งรีลส์ให้คุณ • 5h ago</div>
                         </div>
-                        <span style="font-size: 11px; color: #fff; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; margin-top: 6px;">ujin_w</span>
-                    </div>
-
-                </div>
-
-                <!-- Messages Header & Requests -->
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 16px 12px 16px;">
-                    <span style="font-size: 16px; font-weight: 700; color: #fff;">Messages</span>
-                    <span style="font-size: 14px; color: #0095f6; font-weight: 600; cursor: pointer;">Requests</span>
-                </div>
-
-                <!-- Chat List Rows -->
-                <!-- 1. เอมี่ (aipitchyy) -->
-                <div style="display: flex; align-items: center; padding: 10px 16px; gap: 12px; cursor: pointer;" onclick="switchScreen('line-app-screen')">
-                    <img src="images/pl-m.jpg" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover;" alt="Avatar">
-                    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
-                        <div style="display: flex; align-items: center; gap: 4px;">
-                            <span style="font-size: 14px; font-weight: 600; color: #fff;">aipitchyy</span>
-                            <span style="font-size: 12px;">📌</span>
-                        </div>
-                        <span style="font-size: 13px; color: #a8a8a8; margin-top: 2px;">sent a reel by ryoul_14 · 9h</span>
-                    </div>
-                    <span style="width: 8px; height: 8px; background: #0095f6; border-radius: 50%;"></span>
-                </div>
-
-                <!-- 2. อูจิน (ujin_w) -->
-                <div style="display: flex; align-items: center; padding: 10px 16px; gap: 12px; cursor: pointer;">
-                    <img src="images/pl-w.jpg" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover;" alt="Avatar">
-                    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
-                        <span style="font-size: 14px; font-weight: 600; color: #fff;">ujin_w</span>
-                        <span style="font-size: 13px; color: #a8a8a8; margin-top: 2px;">Sent a photo. · 3d</span>
                     </div>
                 </div>
-
-                <!-- 3. หลุยส์ (louis_l) -->
-                <div style="display: flex; align-items: center; padding: 10px 16px; gap: 12px; cursor: pointer;">
-                    <img src="images/pl-l.jpg" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover;" alt="Avatar">
-                    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
-                        <span style="font-size: 14px; font-weight: 600; color: #fff;">louis_l</span>
-                        <span style="font-size: 13px; color: #a8a8a8; margin-top: 2px;">Liked a message. · 1w</span>
-                    </div>
-                </div>
-
-                <!-- 4. แม่ (Mom) -->
-                <div style="display: flex; align-items: center; padding: 10px 16px; gap: 12px; cursor: pointer;">
-                    <img src="images/pl-mm.jpg" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover;" alt="Avatar">
-                    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
-                        <span style="font-size: 14px; font-weight: 600; color: #fff;">Meena3</span>
-                        <span style="font-size: 13px; color: #a8a8a8; margin-top: 2px;">ของกูอย่างปล่อย · 3w</span>
-                    </div>
-                </div>
-
             </div>
 
-            <!-- แถบเมนูด้านล่าง Liquid Glass คงเดิม -->
             <div class="ig-liquid-bottom-nav">
-                <div id="nav-home" onclick="switchScreen('instagram-app-screen'); updateIgNav('home');" style="cursor: pointer; opacity: 0.5;">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2v-9.5z" stroke-linejoin="round"/>
-                    </svg>
+                <div id="nav-home" onclick="document.getElementById('instagram-dm-screen').classList.add('hidden'); document.getElementById('instagram-profile-screen').classList.add('hidden'); document.getElementById('instagram-app-screen').classList.remove('hidden'); updateIgNav('home');" style="cursor: pointer;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2v-9.5z"/></svg>
                 </div>
-                
-                <div id="nav-dm" onclick="switchScreen('instagram-dm-screen'); updateIgNav('dm');" style="cursor: pointer; opacity: 1;">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 2L11 13" stroke-linecap="round"/>
-                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke-linejoin="round"/>
-                    </svg>
+                <div id="nav-dm" onclick="document.getElementById('instagram-app-screen').classList.add('hidden'); document.getElementById('instagram-profile-screen').classList.add('hidden'); document.getElementById('instagram-dm-screen').classList.remove('hidden'); updateIgNav('dm');" style="cursor: pointer;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
                 </div>
-                
-                <div id="nav-profile" onclick="switchScreen('instagram-profile-screen'); updateIgNav('profile');" style="cursor: pointer; opacity: 0.5;">
-                    <div class="ig-nav-profile-avatar">
-                        <img src="images/โปรล้อก.jpg" alt="Profile">
-                    </div>
+                <div id="nav-profile" onclick="document.getElementById('instagram-app-screen').classList.add('hidden'); document.getElementById('instagram-dm-screen').classList.add('hidden'); document.getElementById('instagram-profile-screen').classList.remove('hidden'); updateIgNav('profile');" style="cursor: pointer;">
+                    <div class="ig-nav-profile-avatar"><img src="images/โปรล้อก.jpg" alt="Profile"></div>
                 </div>
             </div>
+
+            <div class="home-indicator" style="position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); background: white; z-index: 150; cursor: pointer;" onclick="goHome()"></div>
         </div>
 
+        <!-- ================= 17. หน้าจอแอป Instagram Profile ================= -->
+        <div id="instagram-profile-screen" class="screen instagram-screen hidden">
+            <div class="ios-header" style="color: #fff; background: #000; flex-shrink: 0;">
+                <span class="time-status real-time">19:54</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span><span style="background:#fff"></span></div>
+                    <span class="network-type" style="color: #fff;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#fff" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#fff"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#fff"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; color: #fff; background: #000; flex-shrink: 0;">
+                <div onclick="switchInstagramScreen('instagram-app-screen'); updateIgNav('home');" style="font-size: 26px; cursor: pointer; line-height: 1;">‹</div>
+                <div style="font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+                    ryoul_14 <span style="font-size: 10px;">▼</span>
+                </div>
+                <div style="font-size: 18px; font-weight: bold; cursor: pointer; letter-spacing: 1px;">···</div>
+            </div>
+
+            <div style="flex: 1; overflow-y: auto; background: #000; color: #fff; padding-bottom: 110px; scrollbar-width: none;">
+                <div style="padding: 12px 16px 8px 16px; display: flex; align-items: center; justify-content: space-between;">
+                    <div style="position: relative; width: 82px; height: 82px; border-radius: 50%;">
+                        <img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" alt="Profile">
+                        <div style="position: absolute; bottom: 0; right: 0; background: #0095f6; color: #fff; width: 20px; height: 20px; border-radius: 50%; font-size: 14px; display: flex; align-items: center; justify-content: center; border: 2px solid #000; font-weight: bold;">+</div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 16px; text-align: center; flex: 1; justify-content: space-around; padding-left: 12px;">
+                        <div>
+                            <div style="font-weight: 700; font-size: 16px;">12</div>
+                            <div style="font-size: 12px; color: #a8a8a8;">posts</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 16px;">428</div>
+                            <div style="font-size: 12px; color: #a8a8a8;">followers</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 16px;">350</div>
+                            <div style="font-size: 12px; color: #a8a8a8;">following</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="padding: 0 16px 8px 16px;">
+                    <div style="font-weight: 600; font-size: 13px;">ริว (Ryoul)</div>
+                    <div style="font-size: 13px; color: rgba(255,255,255,0.9); margin-top: 2px;">✨ Everyday is a second chance.</div>
+                </div>
+
+                <div style="padding: 0 16px 10px 16px;">
+                    <div style="display: inline-flex; align-items: center; background: #262626; padding: 5px 12px; border-radius: 20px; font-size: 12px; gap: 6px; cursor: pointer;">
+                        <span>🎵</span>
+                        <span>Close To Me - Ellie Goulding, Diplo...</span>
+                    </div>
+                </div>
+
+                <div style="padding: 0 16px 14px 16px; display: flex; gap: 6px;">
+                    <div style="flex: 1; background: #262626; text-align: center; padding: 6px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;">Edit profile</div>
+                    <div style="flex: 1; background: #262626; text-align: center; padding: 6px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;">Share profile</div>
+                    <div style="background: #262626; display: flex; align-items: center; justify-content: center; padding: 0 10px; border-radius: 8px; cursor: pointer;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                    </div>
+                </div>
+
+                <!-- ส่วนไฮไลท์ในหน้าโปรไฟล์ (แก้ไขให้ใส่ onclick ครบทุกอัน) -->
+                <div style="display: flex; justify-content: flex-start; gap: 16px; padding: 4px 16px 14px 16px; border-bottom: 0.5px solid #262626; overflow-x: auto; scrollbar-width: none;">
+                    <!-- ปุ่ม New (สร้างไฮไลท์ใหม่ - คงไว้ตามเดิม) -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; flex-shrink: 0;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; border: 1.5px solid #262626; display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </div>
+                        <span style="font-size: 11px; color: #fff;">New</span>
+                    </div>
+
+                    <!-- ไฮไลท์ bae bae -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; cursor: pointer;" >
+                        <div style="width: 60px; height: 60px; border-radius: 50%; padding: 2px; border: 1.5px solid #555;">
+                            <img src="images/ล้อก2.jpg" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" alt="Highlight">
+                        </div>
+                        <span style="font-size: 11px; color: #fff;">bae bae</span>
+                    </div>
+
+                    <!-- ไฮไลท์ chill -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; cursor: pointer;" >
+                        <div style="width: 60px; height: 60px; border-radius: 50%; padding: 2px; border: 1.5px solid #555;">
+                            <img src="images/ล้อก3.jpg" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" alt="Highlight">
+                        </div>
+                        <span style="font-size: 11px; color: #fff;">chill</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-around; align-items: center; border-bottom: 0.5px solid #262626; position: relative;">
+                    <div style="padding: 12px 0; flex: 1; display: flex; justify-content: center; position: relative; cursor: default;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 1.5px; background: #fff;"></div>
+                    </div>
+                    <div style="padding: 12px 0; flex: 1; display: flex; justify-content: center; cursor: default; opacity: 0.6;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12v3a2 2 0 0 1-2 2H7m0 0l4 4m-4-4l4-4"></path>
+                            <path d="M3 12V9a2 2 0 0 1 2-2h12m0 0l-4-4m4 4l-4 4"></path>
+                        </svg>
+                    </div>
+                    <div style="padding: 12px 0; flex: 1; display: flex; justify-content: center; cursor: default; opacity: 0.6;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #000;">
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/โฟ1-1.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/โฟ2.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/โฟ3.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/โฟ4.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/โฟ5.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/โฟ6.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/โฟ7.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    <div style="width: 100%H; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/โฟ8.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/ล้อก2.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/ล้อก3.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/ล็อก4.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/โฟ9.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/โฟ10.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #000; cursor: pointer;" onclick="openPhotoViewer(this)"><img src="images/โฟ11.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Post"></div>
+                </div>
+            </div>
+
+            <div class="ig-liquid-bottom-nav">
+                <div id="nav-home" onclick="document.getElementById('instagram-profile-screen').classList.add('hidden'); document.getElementById('instagram-dm-screen').classList.add('hidden'); document.getElementById('instagram-app-screen').classList.remove('hidden'); updateIgNav('home');" style="cursor: pointer; opacity: 0.5;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2v-9.5z"/></svg>
+                </div>
+                
+                <div id="nav-dm" onclick="document.getElementById('instagram-profile-screen').classList.add('hidden'); document.getElementById('instagram-app-screen').classList.add('hidden'); document.getElementById('instagram-dm-screen').classList.remove('hidden'); updateIgNav('dm');" style="cursor: pointer; opacity: 0.5;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+                </div>
+                
+                <div id="nav-profile" onclick="document.getElementById('instagram-app-screen').classList.add('hidden'); document.getElementById('instagram-dm-screen').classList.add('hidden'); document.getElementById('instagram-profile-screen').classList.remove('hidden'); updateIgNav('profile');" style="cursor: pointer; opacity: 1;">
+                    <div class="ig-nav-profile-avatar" style="width: 24px; height: 24px; border-radius: 50%; overflow: hidden; border: 1.5px solid #fff;"><img src="images/โปรล้อก.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Profile"></div>
+                </div>
+            </div>
+
+            <div class="home-indicator" style="position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); background: white; z-index: 1000; cursor: pointer;" onclick="goHome()"></div>
+        </div>
+
+        <!-- ================= 16.หน้าจอแอปโทรศัพท์ (Phone App) ปรับแถบเมนูด้านล่างให้ชิดและเป็นสีขาว ================= -->
+        <div id="phone-app-screen" class="screen hidden" style="background: #ffffff; display: flex; flex-direction: column; justify-content: space-between; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; box-sizing: border-box; overflow: hidden;">
+            
+            <!-- iOS Status Bar -->
+            <div class="ios-header" style="color: #000; background: #fff; flex-shrink: 0; position: static; width: 100%;">
+                <span class="time-status real-time">19:54</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span></div>
+                    <span class="network-type" style="color: #000;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#000" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#000"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#000"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- ส่วนหัว: Edit, ปุ่มสลับ All / Missed, และปุ่มไอคอนขวาบน -->
+            <div style="padding: 12px 16px 4px 16px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; background: #fff;">
+                <div style="font-size: 17px; color: #007aff; cursor: pointer;">Edit</div>
+                
+                <!-- แคปซูลสลับ All / Missed แบบ iOS -->
+                <div style="display: flex; background: #7676801f; padding: 2px; border-radius: 20px;">
+                    <div style="padding: 4px 16px; font-size: 13px; font-weight: 600; background: #fff; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer;">All</div>
+                    <div style="padding: 4px 16px; font-size: 13px; font-weight: 500; color: #3c3c4399; cursor: pointer;">Missed</div>
+                </div>
+
+                <div style="font-size: 18px; color: #007aff; cursor: pointer;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </div>
+            </div>
+
+            <!-- หัวข้อ Recents และ ช่องค้นหา Search -->
+            <div style="padding: 4px 16px 8px 16px; flex-shrink: 0; background: #fff;">
+                <h1 style="font-size: 32px; font-weight: 700; margin: 0 0 8px 0; color: #000;">Recents</h1>
+                <div style="background: #7676801f; display: flex; align-items: center; padding: 8px 12px; border-radius: 10px; gap: 8px; color: #8e8e93;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span style="font-size: 14px;">Search</span>
+                </div>
+            </div>
+
+            <!-- รายการประวัติการโทร 30 เบอร์ -->
+            <div style="flex: 1; overflow-y: auto; padding: 0 16px 90px 16px; color: #000; scrollbar-width: none; background: #fff;">
+                
+                <!-- 1. ล่าสุด: เอมี่ (ลืมรับสาย - สีแดง / Yesterday) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;" alt="Amy">
+                        <div>
+                            <div style="font-size: 16px; font-weight: 600; color: #ff3b30;">เอมี่ (หมูอู๊ด) ❤️</div>
+                            <div style="font-size: 12px; color: #ff3b30; display: flex; align-items: center; gap: 4px;">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                                Mobile • Missed Call
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 13px; color: #8e8e93;">Yesterday, 14:15</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    </div>
+                </div>
+
+                <!-- 2. เอมี่ (Yesterday) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-m.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">เอมี่ (หมูอู๊ด) ❤️</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Outgoing</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Yesterday, 11:20</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 3. พ่อ (Oct 30) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #007aff; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">พ</div><div><div style="font-size: 16px; font-weight: 600; color: #000;">พ่อ</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Incoming</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 30</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 4. ขนส่ง (Oct 29) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #ff9500; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">ช</div><div><div style="font-size: 16px; font-weight: 600; color: #000;">พี่ขนส่ง (พัสดุ)</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Incoming</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 29</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 5. หยุลย์ (Oct 28) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="https://i.pinimg.com/736x/c4/34/cc/c434ccecbffb8e9d1f9be47d9faa1dcc.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">หยุลย์</div><div style="font-size: 12px; color: #8e8e93;">FaceTime Audio</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 28</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 6. อูจิน (Oct 27) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-w.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">อูจิน</div><div style="font-size: 12px; color: #8e8e93;">LINE Audio</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 27</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 7. เบอร์แปลก (Oct 26) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #8e8e93; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">?</div><div><div style="font-size: 16px; font-weight: 600; color: #ff3b30;">062-xxx-xxxx</div><div style="font-size: 12px; color: #ff3b30;">Whoscall: เบอร์แปลก / Spam</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 26</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 8. พ่อ (Oct 25) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #007aff; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">พ</div><div><div style="font-size: 16px; font-weight: 600; color: #000;">พ่อ</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Outgoing</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 25</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 9. เอมี่ (Oct 24) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-m.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">เอมี่ (หมูอู๊ด) ❤️</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Incoming</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 24</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 10. แม่ (Oct 23) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-mm.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">แม่</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Incoming</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 23</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 11. เอมี่ (Oct 22) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-m.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">เอมี่ (หมูอู๊ด) ❤️</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Outgoing</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 22</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 12. ขนส่ง (Oct 21) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #ff9500; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">ช</div><div><div style="font-size: 16px; font-weight: 600; color: #000;">พี่ขนส่ง (พัสดุ)</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Outgoing</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 21</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 13. อูจิน (Oct 20) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-w.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">อูจิน</div><div style="font-size: 12px; color: #8e8e93;">LINE Audio</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 20</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 14. ขนส่ง (Oct 19) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #ff9500; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">ช</div><div><div style="font-size: 16px; font-weight: 600; color: #000;">พี่ขนส่ง (พัสดุ)</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Incoming</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 19</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 15. หยุลย์ (Oct 17) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-l.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">หยุลย์</div><div style="font-size: 12px; color: #8e8e93;">FaceTime Audio</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 17</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 16. เบอร์แปลก (Oct 15) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #8e8e93; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">?</div><div><div style="font-size: 16px; font-weight: 600; color: #000;">02-1xx-xxxx</div><div style="font-size: 12px; color: #8e8e93;">Whoscall: เบอร์สำนักงาน</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 15</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 17. พ่อ (Oct 13) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #007aff; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">พ</div><div><div style="font-size: 16px; font-weight: 600; color: #000;">พ่อ</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Incoming</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 13</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 18. เอมี่ (Oct 11) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-m.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">เอมี่ (หมูอู๊ด) ❤️</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Outgoing</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 11</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 19. อูจิน (Oct 09) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-w.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">อูจิน</div><div style="font-size: 12px; color: #8e8e93;">LINE Audio</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 09</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 20. ขนส่ง (Oct 07) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #ff9500; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">ช</div><div><div style="font-size: 16px; font-weight: 600; color: #000;">พี่ขนส่ง (พัสดุ)</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Incoming</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 07</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 21. แม่ (Oct 05) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-mm.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">แม่</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Incoming</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 05</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 22. หยุลย์ (Oct 04) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-l.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">หยุลย์</div><div style="font-size: 12px; color: #8e8e93;">FaceTime Audio</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 04</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 23. เบอร์แปลก (Oct 02) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #8e8e93; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">?</div><div><div style="font-size: 16px; font-weight: 600; color: #ff3b30;">089-xxx-xxxx</div><div style="font-size: 12px; color: #ff3b30;">Whoscall: มิจฉาชีพ / หลอกขายของ</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Oct 02</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 24. พ่อ (Sep 30) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #007aff; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">พ</div><div><div style="font-size: 16px; font-weight: 600; color: #000;">พ่อ</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Outgoing</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Sep 30</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 25. เอมี่ (Sep 28) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-m.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">เอมี่ (หมูอู๊ด) ❤️</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Incoming</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Sep 28</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 26. อูจิน (Sep 26) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-w.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">อูจิน</div><div style="font-size: 12px; color: #8e8e93;">LINE Audio</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Sep 26</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 27. ขนส่ง (Sep 24) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 36px; height: 36px; border-radius: 50%; background: #ff9500; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff;">ช</div><div><div style="font-size: 16px; font-weight: 600; color: #000;">พี่ขนส่ง (พัสดุ)</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Incoming</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Sep 24</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 28. หยุลย์ (Sep 22) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-l.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">หยุลย์</div><div style="font-size: 12px; color: #8e8e93;">FaceTime Audio</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Sep 22</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 29. แม่ (Sep 19) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-mm.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">แม่</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Incoming</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Sep 19</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+                <!-- 30. เอมี่ (Sep 17) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid #e5e5ea;">
+                    <div style="display: flex; align-items: center; gap: 12px;"><img src="images/pl-m.jpg" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;"><div><div style="font-size: 16px; font-weight: 600; color: #000;">เอมี่ (หมูอู๊ด) ❤️</div><div style="font-size: 12px; color: #8e8e93;">Mobile • Outgoing</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; color: #8e8e93;">Sep 17</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+                </div>
+
+            </div>
+
+            <!-- แถบเมนูด้านล่าง 4 ปุ่ม (ปรับให้ชิด สมส่วน และเปลี่ยนพื้นหลังเป็นสีขาว) -->
+            <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: 84%; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border-radius: 35px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.12); border: 0.5px solid rgba(0,0,0,0.06); z-index: 100;">
+                
+                <!-- Favorites -->
+                <div style="flex: 1; text-align: center; color: #8e8e93; font-size: 10px; font-weight: 500; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span>Favorites</span>
+                </div>
+
+                <!-- Recents (Active: พื้นหลังสีขาว นุ่มนวล โค้งมนสวยงาม) -->
+                <div style="flex: 1; text-align: center; cursor: pointer; background: #ffffff; padding: 4px 8px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 2px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                    <div style="width: 24px; height: 24px; background: #007aff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <span style="font-size: 10px; font-weight: 600; color: #007aff;">Recents</span>
+                </div>
+
+                <!-- Contacts (เอาคำสั่งออกแล้ว กดแล้วจะไม่เด้งออกไปไหน) -->
+                <div style="flex: 1; text-align: center; color: #8e8e93; font-size: 10px; font-weight: 500; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span>Contacts</span>
+                </div>
+
+                <!-- Keypad -->
+                <div style="flex: 1; text-align: center; color: #8e8e93; font-size: 10px; font-weight: 500; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="5" rx="1.5"/><rect x="9.5" y="3" width="5" height="5" rx="1.5"/><rect x="16" y="3" width="5" height="5" rx="1.5"/><rect x="3" y="9.5" width="5" height="5" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5" rx="1.5"/><rect x="16" y="9.5" width="5" height="5" rx="1.5"/><rect x="9.5" y="16" width="5" height="5" rx="1.5"/></svg>
+                    <span>Keypad</span>
+                </div>
+
+            </div>
+
+            <!-- Home Indicator ด้านล่างสุด -->
+            <div class="home-indicator" style="margin: 4px auto 8px auto; background: black; z-index: 150; cursor: pointer;" onclick="closePhoneApp()"></div>
+        </div>
+
+        <!-- ================= หน้าจอแอป Safari (ดีไซน์ iOS ใส เบลอ สบายตา ปรับระยะข้อความใหม่) ================= -->
+        <div id="safari-app-screen" class="screen hidden" style="background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%); display: flex; flex-direction: column; justify-content: space-between; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; box-sizing: border-box; overflow: hidden; font-family: 'Kanit', sans-serif;">
+            
+            <!-- iOS Status Bar -->
+            <div class="ios-header" style="color: #000; background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); flex-shrink: 0; position: static; width: 100%; z-index: 20; font-family: 'Kanit', sans-serif;">
+                <span class="time-status real-time">18:56</span>
+                <div class="dynamic-island"><div class="camera-dot"></div></div>
+                <div class="status-icons" style="color: #000;">
+                    <div class="signal-bars"><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span><span style="background:#000"></span></div>
+                    <span class="network-type" style="color: #000;">5G</span>
+                    <svg class="battery-svg" viewBox="0 0 25 12" width="24" height="12">
+                        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="#000" stroke-width="1.1"/>
+                        <rect x="2" y="2" width="15" height="8" rx="2" fill="#000"/>
+                        <path d="M23 4v4c0.5-0.3 0.8-0.9 0.8-2s-0.3-1.7-0.8-2z" fill="#000"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- ส่วนหัวสไตล์ iOS Floating Header (เบลอใส) -->
+            <div style="position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px); border-bottom: 0.5px solid rgba(255, 255, 255, 0.4); padding: 16px 20px 12px 20px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;">
+                <h1 style="font-size: 24px; font-weight: 600; margin: 0; color: #1c1c1e; letter-spacing: -0.5px;">การค้นหาล่าสุด</h1>
+                <span style="font-size: 14px; font-weight: 500; color: #007aff; cursor: pointer; background: rgba(0, 122, 255, 0.12); padding: 6px 14px; border-radius: 16px; backdrop-filter: blur(10px);">ล้างทั้งหมด</span>
+            </div>
+
+            <!-- พื้นที่แสดงรายการประวัติการค้นหา 30 รายการ -->
+            <div style="flex: 1; overflow-y: auto; padding: 10px 16px 120px 16px; scrollbar-width: none; background: transparent;">
+                
+                <!-- รายการที่ 1-30 (เพิ่มระยะเว้นขอบซ้าย-ขวาให้สวยงาม และให้ข้อความขึ้นบรรทัดใหม่ได้ครบถ้วน) -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">หม่าล่าทั่งร้านไหนอร่อยสุดในกรุงเทพ</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">วิธีงอนแฟนยังไงให้ดูน่ารักไม่น่ารำคาญ</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">คาเฟ่สไตล์เกาหลี ถ่ายรูปเปิดแฟลชปังๆ</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ถ้าแฟนกินจุบจิบตลอดเวลาควรแก้ยังไงดี</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ที่เที่ยววันหยุด งบประหยัด ไปไหนดี</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">รวมมุกเสี่ยวจีบแฟนให้เขินจนตัวบิด</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ทำไมแมวถึงชอบทำหน้ากวนประสาทใส่เรา</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">วิธีแกล้งแฟนยังไงไม่ให้โดนโกรธกลับ</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ร้านบุฟเฟต์แซลมอนใกล้ฉัน เปิดถึงดึก</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ถ้าเรากินชาบูทุกวัน น้ำหนักจะพุ่งกี่โล</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">เพลงสโลว์ฟังสบายๆ ตอนขับรถเที่ยวต่างจังหวัด</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">วิธีบล็อกคนกวนใจในไอจีแบบเนียนๆ</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">สวนสนุกที่ไหนน่าไปเดทกับแฟนมากที่สุด</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ถ้ามนุษย์ต่างดาวบุกโลกเราควรทักทายด้วยอะไร</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ไอเดียแต่งห้องนอนมินิมอล งบหลักร้อย</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">วิธีง้อแฟนตอนโมโหหิว ทำไงดีช่วยที</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ตลาดนัดกลางคืนของกินเยอะที่สุดในย่านนี้</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ถ้าปลาทองมีความจำแค่ 3 วินาที มันจะจำหน้าเราได้ไหม</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ร้านกาแฟลับวิวหลักล้าน ถ่ายรูปมุมไหนก็สวย</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">วิธีบอกรักแฟนแบบอ้อมๆ แต่สะเทือนถึงไต</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ทริปเที่ยวทะเลภาคใต้ 3 วัน 2 คืน งบนักศึกษา</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">นอนกี่โมงถึงจะเรียกว่านอนพอดีสำหรับคนขี้เซา</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">สูตรทำชาไทยไข่มุกกินเองที่บ้านให้อร่อยเหมือนร้านดัง</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">วิธีทำให้แฟนเลิกบ่นว่าเราซื้อของเก่งเกินไป</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">แคมป์ปิ้งหน้าหนาวที่ไหนวิวสวยฮีลใจสุดๆ</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ถ้าเป็ดใส่กางเกง มันจะใส่ขาไหนบ้าง</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">รวมร้านอาหารดินเนอร์วันครบรอบกับแฟน บรรยากาศโรแมนติก</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ทำไมเวลาดูซีรีส์ดึกๆ แล้วหิวทุกทีแก้ยังไงดี</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">วิธีแกล้งแฟนว่าผีหลอกตอนกลางคืน</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">ตลาดนัดวินเทจเสื้อผ้ามือสองแนวสตรีทเท่ๆ</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); border: 0.5px solid rgba(255, 255, 255, 0.8);">
+                    <div style="display: flex; align-items: center; gap: 16px; flex: 1; padding-right: 12px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" style="flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span style="font-size: 15px; color: #1c1c1e; font-weight: 400; line-height: 1.4;">สูตรลับขอตังค์แฟนยังไงให้ได้ผลร้อยเปอร์เซ็นต์</span></div>
+                    <div style="width: 26px; height: 26px; background: rgba(118, 118, 128, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                </div>
+
+            </div>
+
+            <!-- Safari URL Bar ด้านล่างสุด (สไตล์ Glassmorphism ใส เบลอ ลอยเด่น) -->
+            <div style="position: absolute; bottom: 26px; left: 16px; right: 16px; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px); border-radius: 20px; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; z-index: 100; border: 0.5px solid rgba(255, 255, 255, 0.9); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); font-family: 'Kanit', sans-serif;">
+    <span style="font-size: 15px; color: #8e8e93; font-weight: 400;">ค้นหาหรือป้อนชื่อเว็บไซต์</span>
+    <div style="display: flex; align-items: center; gap: 18px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1c1e" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
     </div>
+</div>
+
+<!-- Home Indicator ด้านล่างสุด (เพิ่ม onclick และ cursor) -->
+<div class="home-indicator" style="position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); background: #1c1c1e; z-index: 150; cursor: pointer;" onclick="closeSafariApp()"></div>
+        </div>
+        
+    </div> <!-- เพิ่มบรรทัดนี้เพื่อปิดกรอบมือถือ (.phone-frame) -->
     <script src="script.js"></script>
 </body>
 </html>

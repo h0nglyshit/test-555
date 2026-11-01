@@ -31,9 +31,19 @@ setInterval(updateRealTime, 1000);
 let currentPasscode = "";
 const correctPasscode = "2118";
 
+// ตัวอย่างฟังก์ชันเมื่อผู้ใช้กดปลดล็อกหน้าจอแรก
 function showPasscodeScreen() {
-    document.getElementById("lock-screen").classList.add("hidden");
-    document.getElementById("passcode-screen").classList.remove("hidden");
+    // ซ่อนหน้าจอล็อก
+    const lockScreen = document.getElementById('lock-screen');
+    if (lockScreen) {
+        lockScreen.classList.add('hidden');
+    }
+    
+    // แสดงหน้าใส่รหัสผ่าน
+    const passcodeScreen = document.getElementById('passcode-screen');
+    if (passcodeScreen) {
+        passcodeScreen.classList.remove('hidden');
+    }
 }
 
 function pressNum(num) {
@@ -105,7 +115,6 @@ function endDrag() {
 function openApp(appName) {
     document.getElementById("home-screen").classList.add("hidden");
     
-    // แปลงชื่อแอปเป็นตัวพิมพ์เล็กทั้งหมดเพื่อให้รองรับทุกกรณี
     const app = appName.toLowerCase();
 
     if (app === 'locket') {
@@ -121,15 +130,21 @@ function openApp(appName) {
     } else if (app === 'line') {
         document.getElementById("line-app-screen").classList.remove("hidden");
     } else if (app === 'instagram') {
-        // เปิดหน้าจอ Instagram
+        // ให้เปิดหน้าฟีดหลักขึ้นมาตรงๆ เหมือนแอปอื่นๆ
         document.getElementById('instagram-app-screen').classList.remove('hidden');
-    } else if (app === 'instagram') {
-        // เปิดหน้าจอ Instagram
-        document.getElementById('instagram-app-screen').classList.remove('hidden');
-        // อัปเดตสถานะแท็บด้านล่างให้เริ่มที่หน้าแรก (Home)
+        
+        // (ทางเลือก) ถ้าอยากให้ทุกครั้งที่กดเปิดไอคอน IG แล้วเด้งมาหน้าฟีดเสมอ 
+        // ให้ซ่อนหน้า Profile กับ DM ไว้เบื้องหลังแบบนี้ครับ
+        document.getElementById('instagram-profile-screen').classList.add('hidden');
+        document.getElementById('instagram-dm-screen').classList.add('hidden');
+        
         if (typeof updateIgNav === 'function') {
             updateIgNav('home');
         }
+    } else if (app === 'phone') {
+        document.getElementById('phone-app-screen').classList.remove('hidden');
+    } else if (app === 'safari') {
+        document.getElementById('safari-app-screen').classList.remove('hidden');
     }
 }
 
@@ -199,11 +214,18 @@ window.addEventListener("DOMContentLoaded", () => {
     renderRealCalendar();
 });
 
+// ================= แอปรูปภาพ (Photos App) =================
 function openPhotoViewer(element) {
     const imgElement = element.querySelector("img");
     if (!imgElement) return;
 
-    document.getElementById("expanded-img").src = imgElement.src;
+    // กำหนดรูปภาพให้แสดงในหน้าดูรูปภาพแบบเดี่ยว (Native Photo Viewer)
+    const viewerImg = document.getElementById("native-viewer-img");
+    if (viewerImg) {
+        viewerImg.src = imgElement.src;
+    }
+
+    // เปิดหน้าจอ Photo Viewer โดยไม่ไปยุ่งกับ Instagram
     document.getElementById("photo-viewer-screen").classList.remove("hidden");
 }
 
@@ -575,13 +597,19 @@ function scrollToBottom(containerId) {
     if (scrollContainer) scrollContainer.scrollTop = scrollContainer.scrollHeight;
 }
 
-// ฟังก์ชันสำหรับปิดแอปพลิเคชัน Instagram กลับมาหน้าจอหลัก
+// ฟังก์ชันปิดแอป Instagram กลับสู่หน้า Home
 function closeInstagramApp() {
-    document.getElementById('instagram-app-screen').classList.add('hidden');
-    document.getElementById('home-screen').classList.remove('hidden');
+    const feedScreen = document.getElementById("instagram-app-screen");
+    const dmScreen = document.getElementById("instagram-dm-screen");
+    const profileScreen = document.getElementById("instagram-profile-screen");
+    
+    if (feedScreen) feedScreen.classList.add("hidden");
+    if (dmScreen) dmScreen.classList.add("hidden");
+    if (profileScreen) profileScreen.classList.add("hidden");
+    
+    document.getElementById("home-screen").classList.remove("hidden");
 }
 
-// ================= ระบบจัดการสตอรี่ Instagram =================
 const storyData = {
     ryoul: {
         username: "ryoul_14",
@@ -589,11 +617,25 @@ const storyData = {
         images: ["images/ล็อกเก็ต.jpg"],
         isCF: [false]
     },
+    // เพิ่มไฮไลต์อันที่ 1 (bae bae - 3 สตอรี่)
+    highlight_baebae: {
+        username: "ryoul_14",
+        avatar: "images/โปรล้อก.jpg",
+        images: ["images/ล้อก2.jpg", "images/ล้อก3.jpg", "images/ล็อก4.jpg"],
+        isCF: [false, false, false]
+    },
+    // เพิ่มไฮไลต์อันที่ 2 (chill - 6 สตอรี่)
+    highlight_chill: {
+        username: "ryoul_14",
+        avatar: "images/โปรล้อก.jpg",
+        images: ["images/ล้อก5.jpg", "images/ล้อก6.jpg", "images/ล้อก7.jpg", "images/ล้อก8.jpg", "images/ล้อก9.jpg", "images/โปรล้อก-รยูล.jpg"],
+        isCF: [false, false, false, false, false, false]
+    },
     amy: {
         username: "aipitchyy",
         avatar: "images/pl-m.jpg",
         images: ["images/ล้อก2.jpg", "images/ล้อก3.jpg", "images/ล้อก5.jpg"],
-        isCF: [false, false, true] // รูปที่ 3 เป็น Close Friends
+        isCF: [false, false, true]
     },
     ujin: {
         username: "ujin_w",
@@ -618,7 +660,10 @@ function openStory(userKey) {
     currentStoryIndex = 0;
     
     const modal = document.getElementById("story-viewer-modal");
-    modal.classList.remove("hidden");
+    if (modal) {
+        modal.classList.remove("hidden");
+        modal.style.display = "flex";
+    }
 
     loadStorySlide();
 }
@@ -627,12 +672,10 @@ function loadStorySlide() {
     const data = storyData[currentStoryUser];
     if (!data) return;
 
-    // ตั้งค่าข้อมูลโปรไฟล์และรูปภาพ
     document.getElementById("story-avatar").src = data.avatar;
     document.getElementById("story-username").innerText = data.username;
     document.getElementById("story-display-img").src = data.images[currentStoryIndex];
 
-    // จัดการป้าย Close Friends (แสดงเฉพาะเอมี่ และเฉพาะรูปที่กำหนดเป็น CF)
     const cfTopBadge = document.getElementById("story-cf-top-badge");
     const plusBadge = document.getElementById("story-avatar-plus");
     const ownerBar = document.getElementById("story-owner-bottom-bar");
@@ -644,43 +687,38 @@ function loadStorySlide() {
         cfTopBadge.classList.add("hidden");
     }
 
-    // ควบคุมการแสดงผลแถบด้านล่างให้ชัดเจน (แยกสตอรี่ของเรา กับ สตอรี่คนอื่น)
     if (currentStoryUser === 'ryoul') {
-        plusBadge.classList.remove("hidden");
-        ownerBar.classList.remove("hidden");
-        ownerBar.style.display = "flex";  // บังคับแสดงผลแถบเมนู Activity
-        otherBar.classList.add("hidden");
-        otherBar.style.display = "none";
+        if (plusBadge) plusBadge.classList.remove("hidden");
+        if (ownerBar) { ownerBar.classList.remove("hidden"); ownerBar.style.display = "flex"; }
+        if (otherBar) { otherBar.classList.add("hidden"); otherBar.style.display = "none"; }
     } else {
-        plusBadge.classList.add("hidden");
-        ownerBar.classList.add("hidden");
-        ownerBar.style.display = "none";
-        otherBar.classList.remove("hidden");
-        otherBar.style.display = "flex";  // บังคับแสดงผลช่องส่งข้อความ
+        if (plusBadge) plusBadge.classList.add("hidden");
+        if (ownerBar) { ownerBar.classList.add("hidden"); ownerBar.style.display = "none"; }
+        if (otherBar) { otherBar.classList.remove("hidden"); otherBar.style.display = "flex"; }
     }
 
-    // สร้างแถบ Progress Bar ด้านบน
     const container = document.getElementById("story-progress-container");
-    container.innerHTML = "";
-    data.images.forEach((_, idx) => {
-        const barWrap = document.createElement("div");
-        barWrap.style.cssText = "flex: 1; height: 2px; background: rgba(255,255,255,0.3); border-radius: 2px; overflow: hidden; position: relative;";
-        
-        const fill = document.createElement("div");
-        fill.id = `story-progress-${idx}`;
-        fill.style.cssText = "height: 100%; width: 0%; background: #fff; transition: width 0.1s linear;";
-        
-        if (idx < currentStoryIndex) {
-            fill.style.width = "100%";
-        } else if (idx === currentStoryIndex) {
-            fill.style.width = "0%";
-        }
-        
-        barWrap.appendChild(fill);
-        container.appendChild(barWrap);
-    });
+    if (container) {
+        container.innerHTML = "";
+        data.images.forEach((_, idx) => {
+            const barWrap = document.createElement("div");
+            barWrap.style.cssText = "flex: 1; height: 2px; background: rgba(255,255,255,0.3); border-radius: 2px; overflow: hidden; position: relative;";
+            
+            const fill = document.createElement("div");
+            fill.id = `story-progress-${idx}`;
+            fill.style.cssText = "height: 100%; width: 0%; background: #fff; transition: width 0.1s linear;";
+            
+            if (idx < currentStoryIndex) {
+                fill.style.width = "100%";
+            } else if (idx === currentStoryIndex) {
+                fill.style.width = "0%";
+            }
+            
+            barWrap.appendChild(fill);
+            container.appendChild(barWrap);
+        });
+    }
 
-    // รันเวลา Progress Bar (4 วินาทีต่อรูป)
     clearTimeout(storyTimer);
     let progress = 0;
     const intervalTime = 40;
@@ -715,15 +753,13 @@ function nextStoryImage(event) {
     clearTimeout(storyTimer);
 
     if (clickX < screenWidth / 2) {
-        // คลิกซ้าย (ย้อนกลับรูปก่อนหน้า)
         if (currentStoryIndex > 0) {
             currentStoryIndex--;
             loadStorySlide();
         } else {
-            loadStorySlide(); // รีเซ็ตรูปเดิม
+            loadStorySlide();
         }
     } else {
-        // คลิกขวา (ไปรูปถัดไป)
         if (currentStoryIndex < data.images.length - 1) {
             currentStoryIndex++;
             loadStorySlide();
@@ -735,59 +771,249 @@ function nextStoryImage(event) {
 
 function closeStoryViewer() {
     clearTimeout(storyTimer);
-    document.getElementById("story-viewer-modal").classList.add("hidden");
+    const modal = document.getElementById("story-viewer-modal");
+    if (modal) {
+        modal.classList.add("hidden");
+        modal.style.display = "none";
+    }
 
-    // เปลี่ยนวงแหวนรอบโปรไฟล์ให้กลายเป็นสีเทา (เหมือนดูแล้ว)
-    if (currentStoryUser) {
+    // เมื่อกดดูสตอรี่ของใครก็ตาม (ยกเว้นของเรา) ขอบจะเปลี่ยนเป็นสีเทาเนียนๆ ทันทีเมื่อปิด
+    if (currentStoryUser && currentStoryUser !== 'ryoul') {
         const ring = document.getElementById(`ring-${currentStoryUser}`);
         if (ring) {
-            ring.style.background = "#555"; // เปลี่ยนเป็นสีเทา
+            ring.style.background = "transparent";
+            ring.style.border = "2px solid #555";
         }
     }
 }
 
-// ฟังก์ชันสำหรับสลับหน้าจอภายในโปรโตไทป์
-function switchScreen(screenId) {
-    // ซ่อนทุกหน้าจอที่มีคลาสสำหรับหน้าจอไอจี
-    const screens = document.querySelectorAll('.instagram-screen');
-    screens.forEach(screen => {
-        screen.style.display = 'none';
-    });
+function switchInstagramScreen(screenId) {
+    // ซ่อนเฉพาะหน้าฟีด, DM และโปรไฟล์ก่อน
+    document.getElementById('instagram-app-screen').classList.add('hidden');
+    document.getElementById('instagram-dm-screen').classList.add('hidden');
+    document.getElementById('instagram-profile-screen').classList.add('hidden');
     
-    // แสดงเฉพาะหน้าที่ถูกเลือก
+    // แสดงเฉพาะหน้าจอเป้าหมายที่คุณต้องการ
     const targetScreen = document.getElementById(screenId);
     if (targetScreen) {
-        targetScreen.style.display = 'flex';
+        targetScreen.classList.remove('hidden');
     }
 }
 
-// ฟังก์ชันอัปเดตสถานะความสว่าง/สีของไอคอนในแถบ Liquid Glass ด้านล่าง
-function updateIgNav(activeTab) {
-    const navHome = document.getElementById('nav-home');
-    const navDm = document.getElementById('nav-dm');
-    const navProfile = document.getElementById('nav-profile');
-
-    // กำหนดค่าความจางสำหรับไอคอนที่ไม่ได้เลือก (0.5 คือจางลงเล็กน้อย) และ 1 คือสว่างชัด
-    if (navHome) navHome.style.opacity = (activeTab === 'home') ? '1' : '0.5';
-    if (navDm) navDm.style.opacity = (activeTab === 'dm') ? '1' : '0.5';
-    if (navProfile) navProfile.style.opacity = (activeTab === 'profile') ? '1' : '0.5';
+// ฟังก์ชันไฮไลต์สถานะไอคอนแถบเมนูด้านล่างของ Instagram
+function updateIgNav(tab) {
+    const navHomes = document.querySelectorAll('#nav-home');
+    const navDms = document.querySelectorAll('#nav-dm');
+    const navProfiles = document.querySelectorAll('#nav-profile');
+    
+    navHomes.forEach(el => el.style.opacity = (tab === 'home') ? '1' : '0.5');
+    navDms.forEach(el => el.style.opacity = (tab === 'dm') ? '1' : '0.5');
+    navProfiles.forEach(el => el.style.opacity = (tab === 'profile') ? '1' : '0.5');
 }
 
-// ตั้งค่าเริ่มต้นตอนโหลดหน้าเว็บให้หน้าแรก (Home) สว่างเป็นค่าเริ่มต้น
-window.addEventListener('DOMContentLoaded', () => {
-    updateIgNav('home');
-});
-
-function switchScreen(screenId) {
-    // 1. ซ่อนทุกหน้าจอที่มีคลาส .screen ก่อน
+function goHome() {
     const screens = document.querySelectorAll('.screen');
     screens.forEach(screen => {
         screen.classList.add('hidden');
     });
+    const homeScreen = document.getElementById("home-screen");
+    if (homeScreen) {
+        homeScreen.classList.remove('hidden');
+    }
+}
 
-    // 2. แสดงเฉพาะหน้าจอที่ถูกเลือก
-    const targetScreen = document.getElementById(screenId);
-    if (targetScreen) {
-        targetScreen.classList.remove('hidden');
+// ฐานข้อมูลแคปชัน วันที่ และคอมเมนต์ของแต่ละรูป (แก้ไขข้อความตามต้องการได้เลยครับ)
+const postDetails = {
+    "images/ล็อกเก็ต.jpg": {
+        likes: "1,428 likes",
+        caption: "วันหยุดสุดชิล เดินทางไปคาเฟ่โปรด ✌️✨",
+        date: "พึ่งลงเมื่อวาน",
+        comments: [
+            { user: "aipitchyy", text: "สวยมากก 😍" },
+            { user: "ujin_00", text: "ขอไปด้วยคนดิ" }
+        ]
+    },
+    "images/โฟ1-1.jpg": {
+        likes: "954 likes",
+        caption: "ท้องฟ้าวันนี้สวยเป็นพิเศษ ☁️ บรรยากาศดีมาก",
+        date: "3 วันที่แล้ว",
+        comments: []
+    },
+    "images/โฟ2.jpg": {
+        likes: "1,120 likes",
+        caption: "Memories in 2026 📸 เก็บตกภาพเก่า",
+        date: "January 15, 2026",
+        comments: [
+            { user: "louis_xyz", text: "คิดถึงบรรยากาศนี้เลย" }
+        ]
+    },
+    "images/โฟ3.jpg": {
+        likes: "830 likes",
+        caption: "Working hard or hardly working 💻 ปั่นงานยาวไป",
+        date: "November 20, 2025",
+        comments: []
+    },
+    "images/โฟ4.jpg": {
+        likes: "670 likes",
+        caption: "Good food, good mood 🍣 มื้อนี้อิ่มคุ้ม",
+        date: "August 12, 2025",
+        comments: [
+            { user: "aipitchyy", text: "กินอีกแล้วนะ 😂" }
+        ]
+    },
+    "images/โฟ5.jpg": {
+        likes: "1,502 likes",
+        caption: "Throwback 2024 ✨ ช่วงเวลาดีๆ",
+        date: "December 31, 2024",
+        comments: []
+    },
+    "images/โฟ6.jpg": {
+        likes: "740 likes",
+        caption: "Routine day ☕️",
+        date: "October 5, 2024",
+        comments: []
+    },
+    "images/โฟ7.jpg": {
+        likes: "910 likes",
+        caption: "Sunset vibe 🌅",
+        date: "September 14, 2024",
+        comments: []
+    },
+    "images/โฟ8.jpg": {
+        likes: "1,230 likes",
+        caption: "Happy time with my favorite person 🤍",
+        date: "July 22, 2024",
+        comments: [
+            { user: "aipitchyy", text: "น่ารักที่สุด 😊" }
+        ]
+    }
+};
+
+// ฟังก์ชันเมื่อกดที่รูปในโปรไฟล์ จะรวบรวมรูปทั้งหมดมาแสดงเป็นฟีดให้เลื่อนดูได้ต่อเนื่อง
+function openPhotoViewer(element) {
+    const clickedImg = element.querySelector("img");
+    const targetSrc = clickedImg ? clickedImg.getAttribute("src") : "";
+
+    // ดึงรูปภาพทั้งหมดในตารางโปรไฟล์มาสร้างเป็นฟีด
+    const allProfileImages = document.querySelectorAll("#instagram-profile-screen .photos-grid img, #instagram-profile-screen div[style*='aspect-ratio'] img");
+    
+    const container = document.getElementById("photo-feed-container");
+    container.innerHTML = ""; // ล้างข้อมูลเก่า
+
+    let targetElement = null;
+
+    // สร้างโครงสร้างโพสต์ไอจีทีละรูป
+    allProfileImages.forEach(img => {
+        const src = img.getAttribute("src");
+        const details = postDetails[src] || {
+            likes: "842 likes",
+            caption: "Moments ✨ กำลังใจสำคัญ",
+            date: "October 10, 2025",
+            comments: [{ user: "aipitchyy", text: "เท่จังเลยย" }]
+        };
+
+        // สร้างบล็อกโพสต์ไอจี
+        const postDiv = document.createElement("div");
+        postDiv.style.cssText = "background: #000; border-bottom: 1px solid #262626; padding-bottom: 16px; margin-bottom: 12px;";
+        
+        let commentsHtml = "";
+        if (details.comments && details.comments.length > 0) {
+            details.comments.forEach(c => {
+                commentsHtml += `<div style="font-size: 13px; margin-top: 4px;"><span style="font-weight: 600; margin-right: 6px;">${c.user}</span>${c.text}</div>`;
+            });
+        }
+
+        postDiv.innerHTML = `
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <img src="images/โปรล้อก.jpg" alt="Avatar" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                    <span style="font-size: 13px; font-weight: 600; color: #fff;">ryoul_14</span>
+                </div>
+                <div style="color: #fff; font-size: 18px; font-weight: bold; letter-spacing: 1px;">···</div>
+            </div>
+            <div style="width: 100%; background: #000; display: flex; align-items: center; justify-content: center;">
+                <img src="${src}" alt="Post Image" style="width: 100%; max-height: 450px; object-fit: cover; display: block;" data-src="${src}">
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 10px 12px;">
+                <div style="display: flex; gap: 16px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+                </div>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div style="padding: 0 12px; color: #fff;">
+                <div style="font-size: 13px; font-weight: 600; margin-bottom: 4px;">${details.likes}</div>
+                <div style="font-size: 13px; margin-bottom: 6px;">
+                    <span style="font-weight: 600; margin-right: 6px;">ryoul_14</span>
+                    <span>${details.caption}</span>
+                </div>
+                ${commentsHtml}
+                <div style="font-size: 10px; color: #8e8e93; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px;">${details.date}</div>
+            </div>
+        `;
+
+        container.appendChild(postDiv);
+
+        if (src === targetSrc) {
+            targetElement = postDiv;
+        }
+    });
+
+    // เปิดหน้าจอ Photo Viewer
+    document.getElementById("photo-viewer-screen").classList.remove("hidden");
+
+    // เลื่อนหน้าจอไปที่รูปที่เรากดเลือกไว้ทันที
+    if (targetElement) {
+        setTimeout(() => {
+            targetElement.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }, 50);
+    }
+}
+
+function closePhotoViewer() {
+    document.getElementById("photo-viewer-screen").classList.add("hidden");
+}
+
+function closePhoneApp() {
+    document.getElementById('phone-app-screen').classList.add('hidden');
+    document.getElementById('home-screen').classList.remove('hidden');
+}
+
+function closeSafariApp() {
+    document.getElementById("safari-app-screen").classList.add("hidden");
+    document.getElementById("home-screen").classList.remove("hidden");
+}
+
+// แก้ไขให้ฟังก์ชันนี้เรียกหน้าใส่รหัสผ่าน
+function unlockPhone() {
+    const lockScreen = document.getElementById('lock-screen');
+    if (lockScreen) {
+        lockScreen.classList.add('hidden');
+    }
+    
+    const passcodeScreen = document.getElementById('passcode-screen');
+    if (passcodeScreen) {
+        passcodeScreen.classList.remove('hidden');
+    }
+}
+
+// ================= ฟังก์ชันสำหรับโพสต์ Instagram (แยกจากแอปรูปภาพ) =================
+function openInstagramPhoto(element) {
+    const imgElement = element.querySelector("img") || element;
+    if (!imgElement) return;
+
+    // ถ้าคุณมีหน้าจอสำหรับดูโพสต์ไอจีโดยเฉพาะ ให้กำหนดค่าตรงนี้
+    const igViewerImg = document.getElementById("instagram-viewer-img"); 
+    if (igViewerImg) {
+        igViewerImg.src = imgElement.src;
+        document.getElementById("instagram-viewer-screen").classList.remove("hidden");
+    }
+}
+
+function closeInstagramPhoto() {
+    const igScreen = document.getElementById("instagram-viewer-screen");
+    if (igScreen) {
+        igScreen.classList.add("hidden");
     }
 }
